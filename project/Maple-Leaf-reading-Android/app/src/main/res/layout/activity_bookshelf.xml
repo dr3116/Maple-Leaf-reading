@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--title:书架
+    author:周双文
+    time:2020/11/23-->
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:text="我的书架"
+            android:textColor="@color/grey11"
+            android:gravity="center">
+        </TextView>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/bookshelfhead"/>
+            </LinearLayout>
+            <!--这里用listView展示书架，listView布局文件为：bookshelf.xml  -->
+            <!--这里一行放三本书，可以用二维数组储存数据-->
+            <ListView
+                android:id="@+id/bookshelf_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!--这是最外层整体-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!--这是第一大部分，1 -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <!--一大部分的上半部分-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:orientation="horizontal"
+                android:layout_height="180dp">
+
+
+
+                <!--一大部分，上半部分，左侧图片-->
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_book_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/linshi3" />
+                </LinearLayout>
+
+                <!--一大部分，上半部分，右侧上部书名-->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:padding="10dp"
+                    android:layout_height="match_parent">
+                     <TextView
+                         android:id="@+id/tv_bookName"
+                         android:text="AndroidStudio 从入门到放弃"
+                         android:textSize="20sp"
+                         android:layout_width="match_parent"
+                         android:layout_height="60dp"/>
+
+                    <!--一大部分，上半部分，右侧下部评分与作者-->
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:src="@drawable/linshi1"
+                            android:layout_width="80dp"
+                            android:layout_height="20dp"/>
+                        <TextView
+                            android:id="@+id/tv_bookRating"
+                            android:layout_width="60dp"
+                            android:text="     4.0 分   "
+                            android:layout_height="20dp"/>
+                        <TextView
+                            android:layout_marginRight="-40dp"
+                            android:layout_width="80dp"
+                            android:text="[ 中文 ]"
+                            android:layout_height="20dp"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:src="@drawable/wo_de_52"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                        <TextView
+                            android:id="@+id/tv_author"
+                            android:layout_marginLeft="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="进击的蝗虫"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <!--1大部分，下半部分，章节，阅读，收藏-->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+                
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tv_numberOfChapters"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:text="31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:text="章节"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tv_readingVolume"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:text="31"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:text="阅读"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tv_numberOfCollections"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:text="31"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:text="收藏"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--2大部分，书籍简介-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="200dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tv_briefIntroduction"
+                    android:text="        非常经典的Java书籍，有些人觉得这个书不适合初学者，可就是我看的第一个本Java书，或许是当初自学Java没有高人指点，便挑选了经典书来入手。看一本经典书，第一遍能理解个大概，能对整体有一个概念，这就可以了，反复多读几遍，细细咀嚼，每一遍都会有不同的领悟。"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <Button
+                        android:background="#ffffff"
+                        android:layout_width="60dp"
+                        android:text="Android"
+                        android:textSize="12sp"
+                        android:layout_height="40dp"/>
+
+                    <Button
+                        android:background="#ffffff"
+                        android:layout_width="60dp"
+                        android:text="Java"
+                        android:textSize="12sp"
+                        android:layout_height="40dp"/>
+
+                    <Button
+                        android:background="#ffffff"
+                        android:layout_width="60dp"
+                        android:text="新手"
+                        android:textSize="12sp"
+                        android:layout_height="40dp"/>
+
+                    <Button
+                        android:background="#ffffff"
+                        android:layout_width="60dp"
+                        android:text="前端"
+                        android:textSize="12sp"
+                        android:layout_height="40dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:text="来源 百度：www.baidu.com"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <!--第三部分，相关书籍推荐-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textSize="18sp"
+                android:text="相关书籍"
+                android:gravity="center_vertical" />
+
+
+            <!--水平滚动条-->
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="160dp"
+                android:layout_gravity="center_vertical"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/id_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal"/>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <!--第四部分，评论-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="200dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:text="书友点评"
+                android:gravity="center_vertical" />
+            <ListView
+                android:id="@+id/lv_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView >
