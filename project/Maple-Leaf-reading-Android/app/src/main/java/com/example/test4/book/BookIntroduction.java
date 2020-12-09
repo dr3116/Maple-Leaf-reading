@@ -7,9 +7,11 @@ import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,6 +30,7 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -47,6 +50,7 @@ public class BookIntroduction extends AppCompatActivity {
     private LayoutInflater mInflater;
     private List<BookReview> bookReviews = new ArrayList<BookReview>();
     private List<Book> bookList;
+    private String name;
     private Handler handler=new Handler(){
         @Override
         public void handleMessage( Message msg) {
@@ -60,6 +64,7 @@ public class BookIntroduction extends AppCompatActivity {
     private void setListView() {
         BookReviewAdapter bookReviewAdapter = new BookReviewAdapter(this,bookReviews, R.layout.bookreview_list_item);
         bookReview.setAdapter(bookReviewAdapter);
+        setListViewHeight(bookReview);
     }
 
     @Override
@@ -71,7 +76,7 @@ public class BookIntroduction extends AppCompatActivity {
         //获取控件
         getView();
         //获取传递来的数据
-        String name = getIntent().getStringExtra("bookName");
+        name = getIntent().getStringExtra("bookName");
         bookName.setText(name);
         String rVolume = getIntent().getStringExtra("readingVolume");
         readingVolume.setText(rVolume);
@@ -105,8 +110,14 @@ public class BookIntroduction extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
+                    FormBody.Builder builder = new FormBody.Builder();
+                    String n = name;
+                    Log.e("name:",n+"");
+                    builder.add("bookName", n);
+                    FormBody body = builder.build();
                     Request request = new Request.Builder()
                             // 指定访问的服务器地址
+                            .post(body)
                             .url(ConfigUtil.SERVER_ADDR+"GetBookReviewList")
                             .build();
                     Response response = client.newCall(request).execute();
@@ -160,6 +171,29 @@ public class BookIntroduction extends AppCompatActivity {
             txt.setTextColor(Color.BLACK);
             mGallery.addView(view);
         }
+    }
+    /**
+     * 重新计算ListView的高度，解决ScrollView和ListView两个View都有滚动的效果，在嵌套使用时起冲突的问题
+     * @param listView
+     */
+    public void setListViewHeight(ListView listView) {
+        // 获取ListView对应的Adapter
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            return;
+        }
+
+        int totalHeight = 0;
+        for (int i = 0, len = listAdapter.getCount(); i < len; i++) { // listAdapter.getCount            ()返回数据项的数目
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0); // 计算子项View 的宽高
+            totalHeight += listItem.getMeasuredHeight(); // 统计所有子项的总高度
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+
+        listView.setLayoutParams(params);
     }
 
 }

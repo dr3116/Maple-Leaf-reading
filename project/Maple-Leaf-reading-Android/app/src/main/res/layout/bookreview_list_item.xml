@@ -7,7 +7,7 @@
         android:id="@+id/s_review"
         android:layout_below="@+id/s_title_qianduan"
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="80dp">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/s_review_user_img"
             android:layout_marginLeft="10dp"

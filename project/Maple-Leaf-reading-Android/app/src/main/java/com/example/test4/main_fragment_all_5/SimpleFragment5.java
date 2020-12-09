@@ -6,11 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.test4.AboutUs;
+import com.example.test4.FensActivity;
 import com.example.test4.R;
+import com.example.test4.RecentReadActivity;
 import com.example.test4.search.Search;
 
 /**
@@ -24,6 +27,9 @@ public class SimpleFragment5 extends Fragment {
     private int img;
     private LinearLayout search;
     private LinearLayout about;
+    private LinearLayout fens;
+    private LinearLayout recentReading;
+    private TextView signIn;
 
 
 
@@ -57,6 +63,9 @@ public class SimpleFragment5 extends Fragment {
         View view = inflater.inflate(R.layout.activity_mine, container, false);
         search= view.findViewById(R.id.ll_search);
         about = view.findViewById(R.id.ll_about_us);
+        fens = view.findViewById(R.id.ll_fens);
+        recentReading = view.findViewById(R.id.ll_recent_read);
+        signIn = view.findViewById(R.id.tv_sign_in);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +77,20 @@ public class SimpleFragment5 extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), AboutUs.class);
+                startActivity(intent);
+            }
+        });
+        fens.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), FensActivity.class);
+                startActivity(intent);
+            }
+        });
+        recentReading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), RecentReadActivity.class);
                 startActivity(intent);
             }
         });

@@ -8,6 +8,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 要从本地文件夹或 DCIM 或图库中加载图片 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 如果要将 Glide 的缓存存储到SD 卡上 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="IMAGE_CAPTURE" />
 
     <application
         android:allowBackup="true"
@@ -18,7 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Login" />
-        <activity android:name=".Comment" />
+        <activity android:name=".AddPostBook"></activity>
         <activity android:name=".ClickFenLeiActivity" />
         <activity android:name=".ClickFenLei2Activity" />
         <activity android:name=".ClickFenLei3Activity" />
@@ -30,8 +36,12 @@
         <activity android:name=".ClickFenLei9Activity" />
         <activity android:name=".ClickFenLei10Activity" />
         <activity android:name=".book.BookIntroduction" />
-        <activity android:name=".AboutUs"/>
-        <activity android:name=".search.Search"/>
+        <activity android:name=".AboutUs" />
+        <activity android:name=".search.Search" />
+        <activity android:name=".AddPost" />
+        <activity android:name=".Comment" />
+        <activity android:name=".FensActivity"/>
+        <activity android:name=".RecentReadActivity"/>
         <activity android:name=".welcome2.Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

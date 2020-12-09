@@ -1,14 +1,18 @@
 package com.example.test4;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -43,6 +47,7 @@ public class Comment extends AppCompatActivity {
     private ImageView upComment;
     private Post post;
     private String userId;
+    private MyThread myThread;
     private List<PostComment> postComments=new ArrayList<>();
     private Handler handler=new Handler(){
         @Override
@@ -58,6 +63,8 @@ public class Comment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
+        //HideIMEUtil.wrap(Comment.this);
+        HideIMEUtil.wrap(Comment.this);
         userId=(String)getIntent().getStringExtra("userId");
         post=(Post) getIntent().getSerializableExtra("post");
 
@@ -101,79 +108,109 @@ public class Comment extends AppCompatActivity {
         postContent.setText(post.getContent());
         bookName.setText(post.getBookName());
         bookAuthor.setText(post.getBookAuthor());
-//        upComment.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (inputComment.getText().toString()!=null){
-//                    upLoadPostComment();
-//                }
-//
-//            }
-//        });
+        upComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("发送评论按钮被点击","发送");
+                if (inputComment.getText().toString()!=null){
+                    upLoadPostComment();
+                }
+
+            }
+        });
 
 
     }
     private void setListView(){
         PostCommentAdapter adapter=new PostCommentAdapter(getApplicationContext(),postComments,R.layout.post_comment_item);
         commentList.setAdapter(adapter);
+        //解决ListView和SorrentView起冲突问题
+        setListViewHeight(commentList);
+    }
+    /**
+     * 重新计算ListView的高度，解决ScrollView和ListView两个View都有滚动的效果，在嵌套使用时起冲突的问题
+     * @param listView
+     */
+    public void setListViewHeight(ListView listView) {
+    // 获取ListView对应的Adapter
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            return;
+        }
+        int totalHeight = 0;
+        for (int i = 0, len = listAdapter.getCount(); i < len; i++) { // listAdapter.getCount            ()返回数据项的数目
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0); // 计算子项View 的宽高
+            totalHeight += listItem.getMeasuredHeight(); // 统计所有子项的总高度
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+
+        listView.setLayoutParams(params);
     }
     private void getpostComment() {
+       myThread=new MyThread();
+       myThread.start();
+    }
+    private class MyThread extends Thread{
+        @Override
+        public void run() {
+            try {
+                OkHttpClient client = new OkHttpClient();
+                FormBody.Builder builder = new FormBody.Builder();
+                builder.add("postId",String.valueOf(post.getPostId()));
+                FormBody body = builder.build();
+                Request request = new Request.Builder()
+                        // 指定访问的服务器地址
+                        .post(body)
+                        .url(ConfigUtil.SERVER_ADDR+"GetPostComment")
+                        .build();
+                Response response = client.newCall(request).execute();
+                //获得json字符串
+                String responseData = response.body().string();
+                Log.e("从服务端返回的json:",responseData);
+                //解析字符串
+                Gson gson = new GsonBuilder()
+                        .create(); //生成配置好的Gson
+                postComments = gson.fromJson(responseData, new TypeToken<List<PostComment>>(){}.getType());
+                Message msg = new Message();
+                //设置Message对象的参数
+                msg.what = 1;
+                //发送Message
+                handler.sendMessage(msg);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    //上传评论
+    private void upLoadPostComment(){
         new Thread() {
             @Override
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
                     FormBody.Builder builder = new FormBody.Builder();
-                    builder.add("postId",String.valueOf(post.getPostId()));
+                    builder.add("posterId",userId);
+                    builder.add("postId",""+post.getPostId());
+                    builder.add("postComment",inputComment.getText().toString());
                     FormBody body = builder.build();
                     Request request = new Request.Builder()
                             // 指定访问的服务器地址
                             .post(body)
-                            .url(ConfigUtil.SERVER_ADDR+"GetPostComment")
+                            .url(ConfigUtil.SERVER_ADDR+"UpLoadPostComment")
                             .build();
                     Response response = client.newCall(request).execute();
-                    //获得json字符串
-                    String responseData = response.body().string();
-                    Log.e("从服务端返回的json:",responseData);
-                    //解析字符串
-                    Gson gson = new GsonBuilder()
-                            .create(); //生成配置好的Gson
-                    postComments = gson.fromJson(responseData, new TypeToken<List<PostComment>>(){}.getType());
-                    Message msg = new Message();
-                    //设置Message对象的参数
-                    msg.what = 1;
-
-                    //发送Message
-                    handler.sendMessage(msg);
+                    Log.e("重新获取评论","开始");
+                    getpostComment();
+                    inputComment.clearFocus();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }.start();
     }
-//    private void upLoadPostComment(){
-//        new Thread() {
-//            @Override
-//            public void run() {
-//                try {
-//                    OkHttpClient client = new OkHttpClient();
-//                    FormBody.Builder builder = new FormBody.Builder();
-//                    builder.add("posterId",userId);
-//                    builder.add("postId",""+post.getPostId());
-//                    builder.add("postComment",inputComment.getText().toString());
-//                    FormBody body = builder.build();
-//                    Request request = new Request.Builder()
-//                            // 指定访问的服务器地址
-//                            .post(body)
-//                            .url(ConfigUtil.SERVER_ADDR+"GetPostComment")
-//                            .build();
-//                    Response response = client.newCall(request).execute();
-//                    getpostComment();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }.start();
-//    }
 
 }

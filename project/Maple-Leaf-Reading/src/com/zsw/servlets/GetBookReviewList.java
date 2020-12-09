@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -42,17 +39,15 @@ public class GetBookReviewList extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
+		String bkName = request.getParameter("bookName");
 		List<BookReview> bookReviews = new ArrayList<>();
 		try {
 			DBUtil dbUtil;
 			dbUtil = DBUtil.getInstance();
-			String sql = "select * from book_review";
-			
-			
-			
+			String sql = "select * from book_review LEFT JOIN user on book_review.user_id = user.user_id where book_name ="+"'"+bkName+"'";		
 			boolean b = false;
 			b = dbUtil.isExist(sql);
-			System.out.print("�жϽ����"+b);
+			System.out.print("判断结果："+b);
 			if(b) {
 				ResultSet res=dbUtil.queryDate(sql);
 				
@@ -60,17 +55,18 @@ public class GetBookReviewList extends HttpServlet {
 					int bookReviewId = res.getInt("book_review_id");
 					String bookName = res.getString("book_name");
 					int userId = res.getInt("user_id");
+					String userName = res.getString("user_name");
 					String content = res.getString("content");
 					double score = res.getDouble("score");
 					
-					BookReview bookReview = new BookReview(bookReviewId,bookName,userId,content,score);
+					BookReview bookReview = new BookReview(bookReviewId,bookName,userId,userName,content,score);
 					bookReviews.add(bookReview);
 				}
 			}else {
-				System.out.println("���ݿ��û������");
+				System.out.println("数据库表没有数据");
 			}
-			System.out.println("\n"+"Review���ݳ��ȣ�"+bookReviews.size());
-			//�����󼯺�ת����
+			System.out.println("\n"+"Review数据长度："+bookReviews.size());
+			//将对象集合转换成
 			Gson gson=new Gson();
 			String listArray=gson.toJson(bookReviews);
 			System.out.println("\n"+listArray);

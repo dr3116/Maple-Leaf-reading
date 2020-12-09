@@ -30,6 +30,7 @@
                 android:src="@drawable/home"
                 android:layout_weight="10"/>
             <TextView
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
@@ -37,28 +38,26 @@
                 android:gravity="center"
                 android:textSize="20sp"/>
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/sousuo"/>
             <ImageView
-                android:layout_width="20dp"
+                android:layout_width="30dp"
                 android:layout_weight="10"
-                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="30dp"
                 android:src="@drawable/share"/>
         </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <!--这里的listView布局为：recent_read_item-->
             <ListView
+                android:id="@+id/lv_recent_read"
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" />
         </LinearLayout>
-    </ScrollView>
-
 </LinearLayout>

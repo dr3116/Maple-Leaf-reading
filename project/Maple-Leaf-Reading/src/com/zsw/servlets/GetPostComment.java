@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -50,33 +47,33 @@ public class GetPostComment extends HttpServlet {
 				
 				boolean b=false;
 				b=dbUtil.isExist(sql);
-				System.out.print("ÅĞ¶Ï½á¹û£º"+b);
+				System.out.print("åˆ¤æ–­ç»“æœï¼š"+b);
 				if(b) {
 					ResultSet res=dbUtil.queryDate(sql);
 					
 					
-					//ÕâÀïnext£¨£©·½·¨Ò»¶¨ÒªĞ´£¬²»È»Ã»ÓĞÖ¸µ½µÚÒ»ĞĞ
+					//è¿™é‡Œnextï¼ˆï¼‰æ–¹æ³•ä¸€å®šè¦å†™ï¼Œä¸ç„¶æ²¡æœ‰æŒ‡åˆ°ç¬¬ä¸€è¡Œ
 					while(res.next()) {
 						
 						int commenterId=res.getInt("commenter_id");
 						String commentContent=res.getString("content");
-						//´Óuser±íÖĞ»ñÈ¡CommenterName
+						//ä»userè¡¨ä¸­è·å–CommenterName
 						String sql2="select user_name from user where user_id='"+ commenterId+ "'";
 						ResultSet res2=dbUtil.queryDate(sql2);
 						res2.next();
 						String userName=res2.getString("user_name");
 						
-						//ÊµÀı»¯post
+						//å®ä¾‹åŒ–post
 						PostComment postComment=new PostComment(commenterId,userName,commentContent);
 						postcomments.add(postComment);		
 					}
 						
 				}else {
-					System.out.println("Êı¾İ¿â±íÃ»ÓĞÊı¾İ");
+					System.out.println("æ•°æ®åº“è¡¨æ²¡æœ‰æ•°æ®");
 				}
-				System.out.println("\n"+"postcommentsÊı¾İ³¤¶È£º"+postcomments.size());
+				System.out.println("\n"+"postcommentsæ•°æ®é•¿åº¦ï¼š"+postcomments.size());
 				
-				//½«¶ÔÏó¼¯ºÏ×ª»»³É
+				//å°†å¯¹è±¡é›†åˆè½¬æ¢æˆ
 				Gson gson=new Gson();
 				String listArray=gson.toJson(postcomments);
 				System.out.println("\n"+listArray);

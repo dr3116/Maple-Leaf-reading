@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-
     <!--这是最外层整体-->
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
 
         <!--这是第一大部分，1 -->
@@ -104,7 +106,7 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="70dp">
-                
+
                 <LinearLayout
                     android:layout_weight="1"
                     android:layout_width="match_parent"
@@ -240,8 +242,6 @@
                 android:textSize="18sp"
                 android:text="相关书籍"
                 android:gravity="center_vertical" />
-
-
             <!--水平滚动条-->
             <HorizontalScrollView
                 android:layout_width="wrap_content"
@@ -257,22 +257,28 @@
                     android:orientation="horizontal"/>
             </HorizontalScrollView>
         </LinearLayout>
-
         <!--第四部分，评论-->
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:layout_height="200dp">
+            android:layout_height="match_parent">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="18sp"
                 android:text="书友点评"
                 android:gravity="center_vertical" />
-            <ListView
-                android:id="@+id/lv_comments"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
         </LinearLayout>
+        <ListView
+            android:id="@+id/lv_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="到底啦！"/>
     </LinearLayout>
-</ScrollView >
+    </ScrollView>
+</LinearLayout>

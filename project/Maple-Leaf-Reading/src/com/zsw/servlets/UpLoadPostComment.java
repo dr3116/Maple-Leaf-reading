@@ -33,16 +33,17 @@ public class UpLoadPostComment extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("\n"+"¿ªÊ¼ÉÏ´«ÆÀÂÛ");
+		System.out.println("\n"+"å¼€å§‹ä¸Šä¼ è¯„è®º");
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		String posterId=(String)request.getParameter("posterId");
 		String postId=(String)request.getParameter("postId");
 		String postComment=(String)request.getParameter("postComment");
+		System.out.println("\n"+"è¯„è®ºè€…idï¼š"+posterId+"è¯„è®ºId:"+postId);
 			try {
 				DBUtil dbUtil;
 				dbUtil = DBUtil.getInstance();
-				String sql="insert into comments(post_id,content,commenter_id) values('"+postId+"','"+postComment+"'+'"+posterId+"')";
+				String sql="insert into comments(post_id,content,commenter_id) values('"+postId+"','"+postComment+"','"+posterId+"')";
 				dbUtil.insertData(sql);
 				Gson gson=new Gson();
 				String error=gson.toJson("error");

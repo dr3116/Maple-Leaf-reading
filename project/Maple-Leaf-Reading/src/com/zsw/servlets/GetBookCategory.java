@@ -46,50 +46,50 @@ public class GetBookCategory extends HttpServlet {
 				boolean b=false;
 	
 				b=dbUtil.isExist(sql);
-				System.out.print("ÅĞ¶Ï½á¹û£º"+b);
+				System.out.print("åˆ¤æ–­ç»“æœï¼š"+b);
 				if(b) {
 					ResultSet res=dbUtil.queryDate(sql);
 					
-					//ÕâÀïnext£¨£©·½·¨Ò»¶¨ÒªĞ´£¬²»È»Ã»ÓĞÖ¸µ½µÚÒ»ĞĞ
+					//è¿™é‡Œnextï¼ˆï¼‰æ–¹æ³•ä¸€å®šè¦å†™ï¼Œä¸ç„¶æ²¡æœ‰æŒ‡åˆ°ç¬¬ä¸€è¡Œ
 					while(res.next()) {
 						
 						String category=res.getString("category");
 						String bookName=res.getString("book_name");
 						
-						//´Óbook±íÖĞÈ¥²éÕÒÍ¼ÊéÔÄ¶ÁÊı
+						//ä»bookè¡¨ä¸­å»æŸ¥æ‰¾å›¾ä¹¦é˜…è¯»æ•°
 						String sql3="select reading_volume from book where book_name='"+ bookName+ "'";
 						ResultSet res3=dbUtil.queryDate(sql3);
 						res3.next();
 						int readingVolume=res3.getInt("reading_volume");
 						
-						//´Óbook±íÖĞÈ¥²éÕÒÍ¼ÊéÕÂ½ÚÊı
+						//ä»bookè¡¨ä¸­å»æŸ¥æ‰¾å›¾ä¹¦ç« èŠ‚æ•°
 						String sql5="select number_of_chapters from book where book_name='"+ bookName+ "'";
 						ResultSet res5=dbUtil.queryDate(sql5);
 						res5.next();
 						int chapterNum=res5.getInt("number_of_chapters");
-						//´Óbook±íÖĞÈ¥²éÕÒÍ¼ÊéÍ¼Æ¬½éÉÜ
+						//ä»bookè¡¨ä¸­å»æŸ¥æ‰¾å›¾ä¹¦å›¾ç‰‡ä»‹ç»
 						String sql6="select brief_introduction from book where book_name='"+ bookName+ "'";
 						ResultSet res6=dbUtil.queryDate(sql6);
 						res6.next();
 						String bookIntroduction=res6.getString("brief_introduction");
 						
-						//´Óbook±íÖĞÈ¥²éÕÒÍ¼ÊéÍ¼Æ¬Ãû³Æ
+						//ä»bookè¡¨ä¸­å»æŸ¥æ‰¾å›¾ä¹¦å›¾ç‰‡åç§°
 						String sql4="select book_photo from book where book_name='"+ bookName+ "'";
 						ResultSet res4=dbUtil.queryDate(sql4);
 						res4.next();
 						String bookImg=res4.getString("book_photo");
 						
-						//ÊµÀı»¯¶ÔÏó
+						//å®ä¾‹åŒ–å¯¹è±¡
 						BookCategory bookcategory=new BookCategory(category,bookName,bookImg,readingVolume,chapterNum,bookIntroduction);	
 						cateorys.add(bookcategory);
 					
 					}
 						
 				}else {
-					System.out.println("Êı¾İ¿â±íÃ»ÓĞÊı¾İ");
+					System.out.println("æ•°æ®åº“è¡¨æ²¡æœ‰æ•°æ®");
 				}
-				System.out.println("\n"+"bookCategoryÊı¾İ³¤¶È£º"+cateorys.size());
-				//½«¶ÔÏó¼¯ºÏ×ª»»³É
+				System.out.println("\n"+"bookCategoryæ•°æ®é•¿åº¦ï¼š"+cateorys.size());
+				//å°†å¯¹è±¡é›†åˆè½¬æ¢æˆ
 				Gson gson=new Gson();
 				String listArray=gson.toJson(cateorys);
 				System.out.println("\n"+listArray);

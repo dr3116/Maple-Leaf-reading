@@ -95,7 +95,7 @@
             <td>${booklist1.get(sta.index).readingVolume}</td>
             <td>${booklist1.get(sta.index).numberOfChapters}</td>
             <td>${booklist1.get(sta.index).releaseTime}</td>
-            <td><img height="60" width="100" src="img/${booklist1.get(sta.index).bookPhoto}"></td>
+            <td><img height="100" width="80" src="img/${booklist1.get(sta.index).bookPhoto}"></td>
             
             <td>${booklist1.get(sta.index).bookRating}</td>
             <td>${booklist1.get(sta.index).author}</td>

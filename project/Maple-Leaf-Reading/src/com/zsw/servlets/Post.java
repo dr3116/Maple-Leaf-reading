@@ -1,9 +1,7 @@
 package com.zsw.servlets;
-import java.util.Date;
 
 public class Post {
     private int postId;
-    private String title;
     private String content;
     private String photo;
     private String postTime;
@@ -15,9 +13,8 @@ public class Post {
     private int userId;
     private String userName;
 
-    public Post(int postId, String title, String content,String photo,String postTime,String bookImg, String bookName,String bookAuthor, int numberOfLikes, int comments, int userId, String userName) {
+    public Post(int postId, String content,String photo,String postTime,String bookImg, String bookName,String bookAuthor, int numberOfLikes, int comments, int userId, String userName) {
         this.postId = postId;
-        this.title = title;
         this.content = content;
         this.photo=photo;
         this.postTime=postTime;
@@ -39,15 +36,6 @@ public class Post {
     public void setPostId(int postId) {
         this.postId = postId;
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    
     public String getContent() {
         return content;
     }

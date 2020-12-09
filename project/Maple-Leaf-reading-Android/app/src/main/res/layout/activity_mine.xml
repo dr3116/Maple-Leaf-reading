@@ -206,6 +206,7 @@
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/signin"/>
                 <TextView
+                    android:id="@+id/tv_sign_in"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
@@ -260,6 +261,7 @@
                         android:src="@drawable/next"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/ll_recent_read"
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
                     android:layout_marginTop="2dp"
@@ -351,7 +353,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/whithe"
-                android:layout_marginTop="3dp">
+                android:layout_marginTop="3dp"
+                android:id="@+id/ll_fens">
                 <ImageView
                     android:src="@drawable/myfens"
                     android:layout_width="20dp"

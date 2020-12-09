@@ -29,7 +29,7 @@
         android:layout_below="@+id/comment_detail_head">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -124,11 +124,16 @@
                 android:textSize="15sp"
                 android:layout_marginTop="20dp"
                 android:text="全部评论"/>
-            <ListView
-                android:id="@+id/comment_list"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/WhiteSmoke"/>
+                android:layout_height="wrap_content">
+                <ListView
+                    android:id="@+id/comment_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/WhiteSmoke"/>
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:gravity="center"

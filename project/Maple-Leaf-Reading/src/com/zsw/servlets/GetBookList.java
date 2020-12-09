@@ -53,7 +53,7 @@ public class GetBookList extends HttpServlet {
 			
 			boolean b = false;
 			b = dbUtil.isExist(sql);
-			System.out.print("ÅĞ¶Ï½á¹û£º"+b);
+			System.out.print("åˆ¤æ–­ç»“æœï¼š"+b);
 			if(b) {
 				ResultSet res=dbUtil.queryDate(sql);
 				
@@ -75,10 +75,10 @@ public class GetBookList extends HttpServlet {
 					books.add(book);
 				}
 			}else {
-				System.out.println("Êı¾İ¿â±íÃ»ÓĞÊı¾İ");
+				System.out.println("æ•°æ®åº“è¡¨æ²¡æœ‰æ•°æ®");
 			}
-			System.out.println("\n"+"postsÊı¾İ³¤¶È£º"+books.size());
-			//½«¶ÔÏó¼¯ºÏ×ª»»³É
+			System.out.println("\n"+"postsæ•°æ®é•¿åº¦ï¼š"+books.size());
+			//å°†å¯¹è±¡é›†åˆè½¬æ¢æˆ
 			Gson gson=new Gson();
 			String listArray=gson.toJson(books);
 			System.out.println("\n"+listArray);

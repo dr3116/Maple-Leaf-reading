@@ -12,6 +12,7 @@
     <color name="Gainsboro">#B5B5B5</color>
     <color name="black">#000000</color>
     <color name="grey61">#9C9C9C</color>
+    <color name="gray91">#E8E8E8</color>
     <!-- 常用颜色值 -->
     <color name="white">#FFFFFF</color>
     <color name="transparent">#00000000</color>

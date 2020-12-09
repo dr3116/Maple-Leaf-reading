@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -44,34 +41,29 @@ public class GetCommentList extends HttpServlet {
 			try {
 				DBUtil dbUtil;
 				dbUtil = DBUtil.getInstance();
-				String sql = "select * from post";
+				String sql = "select * from post order by post_id desc;";
 				
 				
 				boolean b=false;
 				b=dbUtil.isExist(sql);
-				System.out.print("ÅĞ¶Ï½á¹û£º"+b);
+				System.out.print("åˆ¤æ–­ç»“æœï¼š"+b);
 				if(b) {
 					ResultSet res=dbUtil.queryDate(sql);
 					
 					
-					//ÕâÀïnext£¨£©·½·¨Ò»¶¨ÒªĞ´£¬²»È»Ã»ÓĞÖ¸µ½µÚÒ»ĞĞ
+					//è¿™é‡Œnextï¼ˆï¼‰æ–¹æ³•ä¸€å®šè¦å†™ï¼Œä¸ç„¶æ²¡æœ‰æŒ‡åˆ°ç¬¬ä¸€è¡Œ
 					while(res.next()) {
 						int postId=res.getInt("post_id");
-						String title=res.getString("title");
 						String content=res.getString("content");
 						String photo=res.getString("photo");
-						Timestamp timestamp=res.getTimestamp("post_time");
-						Date postTime=new Date(timestamp.getTime());
-						SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-						String s = simpleDateFormat.format(postTime);
-					
+						String s=res.getString("post_time");
 						String bookName= res.getString("book_name");
-						//´Óbook±íÖĞÈ¥²éÕÒÍ¼Êé×÷Õß
+						//ä»bookè¡¨ä¸­å»æŸ¥æ‰¾å›¾ä¹¦ä½œè€…
 						String sql3="select author from book where book_name='"+ bookName+ "'";
 						ResultSet res3=dbUtil.queryDate(sql3);
 						res3.next();
 						String bookAuthor=res3.getString("author");
-						////´Óbook±íÖĞÈ¥²éÕÒÍ¼ÊéÍ¼Æ¬Ãû³Æ
+						////ä»bookè¡¨ä¸­å»æŸ¥æ‰¾å›¾ä¹¦å›¾ç‰‡åç§°
 						String sql4="select book_photo from book where book_name='"+ bookName+ "'";
 						ResultSet res4=dbUtil.queryDate(sql4);
 						res4.next();
@@ -81,24 +73,24 @@ public class GetCommentList extends HttpServlet {
 						int comments=res.getInt("comments");
 						int userId=res.getInt("user_id");
 						
-						//´Óuser±íÖĞ»ñÈ¡userName
+						//ä»userè¡¨ä¸­è·å–userName
 						String sql2="select user_name from user where user_id='"+ userId+ "'";
 						ResultSet res2=dbUtil.queryDate(sql2);
 						res2.next();
 						String userName=res2.getString("user_name");
 						
 						
-						//ÊµÀı»¯post
-						Post post=new Post(postId,title,content,photo,s,bookImg,bookName,bookAuthor,numberOFLikes,comments,userId,userName);
+						//å®ä¾‹åŒ–post
+						Post post=new Post(postId,content,photo,s,bookImg,bookName,bookAuthor,numberOFLikes,comments,userId,userName);
 						posts.add(post);		
 					}
 						
 				}else {
-					System.out.println("Êı¾İ¿â±íÃ»ÓĞÊı¾İ");
+					System.out.println("æ•°æ®åº“è¡¨æ²¡æœ‰æ•°æ®");
 				}
-				System.out.println("\n"+"postsÊı¾İ³¤¶È£º"+posts.size());
+				System.out.println("\n"+"postsæ•°æ®é•¿åº¦ï¼š"+posts.size());
 				
-				//½«¶ÔÏó¼¯ºÏ×ª»»³É
+				//å°†å¯¹è±¡é›†åˆè½¬æ¢æˆ
 				Gson gson=new Gson();
 				String listArray=gson.toJson(posts);
 				System.out.println("\n"+listArray);

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/seqing"
+        android:title="色情相关" />
+    <item
+        android:id="@+id/weifa"
+        android:title="违法相关" />
+    <item
+        android:id="@+id/guangao"
+        android:title="广告推销" />
+    <item
+        android:id="@+id/qita"
+        android:title="其他" />
+
+</menu>

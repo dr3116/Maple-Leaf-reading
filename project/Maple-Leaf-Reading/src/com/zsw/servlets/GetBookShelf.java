@@ -47,31 +47,31 @@ public class GetBookShelf extends HttpServlet {
 				
 				boolean b=false;
 				b=dbUtil.isExist(sql);
-				System.out.print("ÅĞ¶Ï½á¹û£º"+b);
+				System.out.print("åˆ¤æ–­ç»“æœï¼š"+b);
 				if(b) {
 					ResultSet res=dbUtil.queryDate(sql);
 					
 					
-					//ÕâÀïnext£¨£©·½·¨Ò»¶¨ÒªĞ´£¬²»È»Ã»ÓĞÖ¸µ½µÚÒ»ĞĞ
+					//è¿™é‡Œnextï¼ˆï¼‰æ–¹æ³•ä¸€å®šè¦å†™ï¼Œä¸ç„¶æ²¡æœ‰æŒ‡åˆ°ç¬¬ä¸€è¡Œ
 					while(res.next()) {
 						
 						String bookName=res.getString("book_name");
-					//´Óbook±íÖĞÈ¥²éÕÒÍ¼ÊéÍ¼Æ¬Ãû³Æ
+					//ä»bookè¡¨ä¸­å»æŸ¥æ‰¾å›¾ä¹¦å›¾ç‰‡åç§°
 						String sql4="select book_photo from book where book_name='"+ bookName+ "'";
 						ResultSet res4=dbUtil.queryDate(sql4);
 						res4.next();
 						String bookImg=res4.getString("book_photo");
-						//ÊµÀı»¯bookShelfBook
+						//å®ä¾‹åŒ–bookShelfBook
 						BookShelfBook bookShelfBook=new BookShelfBook(bookName,bookImg);
 						books.add(bookShelfBook);		
 					}
 						
 				}else {
-					System.out.println("Êı¾İ¿â±íÃ»ÓĞÊı¾İ");
+					System.out.println("æ•°æ®åº“è¡¨æ²¡æœ‰æ•°æ®");
 				}
-				System.out.println("\n"+"postcommentsÊı¾İ³¤¶È£º"+books.size());
+				System.out.println("\n"+"postcommentsæ•°æ®é•¿åº¦ï¼š"+books.size());
 				
-				//½«¶ÔÏó¼¯ºÏ×ª»»³É
+				//å°†å¯¹è±¡é›†åˆè½¬æ¢æˆ
 				Gson gson=new Gson();
 				String listArray=gson.toJson(books);
 				System.out.println("\n"+listArray);

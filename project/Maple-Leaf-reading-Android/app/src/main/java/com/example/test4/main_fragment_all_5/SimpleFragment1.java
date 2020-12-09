@@ -2,9 +2,6 @@ package com.example.test4.main_fragment_all_5;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -12,37 +9,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.example.test4.BookCategory;
-import com.example.test4.BookShowAdapter;
-import com.example.test4.ClickFenLei2Activity;
-import com.example.test4.ClickFenLeiActivity;
-import com.example.test4.Comment;
-import com.example.test4.ConfigUtil;
-import com.example.test4.HolderView;
-import com.example.test4.Post;
-import com.example.test4.PostAdapter;
-import com.example.test4.R;
+import androidx.fragment.app.Fragment;
+
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
+import com.example.test4.BookCategory;
+import com.example.test4.BookShowAdapter;
+import com.example.test4.ConfigUtil;
+import com.example.test4.HolderView;
+import com.example.test4.R;
 import com.example.test4.book.Book;
 import com.example.test4.book.BookIntroduction;
+import com.example.test4.search.Search;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import org.w3c.dom.Text;
-import org.w3c.dom.ls.LSException;
-import org.w3c.dom.ls.LSInput;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.crypto.AEADBadTagException;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -53,6 +44,14 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
 
     private String str2;
     private int img;
+    private ImageView search;
+
+    private RelativeLayout one;
+    private RelativeLayout two;
+    private RelativeLayout three;
+    private RelativeLayout four;
+    private RelativeLayout five;
+
     private ListView qianduanList;
     private ListView houduanList;
     private ListView yidongduanList;
@@ -96,18 +95,26 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
         return simpleFragment;
     }
     private void setListView(){
-        BookShowAdapter bookShowAdapter1=new BookShowAdapter(getContext(),qianduans,R.layout.shouye_item_layout);
+        BookShowAdapter bookShowAdapter1=new BookShowAdapter(getContext(),qianduans, R.layout.shouye_item_layout);
         qianduanList.setAdapter(bookShowAdapter1);
-        BookShowAdapter bookShowAdapter2=new BookShowAdapter(getContext(),houduans,R.layout.shouye_item_layout);
+        BookShowAdapter bookShowAdapter2=new BookShowAdapter(getContext(),houduans, R.layout.shouye_item_layout);
         houduanList.setAdapter(bookShowAdapter2);
-        BookShowAdapter bookShowAdapter3=new BookShowAdapter(getContext(),yidongduans,R.layout.shouye_item_layout);
+        BookShowAdapter bookShowAdapter3=new BookShowAdapter(getContext(),yidongduans, R.layout.shouye_item_layout);
         yidongduanList.setAdapter(bookShowAdapter3);
-        BookShowAdapter bookShowAdapter4=new BookShowAdapter(getContext(),shujukus,R.layout.shouye_item_layout);
+        BookShowAdapter bookShowAdapter4=new BookShowAdapter(getContext(),shujukus, R.layout.shouye_item_layout);
         shujukuList.setAdapter(bookShowAdapter4);
-        BookShowAdapter bookShowAdapter5=new BookShowAdapter(getContext(),yunjishuans,R.layout.shouye_item_layout);
+        BookShowAdapter bookShowAdapter5=new BookShowAdapter(getContext(),yunjishuans, R.layout.shouye_item_layout);
         yunjishuanList.setAdapter(bookShowAdapter5);
-        BookShowAdapter bookShowAdapter6=new BookShowAdapter(getContext(),qitas,R.layout.shouye_item_layout);
+        BookShowAdapter bookShowAdapter6=new BookShowAdapter(getContext(),qitas, R.layout.shouye_item_layout);
         qitaList.setAdapter(bookShowAdapter6);
+
+        setListViewHeight(qianduanList);
+        setListViewHeight(houduanList);
+        setListViewHeight(yidongduanList);
+        setListViewHeight(shujukuList);
+        setListViewHeight(yunjishuanList);
+        setListViewHeight(qianduanList);
+
 //        postListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -117,6 +124,29 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
 //                startActivity(intent);
 //            }
 //        });
+    }
+    /**
+     * 重新计算ListView的高度，解决ScrollView和ListView两个View都有滚动的效果，在嵌套使用时起冲突的问题
+     * @param listView
+     */
+    public void setListViewHeight(ListView listView) {
+    // 获取ListView对应的Adapter
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            return;
+        }
+
+        int totalHeight = 0;
+        for (int i = 0, len = listAdapter.getCount(); i < len; i++) { // listAdapter.getCount            ()返回数据项的数目
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0); // 计算子项View 的宽高
+            totalHeight += listItem.getMeasuredHeight(); // 统计所有子项的总高度
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+
+        listView.setLayoutParams(params);
     }
     //获取post的字符信息
     private void getBookCategory() {
@@ -174,6 +204,15 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
          * 更改Fragment布局
          */
         View view=inflater.inflate(R.layout.fragment_shouye, container, false);
+
+        search = view.findViewById(R.id.s_main_sousuo);
+
+        one = view.findViewById(R.id.r1);
+        two = view.findViewById(R.id.r2);
+        three = view.findViewById(R.id.r3);
+        four = view.findViewById(R.id.r4);
+        five = view.findViewById(R.id.r5);
+
         qianduanList=view.findViewById(R.id.qianduan);
         houduanList=view.findViewById(R.id.houduan);
         yidongduanList=view.findViewById(R.id.yidongdaun);
@@ -181,11 +220,97 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
         yunjishuanList=view.findViewById(R.id.yunjishuan);
         qitaList=view.findViewById(R.id.qita);
         convenientBanner = view.findViewById(R.id.s_banner);
+
         if(localImages.size()==0) {
             localImages.add(R.drawable.lunbo1);
             localImages.add(R.drawable.lunbo2);
             localImages.add(R.drawable.lunbo3);
         }
+        /**
+         * 杜然 12/7 添加推荐的点击事件
+         */
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), Search.class);
+                startActivity(intent);
+            }
+        });
+        one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), BookIntroduction.class);
+                intent.putExtra("bookName","Android Studio 用户指南");
+                intent.putExtra("readingVolume","53004");
+                intent.putExtra("numberOfChapters","130");
+                intent.putExtra("bookRating","4.00");
+                intent.putExtra("author","进击的皇虫");
+                intent.putExtra("numberOfCollections","122");
+                intent.putExtra("briefIntroduction","Android Studio 是基于IntelliJ IDEA的官方Android应用开发集成开发环境（IDE)。除了InterlliJ强大的代码编译器和开发者工具，Android Studio提供了更多可提高Android应用的构建效率的功能");
+                intent.putExtra("bookPhoto","2.jpg");
+                startActivity(intent);
+            }
+        });
+        two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), BookIntroduction.class);
+                intent.putExtra("bookName","Python - 100天从新手到大师");
+                intent.putExtra("readingVolume","118744");
+                intent.putExtra("numberOfChapters","193");
+                intent.putExtra("bookRating","4.00");
+                intent.putExtra("author","进击的皇虫");
+                intent.putExtra("numberOfCollections","1000");
+                intent.putExtra("briefIntroduction","Python是一个“优雅”、“明确”、“简单”的编程语言");
+                intent.putExtra("bookPhoto","15.jpg");
+                startActivity(intent);
+            }
+        });
+        three.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), BookIntroduction.class);
+                intent.putExtra("bookName","技术面试需要掌握的基础知识整理");
+                intent.putExtra("readingVolume","69940");
+                intent.putExtra("numberOfChapters","29");
+                intent.putExtra("bookRating","4.70");
+                intent.putExtra("author","进击的皇虫");
+                intent.putExtra("numberOfCollections","772");
+                intent.putExtra("briefIntroduction","本仓库是笔者在准备2018春招实习过程中的学习总结，内容以计算机书籍的学习笔记为主，在整理重点知识的同时会尽量保证知识的系统性");
+                intent.putExtra("bookPhoto","32.jpg");
+                startActivity(intent);
+            }
+        });
+        five.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), BookIntroduction.class);
+                intent.putExtra("bookName","奋斗");
+                intent.putExtra("readingVolume","513004");
+                intent.putExtra("numberOfChapters","30");
+                intent.putExtra("bookRating","5.00");
+                intent.putExtra("author","进击的皇虫");
+                intent.putExtra("numberOfCollections","1000");
+                intent.putExtra("briefIntroduction","奋斗，奋斗，奋斗，重要的事情说三遍");
+                intent.putExtra("bookPhoto","22.jpg");
+                startActivity(intent);
+            }
+        });
+        four.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), BookIntroduction.class);
+                intent.putExtra("bookName","Python 网络爬虫教程");
+                intent.putExtra("readingVolume","44739");
+                intent.putExtra("numberOfChapters","122");
+                intent.putExtra("bookRating","4.00");
+                intent.putExtra("author","进击的皇虫");
+                intent.putExtra("numberOfCollections","372");
+                intent.putExtra("briefIntroduction","使用Python实现网络爬虫教程，教你如何抓取内容。");
+                intent.putExtra("bookPhoto","16.jpg");
+                startActivity(intent);
+            }
+        });
         //开始自动翻页
         convenientBanner.setPages(new CBViewHolderCreator() {
             @Override
@@ -213,6 +338,8 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
     @Override
     public void onItemClick(int position) {
         Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getContext(), Search.class);
+        startActivity(intent);
     }
     private void setListener(){
         qianduanList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

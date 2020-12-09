@@ -119,7 +119,7 @@
                                 android:layout_width="110dp"
                                 android:layout_height="40dp"
                                 android:gravity="center"
-                                android:text="云计算概念，技术与框架"
+                                android:text="Python - 100天从新手到大师"
                                 android:textSize="15sp"
                                 android:layout_below="@+id/s_bookimg2"/>
                         </RelativeLayout>
@@ -134,15 +134,17 @@
                                 android:layout_width="110dp"
                                 android:layout_height="130dp"
                                 android:src="@drawable/ai"/>
+
                             <TextView
-                                android:textColor="@color/black"
                                 android:id="@+id/s_booktext3"
                                 android:layout_width="110dp"
                                 android:layout_height="40dp"
+                                android:layout_below="@+id/s_bookimg3"
+                                android:layout_marginTop="-2dp"
                                 android:gravity="center"
-                                android:text="统计学习导论"
-                                android:textSize="15sp"
-                                android:layout_below="@+id/s_bookimg3"/>
+                                android:text="技术面试需要掌握的基础知识整理"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
                         </RelativeLayout>
                         <RelativeLayout
                             android:id="@+id/r4"

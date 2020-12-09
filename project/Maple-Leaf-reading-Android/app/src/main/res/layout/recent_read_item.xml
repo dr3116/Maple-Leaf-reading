@@ -1,42 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--title:最近阅读item
-    author:周双文
-    time:2020/11/23-->
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:padding="20dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal">
-    <ImageView
-        android:id="@+id/z_rebook_img"
-        android:layout_width="90dp"
-        android:layout_height="match_parent"
-        android:src="@drawable/bookimg2"/>
-    <LinearLayout
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/rl_search"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="15dp"
-        android:orientation="vertical">
+        android:layout_height="150dp">
+        <ImageView
+            android:id="@+id/iv_recent_photo"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_width="110dp"
+            android:layout_height="130dp"
+            android:src="@drawable/bookimg2"/>
         <TextView
-            android:id="@+id/z_rebook_name"
+            android:id="@+id/tv_recent_bookName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="奋斗奋斗奋斗奋斗奋斗奋斗奋斗奋斗"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/iv_recent_photo" />
+        <ImageView
+            android:id="@+id/iv_recent_eyes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="这里是书名##"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="简介："/>
-            <TextView
-                android:id="@+id/z_rebook_intr"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="#########################################################################"/>
-        </LinearLayout>
+            android:src="@drawable/eye"
+            android:layout_toRightOf="@+id/iv_recent_photo"
+            android:layout_below="@+id/tv_recent_bookName"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:textSize="10sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_recent_readingVolume"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/iv_recent_eyes"
+            android:layout_below="@+id/tv_recent_bookName"
+            android:layout_height="wrap_content"
+            android:text="1.2k阅读"/>
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/iv_recent_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu2"
+            android:layout_toRightOf="@+id/tv_recent_readingVolume"
+            android:layout_below="@+id/tv_recent_bookName"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:textSize="10sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_recent_menu"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/iv_recent_menu"
+            android:layout_below="@+id/tv_recent_bookName"
+            android:layout_height="wrap_content"
+            android:text="31章节"/>
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/iv_recent_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/time"
+            android:layout_toRightOf="@+id/tv_recent_menu"
+            android:layout_below="@+id/tv_recent_bookName"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:textSize="10sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_recent_time"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/iv_recent_time"
+            android:layout_below="@+id/tv_recent_bookName"
+            android:layout_height="wrap_content"
+            android:text="11天前"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tv_recent_info"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/iv_recent_eyes"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/iv_recent_photo"
+            android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈" />
+    </RelativeLayout>
+
 </LinearLayout>

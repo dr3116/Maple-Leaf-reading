@@ -1,22 +1,17 @@
 package com.example.test4;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.test4.main_fragment_all_5.SimpleFragment1;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
-import java.util.List;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -27,7 +22,7 @@ public class Login extends AppCompatActivity {
     private EditText phoneNumber;
     private EditText passWord;
     private Button login;
-    private String userId;
+    public  static String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,8 +76,8 @@ public class Login extends AppCompatActivity {
                         }else {
                             userId=result;
                             Intent intent=new Intent();
-                            intent.putExtra("userId",userId);
                             intent.setClass(Login.this, MainActivity.class);
+                            intent.putExtra("userId",userId);
                             startActivity(intent);
                         }
                     } catch (Exception e) {

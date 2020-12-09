@@ -3,12 +3,12 @@
     author:周双文
     time:2020/11/23-->
 <LinearLayout android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="100dp"
     android:padding="20dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal">
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/poster_img"
+        android:id="@+id/iv_fens_img"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/dog"/>
@@ -19,36 +19,15 @@
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
             <TextView
-                android:id="@+id/z_rebook_name"
+                android:id="@+id/tv_fens_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="昵称##"/>
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:textSize="12sp"
-                android:text="关注"/>
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:text="昵称"/>
         </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="简介："/>
-            <TextView
-                android:id="@+id/z_rebook_intr"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="#######################"/>
-        </LinearLayout>
-
     </LinearLayout>
 </LinearLayout>

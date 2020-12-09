@@ -1,6 +1,5 @@
 package com.example.test4.main_fragment_all_5;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,11 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.test4.Comment;
 import com.example.test4.ConfigUtil;
 import com.example.test4.BookShelfBook;
 import com.example.test4.BookShelfAdapter;

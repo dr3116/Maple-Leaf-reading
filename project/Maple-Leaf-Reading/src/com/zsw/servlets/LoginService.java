@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +33,7 @@ public class LoginService extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("\n"+"µÇÂ¼ÇëÇóÁ´½Ó³É¹¦");
+		System.out.println("\n"+"ç™»å½•è¯·æ±‚é“¾æ¥æˆåŠŸ");
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		String phoneStr=(String)request.getParameter("phoneStr");
@@ -48,17 +45,17 @@ public class LoginService extends HttpServlet {
 				String sql = "select * from user where user_name like'" +phoneStr +"' and user_password like'" +passwordStr +"'";
 				boolean b=false;
 				b=dbUtil.isExist(sql);
-				System.out.print("ÅĞ¶Ï½á¹û£º"+b);
+				System.out.print("åˆ¤æ–­ç»“æœï¼š"+b);
 				if(b) {
 					ResultSet res=dbUtil.queryDate(sql);
 					
-					//ÕâÀïnext£¨£©·½·¨Ò»¶¨ÒªĞ´£¬²»È»Ã»ÓĞÖ¸µ½µÚÒ»ĞĞ
+					//è¿™é‡Œnextï¼ˆï¼‰æ–¹æ³•ä¸€å®šè¦å†™ï¼Œä¸ç„¶æ²¡æœ‰æŒ‡åˆ°ç¬¬ä¸€è¡Œ
 					while(res.next()) {
 						userId=res.getInt("user_id");
-						//½«¶ÔÏó¼¯ºÏ×ª»»³É
+						//å°†å¯¹è±¡é›†åˆè½¬æ¢æˆ
 						Gson gson=new Gson();
 						String userIdStr=gson.toJson(userId);
-						System.out.println("\n"+"µÇÂ¼ÓÃ»§Id:"+userIdStr);
+						System.out.println("\n"+"ç™»å½•ç”¨æˆ·Id:"+userIdStr);
 						PrintWriter writer=response.getWriter();
 						writer.write(userIdStr);
 					}
@@ -68,7 +65,7 @@ public class LoginService extends HttpServlet {
 					String error=gson.toJson("error");
 					PrintWriter writer=response.getWriter();
 					writer.write(error);
-					System.out.println("Êı¾İ¿â±íÃ»ÓĞÊı¾İ");
+					System.out.println("æ•°æ®åº“è¡¨æ²¡æœ‰æ•°æ®");
 				}
 				
 				

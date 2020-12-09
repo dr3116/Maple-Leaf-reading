@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test4.Login;
-import com.example.test4.MainActivity;
 import com.example.test4.databinding.WelcomeBinding;
 
 import java.util.Timer;

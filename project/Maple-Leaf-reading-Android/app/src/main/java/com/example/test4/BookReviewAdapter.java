@@ -57,7 +57,7 @@ public class BookReviewAdapter extends BaseAdapter {
                 .load(ConfigUtil.SERVER_ADDR+"img1/"+bookReviewList.get(position).getUserId()+".jpg")
                 .apply(requestOptions)
                 .into(bookReviewImg);
-        bookReviewUserName.setText(bookReviewList.get(position).getUserId()+"");
+        bookReviewUserName.setText(bookReviewList.get(position).getUserName()+"");
         bookReviewUserContent.setText(bookReviewList.get(position).getContent());
         return convertView;
     }
