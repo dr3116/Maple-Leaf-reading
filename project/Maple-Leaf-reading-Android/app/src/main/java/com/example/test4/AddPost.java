@@ -70,6 +70,7 @@ public class AddPost extends AppCompatActivity {
     private String bookAuthorStr;
     private String userId;
     private Bitmap head;//头像Bitmap
+    private String headStr;
     private static String path = "/sdcard/loverReader/";//sd路径
     //(/sdcard/  目录怎么感觉跟Environment.getExternalStorageDirectory()得到的目录是一个效果？)
     @Override
@@ -78,8 +79,9 @@ public class AddPost extends AppCompatActivity {
         setContentView(R.layout.activity_add_post);
         tempInputContentStr=getIntent().getStringExtra("input");
         userId=getIntent().getStringExtra("userId");
+        //head和headStrong二选一
         head=getIntent().getParcelableExtra("head");
-
+        headStr=getIntent().getStringExtra("headStr");
         bookImgStr=getIntent().getStringExtra("bookPhoto");
         bookNameStr=getIntent().getStringExtra("bookName");
         bookAuthorStr=getIntent().getStringExtra("author");
@@ -139,6 +141,11 @@ public class AddPost extends AppCompatActivity {
         }
         if (head!=null){
             addImgShow.setImageBitmap(head);//用ImageView显示出来
+        }else if(headStr!=null){
+            Glide.with(this)
+                    .load(ConfigUtil.SERVER_ADDR+"imgs/"+headStr)
+                    .apply(requestOptions)
+                    .into(addImgShow);
         }
         if (tempuserId!=null){
             userId=tempuserId;
@@ -148,7 +155,7 @@ public class AddPost extends AppCompatActivity {
         }
 
     }
-    private class MyListener implements View.OnClickListener{
+    private class MyListener implements OnClickListener{
 
         @Override
         public void onClick(View v) {

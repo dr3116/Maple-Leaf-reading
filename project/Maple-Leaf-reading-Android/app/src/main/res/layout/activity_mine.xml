@@ -221,6 +221,7 @@
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/bagndan"/>
                 <TextView
+                    android:id="@+id/tv_paihang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
@@ -321,6 +322,7 @@
                         android:src="@drawable/next"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/s_my_collection"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:background="@color/whithe"
@@ -336,7 +338,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="60"
                         android:layout_gravity="center_vertical"
-                        android:text="我的关注"
+                        android:text="我的收藏"
                         android:textSize="15dp"
                         android:textStyle="bold"/>
                     <ImageView

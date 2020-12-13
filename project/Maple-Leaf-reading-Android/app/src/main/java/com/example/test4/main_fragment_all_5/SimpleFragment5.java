@@ -12,8 +12,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.test4.AboutUs;
 import com.example.test4.FensActivity;
+import com.example.test4.MyCollection;
+import com.example.test4.PaihangActivity;
 import com.example.test4.R;
 import com.example.test4.RecentReadActivity;
+import com.example.test4.SignDate;
+import com.example.test4.SignToday;
 import com.example.test4.search.Search;
 
 /**
@@ -30,7 +34,9 @@ public class SimpleFragment5 extends Fragment {
     private LinearLayout fens;
     private LinearLayout recentReading;
     private TextView signIn;
-
+    private String userId;
+    private TextView paihang;
+    private LinearLayout myCollection;
 
 
     public SimpleFragment5() {
@@ -51,7 +57,7 @@ public class SimpleFragment5 extends Fragment {
 
 
     @Override//这个方法比上个方法后执行
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //获得view对象，仅为获取控件对象并赋值
         /**
          * 周双文
@@ -60,12 +66,19 @@ public class SimpleFragment5 extends Fragment {
         /**
          * 杜然 增加点击事件
          */
+        if (getArguments()!=null){
+            userId=getArguments().getString("userId");
+        }
         View view = inflater.inflate(R.layout.activity_mine, container, false);
         search= view.findViewById(R.id.ll_search);
         about = view.findViewById(R.id.ll_about_us);
+        paihang = view.findViewById(R.id.tv_paihang);
         fens = view.findViewById(R.id.ll_fens);
         recentReading = view.findViewById(R.id.ll_recent_read);
         signIn = view.findViewById(R.id.tv_sign_in);
+        myCollection=view.findViewById(R.id.s_my_collection);
+
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,6 +104,32 @@ public class SimpleFragment5 extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), RecentReadActivity.class);
+                startActivity(intent);
+            }
+        });
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.putExtra("userId",userId);
+                intent.setClass(getContext(), SignToday.class);
+                startActivity(intent);
+            }
+        });
+        myCollection.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.putExtra("userId",userId);
+                intent.setClass(getContext(), MyCollection.class);
+                startActivity(intent);
+            }
+        });
+        paihang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), PaihangActivity.class);
                 startActivity(intent);
             }
         });

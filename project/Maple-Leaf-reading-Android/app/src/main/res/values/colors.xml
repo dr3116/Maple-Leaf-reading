@@ -37,4 +37,6 @@
 
     <color name="bg_press">#ebebeb</color>\
     <color name="bg_press_material">#d4d4d4</color>
+    <!--杜然新增颜色     -->
+    <color name="yellow">#FFFF00</color>
 </resources>

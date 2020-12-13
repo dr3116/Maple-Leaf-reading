@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/attention"
-        android:title="关注" />
+        android:title="收藏" />
     <item
         android:id="@+id/report"
         android:title="举报" />

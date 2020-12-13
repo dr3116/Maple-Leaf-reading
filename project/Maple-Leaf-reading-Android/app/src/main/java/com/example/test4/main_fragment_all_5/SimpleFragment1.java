@@ -1,9 +1,11 @@
 package com.example.test4.main_fragment_all_5;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +53,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
     private RelativeLayout three;
     private RelativeLayout four;
     private RelativeLayout five;
-
+    private ImageView share;
     private ListView qianduanList;
     private ListView houduanList;
     private ListView yidongduanList;
@@ -196,6 +198,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
             }
         }.start();
     }
+
     @Override//这个方法比上个方法后执行````````````````````````
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         //获得view对象，仅为获取控件对象并赋值
@@ -212,6 +215,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
         three = view.findViewById(R.id.r3);
         four = view.findViewById(R.id.r4);
         five = view.findViewById(R.id.r5);
+        share=view.findViewById(R.id.s_main_share);
 
         qianduanList=view.findViewById(R.id.qianduan);
         houduanList=view.findViewById(R.id.houduan);
@@ -226,6 +230,18 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
             localImages.add(R.drawable.lunbo2);
             localImages.add(R.drawable.lunbo3);
         }
+        /**
+         * 周双文，添加分享电点击事件
+         */
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                allShare();
+            }
+        });
+
+
+
         /**
          * 杜然 12/7 添加推荐的点击事件
          */
@@ -338,7 +354,9 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
     @Override
     public void onItemClick(int position) {
         Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getContext(), Search.class);
+        String arr[] = {"https://account.huaweicloud.com/obmgr/invitation/invitation.html","https://www.aliyun.com/activity/daily/bestoffer","https://cloud.tencent.com/act"};
+        Uri uri = Uri.parse(arr[position]);//要跳转的网址
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
     private void setListener(){
@@ -378,6 +396,20 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
                 downLoadBookInfo(qitas.get(position).getBookName());
             }
         });
+    }
+    /**
+     * Android原生分享功能
+     * 默认选取手机所有可以分享的APP
+     */
+    public void allShare(){
+        Intent share_intent = new Intent();
+        share_intent.setAction(Intent.ACTION_SEND);//设置分享行为
+        share_intent.setType("text/plain");//设置分享内容的类型
+        share_intent.putExtra(Intent.EXTRA_SUBJECT, "share");//添加分享内容标题
+        share_intent.putExtra(Intent.EXTRA_TEXT, "https://github.com/dr3116/Maple-Leaf-reading");//添加分享内容
+        //创建分享的Dialog
+        share_intent = Intent.createChooser(share_intent, "share");
+        startActivity(share_intent);
     }
     private void downLoadBookInfo(final String bookName){
         new Thread() {

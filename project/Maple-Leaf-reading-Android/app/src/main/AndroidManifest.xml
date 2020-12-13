@@ -14,7 +14,6 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <uses-permission android:name="IMAGE_CAPTURE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/maple_icon_circle"
@@ -36,11 +35,14 @@
         <activity android:name=".ClickFenLei9Activity" />
         <activity android:name=".ClickFenLei10Activity" />
         <activity android:name=".book.BookIntroduction" />
+        <activity android:name=".SignToday"/>
+        <activity android:name=".MyCollection"/>
         <activity android:name=".AboutUs" />
         <activity android:name=".search.Search" />
         <activity android:name=".AddPost" />
         <activity android:name=".Comment" />
         <activity android:name=".FensActivity"/>
+        <activity android:name=".PaihangActivity"/>
         <activity android:name=".RecentReadActivity"/>
         <activity android:name=".welcome2.Welcome">
             <intent-filter>

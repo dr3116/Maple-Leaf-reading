@@ -2,6 +2,13 @@ package com.example.test4;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -44,12 +51,24 @@ public class PostAdapter extends BaseAdapter {
     private int itemLayout;
     private List<Book> books=new ArrayList<>();
     private List<Integer> ImgInAdress=new ArrayList<>();
+    private String userId;
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage( Message msg) {
+            if(msg.what==1){
+                Toast.makeText(context,"你已经收藏过了",Toast.LENGTH_LONG).show();
+            }else if (msg.what==2){
+                Toast.makeText(context,"收藏成功",Toast.LENGTH_LONG).show();
+            }
+        }
+    };
 
-    public PostAdapter(Context context, List<Post> postList, int itemLayout,List<Integer> ImgInAdress) {
+    public PostAdapter(Context context, List<Post> postList, int itemLayout,List<Integer> ImgInAdress,String userId) {
         this.context = context;
         this.postList = postList;
         this.itemLayout = itemLayout;
         this.ImgInAdress=ImgInAdress;
+        this.userId=userId;
     }
 
     @Override
@@ -121,7 +140,24 @@ public class PostAdapter extends BaseAdapter {
         likesImg.setOnClickListener(myListener);
         likesNum.setText(String.valueOf(postList.get(position).getNumberOfLikes()));
         forward.setOnClickListener(myListener);
+
+        Bitmap head= drawableToBitmap(postImg.getDrawable());
+
         return convertView;
+    }
+
+    /**
+     * 将Drawble对象转换为BitMap对象
+     * @param drawable
+     * @return
+     */
+    public static final Bitmap drawableToBitmap(Drawable drawable) {
+        Bitmap bitmap = Bitmap.createBitmap( drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(),
+                drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        drawable.draw(canvas);
+        return bitmap;
     }
 
     /**
@@ -139,6 +175,11 @@ public class PostAdapter extends BaseAdapter {
                     int s=showPopupMenu(v,position);
                     break;
                 case R.id.com_img:
+                    Intent intent=new Intent();
+                    intent.setClass(context,Comment.class);
+                    intent.putExtra("userId",userId);
+                    intent.putExtra("post",postList.get(position));
+                    context.startActivity(intent);
                     break;
                 case R.id.likes_img:
                     if (ImgInAdress.get(position)==R.drawable.likes){
@@ -153,9 +194,21 @@ public class PostAdapter extends BaseAdapter {
                     Log.e("点击了书本信息","触发");
                     downLoadBookInfo(postList.get(position).getBookName());
                     break;
+                case R.id.forward:
+                    Intent intent2=new Intent();
+                    intent2.setClass(context,AddPost.class);
+                    intent2.putExtra("input",postList.get(position).getContent());
+                    intent2.putExtra("userId",userId);
+                    intent2.putExtra("headStr",postList.get(position).getPhoto());
+                    intent2.putExtra("bookPhoto",postList.get(position).getBookImg());
+                    intent2.putExtra("bookName",postList.get(position).getBookName());
+                    intent2.putExtra("author",postList.get(position).getBookAuthor());
+                    context.startActivity(intent2);
+                    break;
             }
         }
     }
+
     private void downLoadBookInfo(final String bookName){
         new Thread() {
             @Override
@@ -198,6 +251,7 @@ public class PostAdapter extends BaseAdapter {
         intent.putExtra("bookPhoto",books.get(0).getBookPhoto());
         context.startActivity(intent);
     }
+    //周双文，这里进行菜单处理
     private int showPopupMenu(final View view, final int mark) {
         final PopupMenu popupMenu=new PopupMenu(context,view);
         popupMenu.getMenuInflater().inflate(R.menu.post_menu,popupMenu.getMenu());
@@ -205,17 +259,9 @@ public class PostAdapter extends BaseAdapter {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()){
-//                    case R.id.attention:
-//
-//                        try {
-//                            de.join();
-//                            Intent intent1=new Intent();
-//                            intent1.setClass(context,userCheckOrder.class);
-//                            context.startActivity(intent1);
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        }
-//                        break;
+                    case R.id.attention:
+                        addCollect(mark);
+                        break;
                     case R.id.report:
                         Log.e("点击举报","成功");
                         showChiledPopupMenu(view,mark);
@@ -253,6 +299,50 @@ public class PostAdapter extends BaseAdapter {
         popupMenu.show();
 
         return 1;
+    }
+    private void addCollect(final int position){
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    FormBody.Builder builder = new FormBody.Builder();
+                    builder.add("userId",userId);
+                    builder.add("postId",postList.get(position).getPostId()+"");
+                    FormBody body = builder.build();
+                    Request request = new Request.Builder()
+                            // 指定访问的服务器地址
+                            .post(body)
+                            .url(ConfigUtil.SERVER_ADDR+"UpAttentionInfo")
+                            .build();
+                    Response response = client.newCall(request).execute();
+                    //获得json字符串
+                    String responseData = response.body().string();
+                    Log.e("从服务端返回的json:",responseData);
+                    //解析字符串
+                    Gson gson = new GsonBuilder()
+                            .create(); //生成配置好的Gson
+                    String attentionInfo=gson.fromJson(responseData,String.class);
+                    if (attentionInfo!=null && attentionInfo.equals("error")){
+                        Message msg = new Message();
+                        //设置Message对象的参数
+                        msg.what = 1;
+                        //发送Message
+                        handler.sendMessage(msg);
+                    }else {
+                        Message msg = new Message();
+                        //设置Message对象的参数
+                        msg.what = 2;
+                        //发送Message
+                        handler.sendMessage(msg);
+                    }
+
+                    Log.e("增加收藏","结束");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
     }
 
 }

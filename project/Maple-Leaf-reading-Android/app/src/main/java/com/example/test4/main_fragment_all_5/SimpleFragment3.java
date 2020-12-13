@@ -66,7 +66,9 @@ public class SimpleFragment3 extends Fragment{
 
 
     }
-
+    public List<Post> getPost(){
+        return posts;
+    }
     //作用，参数存入str2，方便后面调用
     public static SimpleFragment3 newInstance(String str1) {
         SimpleFragment3 simpleFragment3 = new SimpleFragment3();
@@ -138,7 +140,7 @@ public class SimpleFragment3 extends Fragment{
     }
     private void setListView(){
         PutImgAdress();
-        postAdapter=new PostAdapter(getContext(),posts,R.layout.post_item,ImgInAdress);
+        postAdapter=new PostAdapter(getContext(),posts,R.layout.post_item,ImgInAdress,userId);
         postListView.setAdapter(postAdapter);
         postListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

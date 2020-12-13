@@ -113,11 +113,11 @@ public class DBUtil {
 	 * @throws SQLException 
 	 * @throws ClassNotFoundException
 	 */
-	public int updateData(String sql) throws ClassNotFoundException, SQLException {
+	public Boolean updateData(String sql) throws ClassNotFoundException, SQLException {
 		// 连接到数据库
 		connectToDB();
 		Statement stmt = conn.createStatement();
-		return stmt.executeUpdate(sql);
+		return stmt.execute(sql);
 	}
 	
 	
