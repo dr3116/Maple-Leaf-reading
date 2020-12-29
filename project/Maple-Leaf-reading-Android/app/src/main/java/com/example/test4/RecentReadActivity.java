@@ -7,11 +7,13 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test4.book.BookIntroduction;
+import com.example.test4.search.Search;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -27,6 +29,8 @@ import okhttp3.Response;
 public class RecentReadActivity extends AppCompatActivity {
     private String userId;
     private String str2;
+    private ImageView back;
+    private ImageView home;
     private ListView recentRead;
     private List<RecentRead> recentReads = new ArrayList<RecentRead>();
     private Handler handler=new Handler(){
@@ -72,6 +76,26 @@ public class RecentReadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recent_read);
         recentRead = findViewById(R.id.lv_recent_read);
         getRecentReads();
+        back=findViewById(R.id.back);
+        home=findViewById(R.id.back_home);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RecentReadActivity.this, MainActivity.class);
+                intent.putExtra("userId",userId);
+                intent.putExtra("mark",5);
+                startActivity(intent);
+            }
+        });
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RecentReadActivity.this, MainActivity.class);
+                intent.putExtra("userId",userId);
+                startActivity(intent);
+            }
+        });
     }
 
     private void getRecentReads() {

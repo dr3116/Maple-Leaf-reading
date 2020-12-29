@@ -13,6 +13,7 @@
             android:layout_centerVertical="true"
             android:layout_width="110dp"
             android:layout_height="130dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/bookimg2"/>
         <TextView
             android:id="@+id/tv_search_bookName"

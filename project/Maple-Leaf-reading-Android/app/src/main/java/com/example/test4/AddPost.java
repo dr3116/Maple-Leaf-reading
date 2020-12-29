@@ -131,7 +131,9 @@ public class AddPost extends AppCompatActivity {
                     .apply(requestOptions)
                     .into(bookImg);
             //顺便设置一下背景
-            bookInfo.setBackgroundColor(R.color.gray91);
+            //bookInfo.setBackgroundColor(R.color.WhiteSmoke);
+            bookImg.setBackgroundResource(R.drawable.round_box4);
+            bookInfo.setBackgroundResource(R.drawable.rounded_text);
         }
         if (bookNameStr!=null){
             bookName.setText(bookNameStr);
@@ -141,11 +143,13 @@ public class AddPost extends AppCompatActivity {
         }
         if (head!=null){
             addImgShow.setImageBitmap(head);//用ImageView显示出来
+            addImgShow.setBackgroundResource(R.drawable.round_box4);
         }else if(headStr!=null){
             Glide.with(this)
                     .load(ConfigUtil.SERVER_ADDR+"imgs/"+headStr)
                     .apply(requestOptions)
                     .into(addImgShow);
+            addImgShow.setBackgroundResource(R.drawable.round_box4);
         }
         if (tempuserId!=null){
             userId=tempuserId;
@@ -200,6 +204,7 @@ public class AddPost extends AppCompatActivity {
                 case R.id.cancle_post:
                     Intent intent4=new Intent();
                     intent4.putExtra("userId",userId);
+                    intent4.putExtra("mark",3);
                     intent4.setClass(AddPost.this,MainActivity.class);
                     startActivity(intent4);
                     break;
@@ -220,6 +225,13 @@ public class AddPost extends AppCompatActivity {
             @Override
             public void run() {
                 try {
+                    /**
+                     * 判断文件夹是否存在
+                     */
+                    File fileDir = new File(path);
+                    if (!fileDir.exists()&&fileDir.isDirectory()){
+                        fileDir.mkdir();
+                    }
                     FileOutputStream b = null;
                     File file = new File(path + "head.jpg");
                     String fileName = path + "head.jpg";//图片名字
@@ -282,6 +294,7 @@ public class AddPost extends AppCompatActivity {
 
                     Intent intent5=new Intent();
                     intent5.putExtra("userId",userId);
+                    intent5.putExtra("mark",3);
                     intent5.setClass(AddPost.this,MainActivity.class);
                     startActivity(intent5);
                 }
@@ -365,6 +378,7 @@ public class AddPost extends AppCompatActivity {
                          */
                         setPicToView(head);//保存在SD卡中
                         addImgShow.setImageBitmap(head);//用ImageView显示出来
+                        addImgShow.setBackgroundResource(R.drawable.round_box4);
                     }
                 }
                 break;

@@ -75,6 +75,30 @@ public class GetSearchList extends HttpServlet {
 			}else {
 				System.out.println("数据库表没有数据");
 			}
+			
+			
+			
+			/**
+			 * 将搜索关键字写入搜索历史
+			 */
+			String sql2="select * from search_history where search_content like'"+bName+"'";
+			boolean c = false;
+			c = dbUtil.isExist(sql2);
+			System.out.println("\n"+"c的判断结果："+c);
+			if(!c) {
+				String sql3="insert into search_history(search_content) values('"+bName+"')";
+				dbUtil.insertData(sql3);
+			}else {
+				int searchNum=0;
+				ResultSet res2=dbUtil.queryDate(sql2);
+				//这里next（）方法一定要写，不然没有指到第一行
+				while(res2.next()) {
+					searchNum=res2.getInt("search_num");
+				}
+				++searchNum;
+				String sql3="update search_history set search_num='"+searchNum+"' where search_content='"+bName+"'";
+				dbUtil.updateData(sql3);
+			}
 			System.out.println("\n"+"posts数据长度："+books.size());
 			//将对象集合转换成
 			Gson gson=new Gson();

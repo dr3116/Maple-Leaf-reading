@@ -43,6 +43,7 @@ public class GetRecentReadList extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		String uId = (String)request.getParameter("userId");
+		System.out.println("\n"+"最近阅读userId"+uId);
 		List<RecentRead> recentReads = new ArrayList<>();
 		try {
 			DBUtil dbUtil;

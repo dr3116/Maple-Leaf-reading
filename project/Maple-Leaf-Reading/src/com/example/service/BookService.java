@@ -159,7 +159,7 @@ public class BookService {
 	
 	
 	//用于booklist1，查询所有图书数量
-	int booksNumber=1;
+	int booksNumber=0;
 	
 	public int getBooksNumber(){
 		try {
@@ -171,7 +171,6 @@ public class BookService {
 		}catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-//		System.out.println("图书总数为"+booksNumber);
 		return  booksNumber;
 	}
 	
@@ -201,7 +200,18 @@ public class BookService {
 	
 	
 	
-	
+	public int getClassNumber(String str1,String str2,String str3,String str4,String str5){
+		try {
+			//查询所有图书
+			ResultSet rs = dbUtil.queryDate("select count(*) from book where classification in('"+str1+"','"+str2+"','"+str3+"','"+str4+"','"+str5+"') ");
+			while(rs.next()) {
+				booksNumber = rs.getInt(1);
+			}
+		}catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return  booksNumber;
+	}
 
 	
 	

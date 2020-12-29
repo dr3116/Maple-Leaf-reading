@@ -51,7 +51,7 @@ public class FirstFragment extends Fragment {
         firstList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+
             }
         });
     }

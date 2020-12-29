@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -34,6 +35,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +62,14 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
     private ListView shujukuList;
     private ListView yunjishuanList;
     private ListView qitaList;
+    private String userId;
+    private TextView moreQianduan;
+    private TextView moreHouduan;
+    private TextView moreYidongduan;
+    private TextView moreShuJuku;
+    private TextView moreYunJiSuan;
+    private TextView moreQita;
+
     private List<BookCategory> categories=new ArrayList<>();
     private List<BookCategory> qianduans=new ArrayList<>();
     private List<BookCategory> houduans=new ArrayList<>();
@@ -110,12 +120,12 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
         BookShowAdapter bookShowAdapter6=new BookShowAdapter(getContext(),qitas, R.layout.shouye_item_layout);
         qitaList.setAdapter(bookShowAdapter6);
 
-        setListViewHeight(qianduanList);
-        setListViewHeight(houduanList);
-        setListViewHeight(yidongduanList);
-        setListViewHeight(shujukuList);
-        setListViewHeight(yunjishuanList);
-        setListViewHeight(qianduanList);
+
+
+
+
+
+
 
 //        postListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
@@ -210,12 +220,67 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
 
         search = view.findViewById(R.id.s_main_sousuo);
 
+        if (getArguments()!=null){
+            userId=getArguments().getString("userId");
+        }
+
         one = view.findViewById(R.id.r1);
         two = view.findViewById(R.id.r2);
         three = view.findViewById(R.id.r3);
         four = view.findViewById(R.id.r4);
         five = view.findViewById(R.id.r5);
         share=view.findViewById(R.id.s_main_share);
+
+        moreQianduan=view.findViewById(R.id.s_more_qianduan);
+        moreHouduan=view.findViewById(R.id.s_more_houduan);
+        moreYidongduan=view.findViewById(R.id.s_more_yidongduan);
+        moreShuJuku=view.findViewById(R.id.s_more_shujuku);
+        moreYunJiSuan=view.findViewById(R.id.s_more_dashuju);
+        moreQita=view.findViewById(R.id.s_more_qita);
+
+
+        moreQianduan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("点击了更多前端","开始");
+                setListViewHeight(qianduanList);
+            }
+        });
+        moreHouduan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("点击了更多后端","开始");
+                setListViewHeight(houduanList);
+            }
+        });
+        moreYidongduan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("点击了更多移动端","开始");
+                setListViewHeight(yidongduanList);
+            }
+        });
+        moreShuJuku.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("点击了更多数据库","开始");
+                setListViewHeight(shujukuList);
+            }
+        });
+        moreYunJiSuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("点击了更多云计算","开始");
+                setListViewHeight(yunjishuanList);
+            }
+        });
+        moreQita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("点击了更多其他","开始");
+                setListViewHeight(qitaList);
+            }
+        });
 
         qianduanList=view.findViewById(R.id.qianduan);
         houduanList=view.findViewById(R.id.houduan);
@@ -249,6 +314,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), Search.class);
+                intent.putExtra("userId",userId);
                 startActivity(intent);
             }
         });
@@ -256,6 +322,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), BookIntroduction.class);
+                intent.putExtra("userId",userId);
                 intent.putExtra("bookName","Android Studio 用户指南");
                 intent.putExtra("readingVolume","53004");
                 intent.putExtra("numberOfChapters","130");
@@ -271,6 +338,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), BookIntroduction.class);
+                intent.putExtra("userId",userId);
                 intent.putExtra("bookName","Python - 100天从新手到大师");
                 intent.putExtra("readingVolume","118744");
                 intent.putExtra("numberOfChapters","193");
@@ -286,6 +354,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), BookIntroduction.class);
+                intent.putExtra("userId",userId);
                 intent.putExtra("bookName","技术面试需要掌握的基础知识整理");
                 intent.putExtra("readingVolume","69940");
                 intent.putExtra("numberOfChapters","29");
@@ -301,6 +370,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), BookIntroduction.class);
+                intent.putExtra("userId",userId);
                 intent.putExtra("bookName","奋斗");
                 intent.putExtra("readingVolume","513004");
                 intent.putExtra("numberOfChapters","30");
@@ -316,6 +386,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), BookIntroduction.class);
+                intent.putExtra("userId",userId);
                 intent.putExtra("bookName","Python 网络爬虫教程");
                 intent.putExtra("readingVolume","44739");
                 intent.putExtra("numberOfChapters","122");
@@ -406,7 +477,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
         share_intent.setAction(Intent.ACTION_SEND);//设置分享行为
         share_intent.setType("text/plain");//设置分享内容的类型
         share_intent.putExtra(Intent.EXTRA_SUBJECT, "share");//添加分享内容标题
-        share_intent.putExtra(Intent.EXTRA_TEXT, "https://github.com/dr3116/Maple-Leaf-reading");//添加分享内容
+        share_intent.putExtra(Intent.EXTRA_TEXT, "枫悦阅读来啦！"+"\n"+"点击下面的链接下载吧！"+"\n"+"https://github.com/dr3116/Maple-Leaf-reading");//添加分享内容
         //创建分享的Dialog
         share_intent = Intent.createChooser(share_intent, "share");
         startActivity(share_intent);
@@ -442,6 +513,7 @@ public class SimpleFragment1 extends Fragment implements OnItemClickListener{
     }
     private void intentToIntroduction(){
         Intent intent=new Intent();
+        intent.putExtra("userId",userId);
         intent.setClass(getContext(), BookIntroduction.class);
         intent.putExtra("bookName",books.get(0).getBookName());
         intent.putExtra("readingVolume",books.get(0).getReadingVolume()+"");

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.test4.ConfigUtil;
@@ -40,6 +41,7 @@ public class SimpleFragment4 extends Fragment {
     private int img;
     private Button btn11;
     private ListView bookShelfListView;
+    private String userId;
     private List<BookShelfBook> books=new ArrayList<BookShelfBook>();
     private Handler handler=new Handler(){
         @Override
@@ -53,8 +55,9 @@ public class SimpleFragment4 extends Fragment {
     };
 
     private void setListView(){
-        BookShelfAdapter bookShelfAdapter=new BookShelfAdapter(getContext(),books,R.layout.bookshelf_item);
+        BookShelfAdapter bookShelfAdapter=new BookShelfAdapter(getContext(),books,R.layout.bookshelf_item,userId);
         bookShelfListView.setAdapter(bookShelfAdapter);
+        setListViewHeight(bookShelfListView);
 //        bookShelfListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -64,6 +67,29 @@ public class SimpleFragment4 extends Fragment {
 //                startActivity(intent);
 //            }
 //        });
+    }
+    /**
+     * 重新计算ListView的高度，解决ScrollView和ListView两个View都有滚动的效果，在嵌套使用时起冲突的问题
+     * @param listView
+     */
+    public void setListViewHeight(ListView listView) {
+        // 获取ListView对应的Adapter
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            return;
+        }
+
+        int totalHeight = 0;
+        for (int i = 0, len = listAdapter.getCount(); i < len; i++) { // listAdapter.getCount            ()返回数据项的数目
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0); // 计算子项View 的宽高
+            totalHeight += listItem.getMeasuredHeight(); // 统计所有子项的总高度
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+
+        listView.setLayoutParams(params);
     }
     //获取post的字符信息
     private void getBookShelfInfo() {
@@ -83,7 +109,7 @@ public class SimpleFragment4 extends Fragment {
                     Response response = client.newCall(request).execute();
                     //获得json字符串
                     String responseData = response.body().string();
-                    Log.e("从服务端返回的json:",responseData);
+                    Log.e("书架信息json:",responseData);
                     //解析字符串
                     Gson gson = new GsonBuilder()
                             .create(); //生成配置好的Gson
@@ -124,6 +150,9 @@ public class SimpleFragment4 extends Fragment {
          * 周双文
          * 更改Fragment布局
          */
+        if (getArguments()!=null){
+            userId=getArguments().getString("userId");
+        }
         View view = inflater.inflate(R.layout.activity_bookshelf, container, false);
         bookShelfListView=view.findViewById(R.id.bookshelf_list);
         getBookShelfInfo();

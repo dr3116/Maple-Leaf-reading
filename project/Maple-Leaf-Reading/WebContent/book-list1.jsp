@@ -30,8 +30,7 @@
   List<Book> books=(List<Book>)request.getAttribute("booklist1");
   %>
   
-  
-  
+  <iframe src="./book-bing.jsp?a=${a }&t=${t}&h=${h}&p=${p}&c=${c}&color=#c23531" frameborder="0" scrolling="yes" class="x-iframe" height="500px" width="100%"></iframe>
     <div class="x-nav">
       <span class="layui-breadcrumb">
         <a href="">枫叶悦读 - 后台管理</a>
@@ -49,7 +48,6 @@
       <div class="layui-row">
         <form class="layui-form layui-col-md12 x-so" action="BookList1?page=1" method="post">          
           <input type="text" name="searchname"  placeholder="请输入图书名称" autocomplete="off" class="layui-input">
-    <!--        <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">   &#xe615;</i></button>-->
     	 <input type="submit" name="增加" class="layui-btn"  lay-submit="" lay-filter="sreach"/><i class="layui-icon">   &#xe615;</i>
         </form>           
       </div>
@@ -102,9 +100,12 @@
             <td>${booklist1.get(sta.index).numberOfCollections}</td>
             <td height="60" width="800">${booklist1.get(sta.index).briefIntroduction}</td>
             <td>
+            <button>
               <a href="BookList1?page=${aim}&order=delete&deletename=${booklist1.get(sta.index).bookName}">
                 <i class="layui-icon">&#xe640;</i>
               </a>
+            </button>
+            <button  onclick="x_admin_show('添加用户','book-list3.jsp')"></i>修改</button>
             </td>
           </tr>
         </tbody>

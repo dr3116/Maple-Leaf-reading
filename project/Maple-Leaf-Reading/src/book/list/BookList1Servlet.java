@@ -135,6 +135,20 @@ public class BookList1Servlet extends HttpServlet {
 		
 		
 		
+		//为饼状图查询数据
+		int a=bookService.getClassNumber("Android","Java","Android","Android","Android");
+		int t=bookService.getClassNumber("C/C++","MySQL","MySQL","MySQL","MySQL");
+		int h=bookService.getClassNumber("H5小游戏","JQuery","JavaScript","小程序","HTML5");
+		int p=bookService.getClassNumber("Python","深度学习","机器学习","机器学习","机器学习");
+		int c=bookService.getClassNumber("测试","测试","测试","测试","测试");
+		
+		request.setAttribute("a",a);
+		request.setAttribute("t",t);
+		request.setAttribute("h",h);
+		request.setAttribute("p",p);
+		request.setAttribute("c",c);
+		
+		
 		
 		
 		//跳转页面

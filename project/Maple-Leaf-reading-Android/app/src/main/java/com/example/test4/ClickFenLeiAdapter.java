@@ -20,6 +20,7 @@ import java.util.List;
  */
 public class ClickFenLeiAdapter extends BaseAdapter {
     private Context context;
+    private String userId;
     private List<Book> bookList = new ArrayList<>();
     private int itemLayout;
     public ClickFenLeiAdapter(Context context, List<Book> bookList, int itemLayout){

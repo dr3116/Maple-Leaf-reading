@@ -30,6 +30,7 @@ import okhttp3.Response;
  */
 public class ClickFenLeiActivity extends AppCompatActivity {
     private String str2;
+    private String userId;
     private ListView classification;
     private List<Book> books = new ArrayList<Book>();
     private Handler handler=new Handler(){
@@ -68,6 +69,7 @@ public class ClickFenLeiActivity extends AppCompatActivity {
                     FormBody.Builder builder = new FormBody.Builder();
                     builder.add("classification","小程序");
                     FormBody body = builder.build();
+                    userId=getIntent().getStringExtra(userId);
                     Request request = new Request.Builder()
                             // 指定访问的服务器地址
                             .post(body)
@@ -102,6 +104,7 @@ public class ClickFenLeiActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(ClickFenLeiActivity.this, BookIntroduction.class);
                 intent.putExtra("bookName",books.get(position).getBookName());
                 intent.putExtra("readingVolume",books.get(position).getReadingVolume()+"");

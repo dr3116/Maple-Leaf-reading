@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.test4.main_fragment_all_5.SimpleFragment3;
+import com.example.test4.search.Search;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -30,6 +31,9 @@ public class MyCollection extends AppCompatActivity {
     private ListView postListView;
     private ImageView addPostImg;
     private PostAdapter postAdapter;
+    private ImageView back;
+    private ImageView backHome;
+    private List<Integer> ImgAttention=new ArrayList<>();
     private List<Integer> ImgInAdress=new ArrayList<>();
     private List<Post> posts=new ArrayList<Post>();
     private List<Post> postTemp=new ArrayList<>();
@@ -51,13 +55,27 @@ public class MyCollection extends AppCompatActivity {
         setContentView(R.layout.activity_my_collection);
         userId=getIntent().getStringExtra("userId");
         postListView=findViewById(R.id.my_cllection_list);
-        getpost();
-        posts= SimpleFragment3.newInstance("zhou").getPost();
-        if (posts==null){
-            Log.e("posts问题","posts是空的");
-        }else {
-            Log.e("posts没问题","其他问题");
-        }
+        back=findViewById(R.id.back);
+        backHome=findViewById(R.id.back_home);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyCollection.this, MainActivity.class);
+                intent.putExtra("userId",userId);
+                intent.putExtra("mark",5);
+                startActivity(intent);
+            }
+        });
+        backHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyCollection.this, MainActivity.class);
+                intent.putExtra("userId",userId);
+                startActivity(intent);
+            }
+        });
+        getAllPost();
+
     }
     private void getPsotTemp(){
         for (Collection item: collections){
@@ -70,8 +88,9 @@ public class MyCollection extends AppCompatActivity {
     }
     private void setListView(){
         getPsotTemp();
-        PutImgAdress();
-        postAdapter=new PostAdapter(this,postTemp,R.layout.post_item,ImgInAdress,userId);
+        putImg();
+        Log.e("postTemp数量",postTemp.size()+"");
+        postAdapter=new PostAdapter(this,postTemp,R.layout.post_item,ImgInAdress,ImgAttention,userId);
         postListView.setAdapter(postAdapter);
         postListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -84,11 +103,12 @@ public class MyCollection extends AppCompatActivity {
             }
         });
     }
-    private void PutImgAdress(){
-        Log.e("posts数量",""+postTemp.size());
-        int imgCount=+postTemp.size();
+    private void putImg(){
+        Log.e("posts数量",""+posts.size());
+        int imgCount=posts.size();
         for (int i=0;i<imgCount;i++){
             ImgInAdress.add(R.drawable.likes);
+            ImgAttention.add(R.drawable.circles);
         }
     }
     //获取post的字符信息
@@ -121,6 +141,33 @@ public class MyCollection extends AppCompatActivity {
 
                     //发送Message
                     handler.sendMessage(msg);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+    //获取post的字符信息
+    private void getAllPost() {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    Request request = new Request.Builder()
+                            // 指定访问的服务器地址
+                            .url(ConfigUtil.SERVER_ADDR+"GetCommentList")
+                            .build();
+                    Response response = client.newCall(request).execute();
+                    //获得json字符串
+                    String responseData = response.body().string();
+                    Log.e("从服务端返回的json:",responseData);
+                    //解析字符串
+                    Gson gson = new GsonBuilder()
+                            .create(); //生成配置好的Gson
+                    posts = gson.fromJson(responseData, new TypeToken<List<Post>>(){}.getType());
+                    //获取我收藏的post
+                    getpost();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -24,7 +24,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private String userId;
+    private String userName;
+    private String userPassword;
     private CommonTabLayout tab;
+    private int actionFrom;
     private ViewPager view;
     private ArrayList<CustomTabEntity> dates = new ArrayList<>();
 
@@ -40,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //获取用户id
         userId=(String)getIntent().getStringExtra("userId");
+        userName=(String) getIntent().getStringExtra("userName");
+        userPassword=(String) getIntent().getStringExtra("userPassword");
+        actionFrom=(int)getIntent().getIntExtra("mark",0);
 
 
         //步骤1：实例化控件对象
@@ -50,6 +56,22 @@ public class MainActivity extends AppCompatActivity {
         initTabLayout();
         //4.大page
         initViewPager();
+
+        /**
+         * 通过标记确定跳转到那个Fragment
+         */
+        if (actionFrom==0){
+
+        }else if (actionFrom==3){
+            Log.e("设置Fragment为3","开始");
+            view.setCurrentItem(2,false);
+        }else if (actionFrom==5){
+            Log.e("设置Fragment为5","开始");
+            view.setCurrentItem(4,true);
+        }else if (actionFrom==4){
+            Log.e("设置Fragment为4","开始");
+            view.setCurrentItem(3,true);
+        }
     }
 
 
@@ -135,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
         //将userId传递给每个Fragment
         Bundle bundle=new Bundle();
         bundle.putString("userId",userId);
+        bundle.putString("userName",userName);
+        bundle.putString("userPassword",userPassword);
         simpleFragment1.setArguments(bundle);
         simpleFragment2.setArguments(bundle);
         simpleFragment3.setArguments(bundle);

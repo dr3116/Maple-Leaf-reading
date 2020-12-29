@@ -1,5 +1,6 @@
 package com.example.test4.book;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,17 +20,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.test4.AddPingLunActivity;
+import com.example.test4.bookReadPage.BookReadActivity;
 import com.example.test4.BookReview;
 import com.example.test4.BookReviewAdapter;
 import com.example.test4.ConfigUtil;
+import com.example.test4.Login;
 import com.example.test4.R;
+import com.example.test4.bookReadPage.PDFReadActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.Call;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -44,12 +51,19 @@ public class BookIntroduction extends AppCompatActivity {
     private TextView numberOfCollections;
     private TextView briefIntroduction;
     private ImageView bookPhoto;
+    private LinearLayout bookRead;
+    private LinearLayout bookPinglun;
+    private LinearLayout bookShoucang;
     private ListView bookReview;
+    private TextView tvshoucang;
+    private ImageView ivshoucang;
     private LinearLayout mGallery;
     private int[] mImgIds;
+    private String userId;
     private LayoutInflater mInflater;
     private List<BookReview> bookReviews = new ArrayList<BookReview>();
     private List<Book> bookList;
+    private int sum=0;
     private String name;
     private Handler handler=new Handler(){
         @Override
@@ -60,6 +74,8 @@ public class BookIntroduction extends AppCompatActivity {
             }
         }
     };
+
+
 
     private void setListView() {
         BookReviewAdapter bookReviewAdapter = new BookReviewAdapter(this,bookReviews, R.layout.bookreview_list_item);
@@ -72,6 +88,7 @@ public class BookIntroduction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_book_introduction);
+        userId=getIntent().getStringExtra("userId");
         mInflater = LayoutInflater.from(this);
         //获取控件
         getView();
@@ -102,7 +119,161 @@ public class BookIntroduction extends AppCompatActivity {
         initData();
         initView();
         getBookReview();
+        setOnclick();
     }
+
+    /**
+     * 按钮的点击事件
+     */
+    private void setOnclick() {
+        //阅读按钮点击事件
+        bookRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //开始阅读，intent跳转。
+                Intent intent = new Intent(BookIntroduction.this, PDFReadActivity.class);
+                intent.putExtra("bookName",name);
+                intent.putExtra("userId",userId);
+                intent.putExtra("fileName",name+".pdf");
+                intent.putExtra("order","1");
+                startActivity(intent);
+            }
+        });
+        //评论按钮点击事件
+        bookPinglun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BookIntroduction.this, AddPingLunActivity.class);
+                intent.putExtra("bookName",name);
+                String rVolume = getIntent().getStringExtra("readingVolume");
+                intent.putExtra("readingVolume",rVolume);
+                String Chapters = getIntent().getStringExtra("numberOfChapters");
+                intent.putExtra("numberOfChapters",Chapters);
+                String bRating = getIntent().getStringExtra("bookRating");
+                intent.putExtra("bookRating",bRating);
+                String bAuthor = getIntent().getStringExtra("author");
+                intent.putExtra("author",bAuthor);
+                String Collections = getIntent().getStringExtra("numberOfCollections");
+                intent.putExtra("numberOfCollections",Collections);
+                String bIntroduction = getIntent().getStringExtra("briefIntroduction");
+                intent.putExtra("briefIntroduction",bIntroduction);
+                String bPhoto = getIntent().getStringExtra("bookPhoto")+"";
+                intent.putExtra("bookPhoto",bPhoto);
+                startActivity(intent);
+            }
+        });
+        //收藏按钮点击事件
+        bookShoucang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sum= sum+1;
+                if(sum%2==1){
+                    tvshoucang.setText("已收藏");
+                    ivshoucang.setBackgroundColor(getResources().getColor(R.color.account_pressed_true));
+                    setBookShelf();
+                }else{
+                    tvshoucang.setText("收藏");
+                    ivshoucang.setBackgroundColor(getResources().getColor(R.color.white));
+                    DeleteBookShelf();
+                }
+            }
+        });
+    }
+
+    private void DeleteBookShelf() {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    FormBody.Builder builder = new FormBody.Builder();
+                    String n = name;
+                    String a = Login.userId;
+                    Log.e("name:", n + "");
+                    Log.e("userId:", a + "");
+                    builder.add("bookkName", n);
+                    builder.add("uuserId",a);
+                    FormBody body = builder.build();
+                    Request request = new Request.Builder()
+                            // 指定访问的服务器地址
+                            .post(body)
+                            .url(ConfigUtil.SERVER_ADDR + "DeleteBookShelfList")
+                            .build();
+                    Call call2=client.newCall(request);
+                    call2.enqueue(new okhttp3.Callback() {
+                        @Override
+                        public void onFailure(Call call, final IOException e) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Log.e("将字符串上传","失败");
+                                    e.printStackTrace();
+                                    //失败的操作
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
+                            //成功的操作
+                            Log.e("将字符串上传","成功");
+                            Log.e("将新的POST发送","结束");
+                        }
+                    });
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    private void setBookShelf() {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    FormBody.Builder builder = new FormBody.Builder();
+                    String n = name;
+                    String a = Login.userId;
+                    Log.e("name:", n + "");
+                    Log.e("userId:", a + "");
+                    builder.add("bbbookName", n);
+                    builder.add("uuuserId",a);
+                    FormBody body = builder.build();
+                    Request request = new Request.Builder()
+                            // 指定访问的服务器地址
+                            .post(body)
+                            .url(ConfigUtil.SERVER_ADDR + "SetBookShelfList")
+                            .build();
+                    Call call2=client.newCall(request);
+                    call2.enqueue(new okhttp3.Callback() {
+                        @Override
+                        public void onFailure(Call call, final IOException e) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Log.e("将字符串上传","失败");
+                                    e.printStackTrace();
+                                    //失败的操作
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
+                            //成功的操作
+                            Log.e("将字符串上传","成功");
+                            Log.e("将新的POST发送","结束");
+                        }
+                    });
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
 
     private void getBookReview() {
         new Thread() {
@@ -151,6 +322,11 @@ public class BookIntroduction extends AppCompatActivity {
         briefIntroduction = findViewById(R.id.tv_briefIntroduction);
         bookPhoto = findViewById(R.id.iv_book_photo);
         bookReview = findViewById(R.id.lv_comments);
+        bookRead = findViewById(R.id.ll_read);
+        bookPinglun = findViewById(R.id.ll_pinglun);
+        bookShoucang = findViewById(R.id.ll_shoucang);
+        tvshoucang = findViewById(R.id.tv_shoucang);
+        ivshoucang = findViewById(R.id.iv_shoucang);
     }
 
     private void initData() {

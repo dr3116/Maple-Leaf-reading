@@ -30,6 +30,7 @@ import okhttp3.Response;
  */
 public class ClickFenLei6Activity extends AppCompatActivity {
     private String str2;
+    private String userId;
     private ListView classification;
     private List<Book> books = new ArrayList<Book>();
     private Handler handler=new Handler(){
@@ -45,6 +46,8 @@ public class ClickFenLei6Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_click_fen_lei);
+        userId=getIntent().getStringExtra(userId);
+
         classification = findViewById(R.id.s_clickfenlei_listview);
         getBooks();
     }
@@ -98,10 +101,12 @@ public class ClickFenLei6Activity extends AppCompatActivity {
     private void setListView() {
         ClickFenLeiAdapter clickFenLeiAdapter = new ClickFenLeiAdapter(this,books, R.layout.fenlei_list_item);
         classification.setAdapter(clickFenLeiAdapter);
+
         classification.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(ClickFenLei6Activity.this, BookIntroduction.class);
                 intent.putExtra("bookName",books.get(position).getBookName());
                 intent.putExtra("readingVolume",books.get(position).getReadingVolume()+"");

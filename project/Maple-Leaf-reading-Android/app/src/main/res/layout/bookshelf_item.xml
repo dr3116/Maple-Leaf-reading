@@ -3,23 +3,25 @@
     author:周双文
     time:2020/11/23-->
 <LinearLayout android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="170dp"
     android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_weight="33"
-        android:padding="5dp"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+
         android:layout_height="match_parent">
-        <ImageView
+        <com.example.test4.RoundImageView
             android:id="@+id/z_book_img1"
+            android:scaleType="centerCrop"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/bookimg"/>
+            android:layout_height="120dp" />
         <TextView
             android:id="@+id/z_book_name1"
-            android:text="图书名称"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_width="match_parent"
@@ -27,18 +29,19 @@
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_weight="33"
-        android:padding="5dp"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_height="match_parent">
-        <ImageView
+        <com.example.test4.RoundImageView
             android:id="@+id/z_book_img2"
+            android:scaleType="centerCrop"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/bookimg2"/>
+            android:layout_height="120dp" />
         <TextView
             android:id="@+id/z_book_name2"
-            android:text="图书名称"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_width="match_parent"
@@ -46,18 +49,19 @@
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_weight="33"
-        android:padding="5dp"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_height="match_parent">
-        <ImageView
+        <com.example.test4.RoundImageView
             android:id="@+id/z_book_img3"
+            android:scaleType="centerCrop"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/bookimg3"/>
+            android:layout_height="120dp"/>
         <TextView
             android:id="@+id/z_book_name3"
-            android:text="图书名称"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_width="match_parent"

@@ -51,6 +51,7 @@ public class PostAdapter extends BaseAdapter {
     private int itemLayout;
     private List<Book> books=new ArrayList<>();
     private List<Integer> ImgInAdress=new ArrayList<>();
+    private List<Integer> ImgAttention=new ArrayList<>();
     private String userId;
     private Handler handler=new Handler(){
         @Override
@@ -59,16 +60,22 @@ public class PostAdapter extends BaseAdapter {
                 Toast.makeText(context,"你已经收藏过了",Toast.LENGTH_LONG).show();
             }else if (msg.what==2){
                 Toast.makeText(context,"收藏成功",Toast.LENGTH_LONG).show();
+            }else if (msg.what==3){
+                Toast.makeText(context,"你已经关注过了",Toast.LENGTH_LONG).show();
+            }else if (msg.what==4){
+                Toast.makeText(context,"关注成功",Toast.LENGTH_LONG).show();
+
             }
         }
     };
 
-    public PostAdapter(Context context, List<Post> postList, int itemLayout,List<Integer> ImgInAdress,String userId) {
+    public PostAdapter(Context context, List<Post> postList, int itemLayout,List<Integer> ImgInAdress,List<Integer> ImgAtention ,String userId) {
         this.context = context;
         this.postList = postList;
         this.itemLayout = itemLayout;
         this.ImgInAdress=ImgInAdress;
         this.userId=userId;
+        this.ImgAttention=ImgAtention;
     }
 
     @Override
@@ -93,6 +100,7 @@ public class PostAdapter extends BaseAdapter {
         }
         CircleImageView posterPhoto=convertView.findViewById(R.id.poster_img);
         TextView posterName=convertView.findViewById(R.id.poster_name);
+        ImageView addAttention=convertView.findViewById(R.id.add_attantion);
         ImageView menu=convertView.findViewById(R.id.menu_img);
         TextView postContent=convertView.findViewById(R.id.post_text);
         ImageView postImg=convertView.findViewById(R.id.post_img);
@@ -128,6 +136,7 @@ public class PostAdapter extends BaseAdapter {
                 .apply(requestOptions)
                 .into(bookImg);
         posterName.setText(postList.get(position).getUserName());
+
         menu.setOnClickListener(myListener);
         postContent.setText(postList.get(position).getContent());
         bookInfo.setOnClickListener(myListener);
@@ -136,8 +145,10 @@ public class PostAdapter extends BaseAdapter {
         postTime.setText(postList.get(position).getPostTime());
         commentImg.setOnClickListener(myListener);
         commentNum.setText(String.valueOf(postList.get(position).getComments()));
+        addAttention.setImageResource(ImgAttention.get(position));
         likesImg.setImageResource(ImgInAdress.get(position));
         likesImg.setOnClickListener(myListener);
+        addAttention.setOnClickListener(myListener);
         likesNum.setText(String.valueOf(postList.get(position).getNumberOfLikes()));
         forward.setOnClickListener(myListener);
 
@@ -171,6 +182,17 @@ public class PostAdapter extends BaseAdapter {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
+                case R.id.add_attantion:
+                    if (ImgAttention.get(position)==R.drawable.circles){
+                        ImgAttention.set(position,R.drawable.circles2);
+                    }else if (ImgAttention.get(position)==R.drawable.circles){
+                       //
+
+
+                    }
+                    notifyDataSetChanged();
+                    addAttention(position);
+                    break;
                 case R.id.menu_img:
                     int s=showPopupMenu(v,position);
                     break;
@@ -197,6 +219,8 @@ public class PostAdapter extends BaseAdapter {
                 case R.id.forward:
                     Intent intent2=new Intent();
                     intent2.setClass(context,AddPost.class);
+                    intent2.putExtra("userId",userId);
+                    intent2.putExtra("bookName",books.get(position).getBookName());
                     intent2.putExtra("input",postList.get(position).getContent());
                     intent2.putExtra("userId",userId);
                     intent2.putExtra("headStr",postList.get(position).getPhoto());
@@ -241,6 +265,7 @@ public class PostAdapter extends BaseAdapter {
     private void intentToIntroduction(){
         Intent intent=new Intent();
         intent.setClass(context, BookIntroduction.class);
+        intent.putExtra("userId",userId);
         intent.putExtra("bookName",books.get(0).getBookName());
         intent.putExtra("readingVolume",books.get(0).getReadingVolume()+"");
         intent.putExtra("numberOfChapters",books.get(0).getNumberOfChapters()+"");
@@ -338,6 +363,50 @@ public class PostAdapter extends BaseAdapter {
                     }
 
                     Log.e("增加收藏","结束");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+    private void addAttention(final int position){
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    FormBody.Builder builder = new FormBody.Builder();
+                    builder.add("userId",userId);
+                    builder.add("posterId",postList.get(position).getUserId()+"");
+                    FormBody body = builder.build();
+                    Request request = new Request.Builder()
+                            // 指定访问的服务器地址
+                            .post(body)
+                            .url(ConfigUtil.SERVER_ADDR+"AddAttention")
+                            .build();
+                    Response response = client.newCall(request).execute();
+                    //获得json字符串
+                    String responseData = response.body().string();
+                    Log.e("从服务端返回的json:",responseData);
+                    //解析字符串
+                    Gson gson = new GsonBuilder()
+                            .create(); //生成配置好的Gson
+                    String attentionInfo=gson.fromJson(responseData,String.class);
+                    if (attentionInfo!=null && attentionInfo.equals("error")){
+                        Message msg = new Message();
+                        //设置Message对象的参数
+                        msg.what = 3;
+                        //发送Message
+                        handler.sendMessage(msg);
+                    }else {
+                        Message msg = new Message();
+                        //设置Message对象的参数
+                        msg.what = 4;
+                        //发送Message
+                        handler.sendMessage(msg);
+                    }
+
+                    Log.e("增加关注","结束");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

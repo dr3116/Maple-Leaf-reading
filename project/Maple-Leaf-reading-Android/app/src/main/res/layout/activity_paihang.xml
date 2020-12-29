@@ -8,27 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/s_clickfenlei_back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/back"
-            android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"/>
-        <ImageView
-            android:id="@+id/s_clickfenlei_line"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/line"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/s_clickfenlei_back"/>
-        <ImageView
-            android:id="@+id/s_clickfenlei_home"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/home"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/s_clickfenlei_line"/>
+
         <TextView
             android:id="@+id/s_clickfenlei_title"
             android:layout_width="wrap_content"
@@ -38,14 +18,7 @@
             android:text="排行榜"
             android:textColor="@color/black"
             android:textSize="20sp" />
-        <ImageView
-            android:id="@+id/s_clickfenlei_share"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/share" />
+
     </RelativeLayout>
     <RelativeLayout
         android:layout_marginTop="50dp"

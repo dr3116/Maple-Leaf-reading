@@ -49,6 +49,7 @@ public class SimpleFragment3 extends Fragment{
     private ImageView addPostImg;
     private PostAdapter postAdapter;
     private List<Integer> ImgInAdress=new ArrayList<>();
+    private List<Integer> ImgAttention=new ArrayList<>();
     private List<Post> posts=new ArrayList<Post>();
     private Handler handler=new Handler(){
         @Override
@@ -139,8 +140,8 @@ public class SimpleFragment3 extends Fragment{
         return view;
     }
     private void setListView(){
-        PutImgAdress();
-        postAdapter=new PostAdapter(getContext(),posts,R.layout.post_item,ImgInAdress,userId);
+        putImg();
+        postAdapter=new PostAdapter(getContext(),posts,R.layout.post_item,ImgInAdress,ImgAttention, userId);
         postListView.setAdapter(postAdapter);
         postListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -153,11 +154,12 @@ public class SimpleFragment3 extends Fragment{
             }
         });
     }
-    private void PutImgAdress(){
+    private void putImg(){
         Log.e("posts数量",""+posts.size());
         int imgCount=posts.size();
         for (int i=0;i<imgCount;i++){
             ImgInAdress.add(R.drawable.likes);
+            ImgAttention.add(R.drawable.circles);
         }
     }
 

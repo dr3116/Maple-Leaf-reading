@@ -1,11 +1,13 @@
 package com.example.test4;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,6 +29,8 @@ public class FensActivity extends AppCompatActivity {
     private String userId;
     private String str2;
     private ListView fen;
+    private ImageView back;
+    private ImageView backHome;
     private List<Fens> fens = new ArrayList<Fens>();
     private Handler handler=new Handler(){
         @Override
@@ -62,6 +66,25 @@ public class FensActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_fens);
         fen = findViewById(R.id.lv_fens);
         getFens();
+        back=findViewById(R.id.back);
+        backHome=findViewById(R.id.back_home);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FensActivity.this, MainActivity.class);
+                intent.putExtra("userId",userId);
+                intent.putExtra("mark",5);
+                startActivity(intent);
+            }
+        });
+        backHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FensActivity.this, MainActivity.class);
+                intent.putExtra("userId",userId);
+                startActivity(intent);
+            }
+        });
     }
     public void getFens() {
         new Thread() {

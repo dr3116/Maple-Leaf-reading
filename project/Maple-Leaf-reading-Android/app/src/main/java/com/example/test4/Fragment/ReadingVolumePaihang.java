@@ -4,7 +4,7 @@ public class ReadingVolumePaihang {
     private String bookName;
     private int readingVolume;
     private String bookPhoto;
-    public ReadingVolumePaihang(String bookName,int readingVolume,String bookPhoto) {
+    public ReadingVolumePaihang(String bookName, int readingVolume, String bookPhoto) {
         this.bookName = bookName;
         this.readingVolume = readingVolume;
         this.bookPhoto = bookPhoto;

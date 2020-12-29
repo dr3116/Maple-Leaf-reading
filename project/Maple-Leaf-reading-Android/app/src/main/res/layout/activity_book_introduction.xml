@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <!--这是最外层整体-->
     <ScrollView
+        android:layout_weight="9"
         android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -281,4 +283,75 @@
             android:text="到底啦！"/>
     </LinearLayout>
     </ScrollView>
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_height="60dp">
+        <LinearLayout
+            android:id="@+id/ll_pinglun"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="33"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/pinglun"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+            <TextView
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="评论"
+                android:layout_height="20dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_read"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="33"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/read"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="50dp"
+                android:layout_height="35dp"/>
+            <TextView
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="阅读"
+                android:layout_height="20dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_shoucang"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="33"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_shoucang"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/shoucang"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+            <TextView
+                android:id="@+id/tv_shoucang"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="50dp"
+                android:text="收藏"
+                android:layout_height="20dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>

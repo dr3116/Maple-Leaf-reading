@@ -57,7 +57,7 @@ public class BookList22Servlete extends HttpServlet {
 			System.out.println("------开始处理上传文件");
 			//服务器仓库地址
 			String imgPath=this.getServletContext().getRealPath("/img");//图片路径
-			String txtPath=this.getServletContext().getRealPath("/txt");//图书路径
+			String txtPath=this.getServletContext().getRealPath("/test");//图书路径
 			
 			
 			String txtName="";
@@ -71,7 +71,7 @@ public class BookList22Servlete extends HttpServlet {
 
 
 					String bookName=request.getParameter("bookName");	
-					if(ext.equals(".txt")) {//上传的是文件
+					if(ext.equals(".pdf")) {//上传的是文件
 						//获得参数传过来的数据库名字					
 						txtName=bookName+ext;
 						System.out.println("txtname="+txtName);

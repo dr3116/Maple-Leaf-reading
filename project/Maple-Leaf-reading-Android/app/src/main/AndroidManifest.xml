@@ -14,6 +14,9 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <uses-permission android:name="IMAGE_CAPTURE" />
+    <!--电话权限-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/maple_icon_circle"
@@ -22,8 +25,13 @@
         android:roundIcon="@mipmap/maple_icon_circle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".bookReadPage.PDFturn"></activity>
+        <activity android:name=".bookReadPage.PDFReadActivity" />
+        <activity android:name=".FileDownLoad" />
+        <activity android:name=".bookReadPage.BookReadActivity" />
+        <activity android:name=".MyPost" />
         <activity android:name=".Login" />
-        <activity android:name=".AddPostBook"></activity>
+        <activity android:name=".AddPostBook" />
         <activity android:name=".ClickFenLeiActivity" />
         <activity android:name=".ClickFenLei2Activity" />
         <activity android:name=".ClickFenLei3Activity" />
@@ -35,15 +43,16 @@
         <activity android:name=".ClickFenLei9Activity" />
         <activity android:name=".ClickFenLei10Activity" />
         <activity android:name=".book.BookIntroduction" />
-        <activity android:name=".SignToday"/>
-        <activity android:name=".MyCollection"/>
+        <activity android:name=".SignToday" />
+        <activity android:name=".MyCollection" />
         <activity android:name=".AboutUs" />
         <activity android:name=".search.Search" />
         <activity android:name=".AddPost" />
         <activity android:name=".Comment" />
-        <activity android:name=".FensActivity"/>
-        <activity android:name=".PaihangActivity"/>
-        <activity android:name=".RecentReadActivity"/>
+        <activity android:name=".FensActivity" />
+        <activity android:name=".PaihangActivity" />
+        <activity android:name=".RecentReadActivity" />
+        <activity android:name=".AddPingLunActivity" />
         <activity android:name=".welcome2.Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

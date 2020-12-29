@@ -176,7 +176,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/ic_selector_checkbox"
-                android:checked="true"
                 android:contentDescription="@null"
                 android:textColor="@color/text_secondary_color"
                 android:textSize="@dimen/font_12"
@@ -191,18 +190,6 @@
                 android:textSize="16sp"
                 android:visibility="visible" />
 
-            <TextView
-                android:id="@+id/tv_login_forget_pwd"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:paddingLeft="4dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:text="@string/login_forget_hint"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                tools:ignore="RtlSymmetry" />
         </LinearLayout>
 
         <Space

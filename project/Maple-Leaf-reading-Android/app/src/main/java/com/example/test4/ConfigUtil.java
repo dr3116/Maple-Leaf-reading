@@ -11,8 +11,8 @@ public class ConfigUtil {
     //http://192.168.43.20:8080/Server4AndroidDemo/
     //注意！！
     //不要有包名
-    public static final String SERVER_ADDR = "http://10.7.89.246:8080/Maple_leaf_reading/";
-
+    public static final String SERVER_ADDR = "http://192.168.43.97:8080/Maple_leaf_reading/";
+//
     /**
      * @param 将字节数组转换为ImageView可调用的Bitmap对象
      * @param bytes

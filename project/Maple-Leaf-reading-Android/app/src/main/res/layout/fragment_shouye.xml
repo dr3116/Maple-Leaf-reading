@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mycolor"
     android:orientation="vertical">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <TextView
@@ -41,8 +43,8 @@
         android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -56,12 +58,13 @@
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/s_banner"
                     android:layout_width="match_parent"
+
                     android:layout_height="120dp"
                     app:canLoop="true" />
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/s_twotext"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
                 <TextView
@@ -75,13 +78,16 @@
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="170dp">
+                android:background="@drawable/rounded_text2"
+                android:layout_height="200dp">
                 <HorizontalScrollView
                     android:scrollbars="none"
                     android:layout_width="match_parent"
-                    android:layout_height="170dp">
+                    android:background="@drawable/rounded_text2"
+                    android:layout_height="200dp">
                     <RelativeLayout
                         android:layout_width="match_parent"
+                        android:background="@drawable/rounded_text2"
                         android:layout_height="match_parent">
                         <RelativeLayout
                             android:id="@+id/r1"
@@ -112,14 +118,16 @@
                                 android:id="@+id/s_bookimg2"
                                 android:layout_width="110dp"
                                 android:layout_height="130dp"
-                                android:src="@drawable/yun"/>
+                                android:src="@drawable/ai"
+                                />
                             <TextView
                                 android:textColor="@color/black"
                                 android:id="@+id/s_booktext2"
                                 android:layout_width="110dp"
                                 android:layout_height="40dp"
                                 android:gravity="center"
-                                android:text="Python - 100天从新手到大师"
+                                android:text="技术面试需要掌握的基础知识整理"
+
                                 android:textSize="15sp"
                                 android:layout_below="@+id/s_bookimg2"/>
                         </RelativeLayout>
@@ -133,7 +141,8 @@
                                 android:id="@+id/s_bookimg3"
                                 android:layout_width="110dp"
                                 android:layout_height="130dp"
-                                android:src="@drawable/ai"/>
+                                android:src="@drawable/pythonpacong"
+                                />
 
                             <TextView
                                 android:id="@+id/s_booktext3"
@@ -142,7 +151,7 @@
                                 android:layout_below="@+id/s_bookimg3"
                                 android:layout_marginTop="-2dp"
                                 android:gravity="center"
-                                android:text="技术面试需要掌握的基础知识整理"
+                                android:text="Python网络爬虫开发实战"
                                 android:textColor="@color/black"
                                 android:textSize="15sp" />
                         </RelativeLayout>
@@ -156,14 +165,15 @@
                                 android:id="@+id/s_bookimg4"
                                 android:layout_width="110dp"
                                 android:layout_height="130dp"
-                                android:src="@drawable/pythonpacong"/>
+                                android:src="@drawable/yun"/>
                             <TextView
                                 android:textColor="@color/black"
                                 android:id="@+id/s_booktext4"
                                 android:layout_width="110dp"
                                 android:layout_height="40dp"
                                 android:gravity="center"
-                                android:text="Python网络爬虫开发实战"
+                                android:text="Python - 100天从新手到大师"
+
                                 android:textSize="15sp"
                                 android:layout_below="@+id/s_bookimg4"/>
                         </RelativeLayout>
@@ -192,195 +202,222 @@
                 </HorizontalScrollView>
             </RelativeLayout>
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:id="@+id/s_title_qianduan"
-                    android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/mycolor">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:background="@color/mycolor"
+                    android:layout_marginTop="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_alignParentTop="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="前端"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:id="@+id/s_more_qianduan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="更多"
-                        android:textColor="@android:color/holo_blue_light"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"/>
-                </RelativeLayout>
-                <ListView
-                    android:id="@+id/qianduan"
-                    android:layout_marginTop="10dp"
+                    <RelativeLayout
+                        android:id="@+id/s_title_qianduan"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="2dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_alignParentTop="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="前端"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:id="@+id/s_more_qianduan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:textColor="@android:color/holo_blue_light"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"/>
+                    </RelativeLayout>
+                    <ListView
+                        android:id="@+id/qianduan"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rounded_text2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:id="@+id/s_title_houduan"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="match_parent"
+                    android:background="@color/mycolor"
+                    android:layout_marginTop="3dp"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_alignParentTop="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="后端"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:id="@+id/s_more_houduan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="更多"
-                        android:textColor="@android:color/holo_blue_light"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"/>
-                </RelativeLayout>
-                <ListView
-                    android:id="@+id/houduan"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    <RelativeLayout
+                        android:id="@+id/s_title_houduan"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_alignParentTop="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="后端"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:id="@+id/s_more_houduan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:textColor="@android:color/holo_blue_light"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"/>
+                    </RelativeLayout>
+                    <ListView
+                        android:id="@+id/houduan"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rounded_text2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
 
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:id="@+id/s_title_yidongduan"
-                    android:layout_marginTop="20dp"
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_alignParentTop="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="移动端"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:id="@+id/s_more_yidongduan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="更多"
-                        android:textColor="@android:color/holo_blue_light"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"/>
-                </RelativeLayout>
-                <ListView
-                    android:id="@+id/yidongdaun"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:id="@+id/s_title_shujuku"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_alignParentTop="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="数据库"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:id="@+id/s_more_shujuku"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="更多"
-                        android:textColor="@android:color/holo_blue_light"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"/>
-                </RelativeLayout>
-                <ListView
-                    android:id="@+id/shujuku"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:background="@color/mycolor"
+                    android:layout_marginTop="3dp"
 
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:id="@+id/s_title_dashuju"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_alignParentTop="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="云计算&amp;大数据"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:id="@+id/s_more_dashuju"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="更多"
-                        android:textColor="@android:color/holo_blue_light"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"/>
-                </RelativeLayout>
-                <ListView
-                    android:id="@+id/yunjishuan"
-                    android:layout_marginTop="10dp"
+                    <RelativeLayout
+                        android:id="@+id/s_title_yidongduan"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_alignParentTop="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="移动端"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:id="@+id/s_more_yidongduan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:textColor="@android:color/holo_blue_light"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"/>
+                    </RelativeLayout>
+                    <ListView
+                        android:id="@+id/yidongdaun"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rounded_text2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:background="@color/mycolor"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:id="@+id/s_title_shujuku"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_alignParentTop="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="数据库"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:id="@+id/s_more_shujuku"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:textColor="@android:color/holo_blue_light"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"/>
+                    </RelativeLayout>
+                    <ListView
+                        android:id="@+id/shujuku"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rounded_text2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:id="@+id/s_title_qita"
-                    android:layout_marginTop="20dp"
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
+                    android:background="@color/mycolor"
+                    android:layout_marginTop="3dp"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_alignParentTop="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="其他"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:id="@+id/s_more_qita"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="更多"
-                        android:textColor="@android:color/holo_blue_light"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"/>
-                </RelativeLayout>
-                <ListView
-                    android:id="@+id/qita"
-                    android:layout_marginTop="10dp"
+                    <RelativeLayout
+                        android:id="@+id/s_title_dashuju"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_alignParentTop="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="云计算&amp;大数据"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:id="@+id/s_more_dashuju"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:textColor="@android:color/holo_blue_light"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"/>
+                    </RelativeLayout>
+                    <ListView
+                        android:id="@+id/yunjishuan"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rounded_text2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:background="@color/mycolor"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:id="@+id/s_title_qita"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_alignParentTop="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="其他"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:id="@+id/s_more_qita"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:textColor="@android:color/holo_blue_light"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"/>
+                    </RelativeLayout>
+                    <ListView
+                        android:id="@+id/qita"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rounded_text2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

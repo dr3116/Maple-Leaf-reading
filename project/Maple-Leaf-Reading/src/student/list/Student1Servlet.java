@@ -41,14 +41,15 @@ public class Student1Servlet extends HttpServlet {
 		String searchName="";
 		if(deleteNameObject!=null) {
 			deleteBookName=deleteNameObject.toString();
-//			System.out.println("deleteBookName="+deleteBookName);
+			System.out.println("deleteBookName="+deleteBookName);
 		}
 		if(orderObject!=null) {
 			order=orderObject.toString();
-//			System.out.println("order="+order);
+			System.out.println("order="+order);
 		}
 		if(searchname!=null) {
 			searchName=searchname.toString();
+			System.out.println("searchName="+searchname);
 		}
 		
 		
@@ -66,7 +67,7 @@ public class Student1Servlet extends HttpServlet {
 		}else {
 			aim= Integer.parseInt(page);
 		}
-//		System.out.println("目标页为"+aim);
+
 		
 		
 		
@@ -74,9 +75,7 @@ public class Student1Servlet extends HttpServlet {
 		
 		
 		//开始处理分页
-		int studentsNumber=1;//图书总数--------------
-//		BookService bookService = new BookService();
-//		booksNumber = bookService.getBooksNumber();
+		int studentsNumber=1;//总数--------------
 		StudentService studentService=new StudentService();
 		studentsNumber=studentService.getStudentsNumber();//-----		
 		request.setAttribute("studentsnumber", studentsNumber);
@@ -97,7 +96,7 @@ public class Student1Servlet extends HttpServlet {
 		if(aim>lastPage) {
 			aim=lastPage;
 		}
-		
+		System.out.println("最终aim="+aim);
 		
 		
 		
@@ -120,7 +119,7 @@ public class Student1Servlet extends HttpServlet {
 		
 		
 		
-		//编写查询语句‘
+		//编写查询语句
 		int num1=(aim-1)*10;
 		int num2= aim*10;
 		String sql="select * from user limit "+num1+","+num2;	
@@ -129,7 +128,8 @@ public class Student1Servlet extends HttpServlet {
 			sql="select * from user where user_name like'%"+searchName+"%'";
 			System.out.println("search SQL="+sql);
 		}
-		List<Student> students = studentService.gerUsers(sql);	
+		List<Student> students = studentService.getUsers(sql);	
+		System.out.println("getUser的查询结果为："+students.size());
 		if(searchName!="" && !searchName.equals("")) {
 			request.setAttribute("studentsnumber",students.size());
 		}
@@ -143,7 +143,7 @@ public class Student1Servlet extends HttpServlet {
 		request.setAttribute("aim", aim);
 		request.setAttribute("lastpage", lastPage);
 		if(searchName!="" && !searchName.equals("")) {//这是搜索的结果
-			request.getRequestDispatcher("book-list11.jsp").forward(request, response);
+			request.getRequestDispatcher("student-list11.jsp").forward(request, response);
 		}else {//这是正常结果
 			request.getRequestDispatcher("student-list1.jsp").forward(request, response);
 		}

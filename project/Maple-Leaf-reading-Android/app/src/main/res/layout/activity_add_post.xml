@@ -58,6 +58,7 @@
         android:id="@+id/up_img_img"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:scaleType="centerCrop"
         android:layout_marginTop="20dp"/>
     <LinearLayout
 

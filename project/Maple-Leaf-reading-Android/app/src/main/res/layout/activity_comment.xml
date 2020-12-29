@@ -38,61 +38,44 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/poster_img"
-                    android:layout_width="40dp"
-                    android:layout_height="50dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_weight="10"
                     android:src="@drawable/dog" />
 
                 <TextView
                     android:id="@+id/poster_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
                     android:layout_weight="40"
                     android:text="昵称##"
                     android:textColor="@color/grey11"
                     android:textSize="18sp" />
 
-                <FrameLayout
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="40"
-                    android:layout_gravity="center_vertical">
 
-                    <ImageView
-                        android:id="@+id/add_attantion"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/circles" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="关注"
-                        android:textColor="@color/gold"
-                        android:textSize="10sp" />
-                </FrameLayout>
 
             </LinearLayout>
             <TextView
                 android:id="@+id/post_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
                 android:text="这里填写自定义文本，是帖子的主要文字内容"/>
-            <ImageView
+            <com.example.test4.RoundImageView
                 android:id="@+id/post_img"
                 android:src="@drawable/exampleimg"
-                android:layout_width="300dp"
-                android:layout_height="350dp"/>
+                android:scaleType="centerCrop"
+                android:layout_width="200dp"
+                android:layout_height="300dp"/>
             <!--2020/11/28  添加显示图书图书-->
             <LinearLayout
                 android:id="@+id/bookInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/WhiteSmoke"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_box2"
                 android:orientation="horizontal">
                 <ImageView
                     android:id="@+id/z_book_img"

@@ -29,6 +29,7 @@ public class ClickFenLei2Activity extends AppCompatActivity {
     private String str2;
     private ListView classification;
     private List<Book> books = new ArrayList<Book>();
+    private String userId;
     private Handler handler=new Handler(){
         @Override
         public void handleMessage( Message msg) {
@@ -42,6 +43,7 @@ public class ClickFenLei2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_click_fen_lei);
+        userId=getIntent().getStringExtra(userId);
         classification = findViewById(R.id.s_clickfenlei_listview);
         getBooks();
     }
@@ -100,6 +102,7 @@ public class ClickFenLei2Activity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent();
                 intent.setClass(ClickFenLei2Activity.this, BookIntroduction.class);
+                intent.putExtra("userId",userId);
                 intent.putExtra("bookName",books.get(position).getBookName());
                 intent.putExtra("readingVolume",books.get(position).getReadingVolume()+"");
                 intent.putExtra("numberOfChapters",books.get(position).getNumberOfChapters()+"");

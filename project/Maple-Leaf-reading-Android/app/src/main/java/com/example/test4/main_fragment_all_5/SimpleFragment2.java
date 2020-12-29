@@ -25,7 +25,7 @@ import com.example.test4.R;
 public class SimpleFragment2 extends Fragment {
     private String str2;
     private int img;
-
+    private String userId;
 
     public SimpleFragment2() {
 
@@ -53,6 +53,9 @@ public class SimpleFragment2 extends Fragment {
          * 更改Fragment布局
          */
         View view = inflater.inflate(R.layout.fragment_fen_lei, container, false);
+        if (getArguments()!=null){
+            userId=getArguments().getString("userId");
+        }
         /**
          * 周双文
          * 将下面的代码注释掉
@@ -86,6 +89,7 @@ public class SimpleFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(getContext(), ClickFenLeiActivity.class);
                 startActivity(intent);
 
@@ -95,6 +99,7 @@ public class SimpleFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(getContext(), ClickFenLei2Activity.class);
                 startActivity(intent);
 
@@ -104,6 +109,7 @@ public class SimpleFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(getContext(), ClickFenLei3Activity.class);
                 startActivity(intent);
 
@@ -113,6 +119,7 @@ public class SimpleFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(getContext(), ClickFenLei4Activity.class);
                 startActivity(intent);
 
@@ -122,6 +129,7 @@ public class SimpleFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(getContext(), ClickFenLei5Activity.class);
                 startActivity(intent);
 
@@ -131,6 +139,7 @@ public class SimpleFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(getContext(), ClickFenLei6Activity.class);
                 startActivity(intent);
 
@@ -140,6 +149,7 @@ public class SimpleFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(getContext(), ClickFenLei7Activity.class);
                 startActivity(intent);
 
@@ -149,6 +159,7 @@ public class SimpleFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(getContext(), ClickFenLei8Activity.class);
                 startActivity(intent);
 
@@ -158,6 +169,7 @@ public class SimpleFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(getContext(), ClickFenLei9Activity.class);
                 startActivity(intent);
 
@@ -167,6 +179,7 @@ public class SimpleFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(getContext(), ClickFenLei10Activity.class);
                 startActivity(intent);
 

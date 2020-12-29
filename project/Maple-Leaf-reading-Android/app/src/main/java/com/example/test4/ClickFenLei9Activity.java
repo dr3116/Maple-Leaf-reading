@@ -31,6 +31,7 @@ import okhttp3.Response;
 public class ClickFenLei9Activity extends AppCompatActivity {
     private String str2;
     private ListView classification;
+    private String userId;
     private List<Book> books = new ArrayList<Book>();
     private Handler handler=new Handler(){
         @Override
@@ -45,6 +46,8 @@ public class ClickFenLei9Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_click_fen_lei);
+        userId=getIntent().getStringExtra(userId);
+
         classification = findViewById(R.id.s_clickfenlei_listview);
         getBooks();
     }
@@ -102,6 +105,7 @@ public class ClickFenLei9Activity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent();
+                intent.putExtra("userId",userId);
                 intent.setClass(ClickFenLei9Activity.this, BookIntroduction.class);
                 intent.putExtra("bookName",books.get(position).getBookName());
                 intent.putExtra("readingVolume",books.get(position).getReadingVolume()+"");

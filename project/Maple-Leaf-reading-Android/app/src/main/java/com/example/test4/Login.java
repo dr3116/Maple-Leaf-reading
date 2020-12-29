@@ -1,10 +1,13 @@
 package com.example.test4;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,10 +26,17 @@ public class Login extends AppCompatActivity {
     private EditText passWord;
     private Button login;
     public  static String userId;
+    private CheckBox remenberPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        String nameStr=getIntent().getStringExtra("nameStr");
+        String passwordStr=getIntent().getStringExtra("passwordStr");
+        if (nameStr!=null&&passwordStr!=null){
+            phoneNumber.setText(nameStr);
+            passWord.setText(passwordStr);
+        }
         findView();
         setView();
     }
@@ -34,6 +44,7 @@ public class Login extends AppCompatActivity {
         phoneNumber=findViewById(R.id.et_login_username);
         passWord=findViewById(R.id.et_login_pwd);
         login=findViewById(R.id.bt_login_submit);
+        remenberPassword=findViewById(R.id.cb_remember_login);
     }
 
     private void setView() {
@@ -44,6 +55,32 @@ public class Login extends AppCompatActivity {
                 LoginAction();
             }
         });
+        SharedPreferences sharedPreferences=getSharedPreferences("text",MODE_PRIVATE);
+        String nameStr=sharedPreferences.getString("name","");
+        String passwordStr=sharedPreferences.getString("password","");
+        Log.e("sharePraferenc里面的数据",nameStr+"  :  "+passwordStr);
+        if (nameStr!=null&&passwordStr!=null){
+            phoneNumber.setText(nameStr);
+            passWord.setText(passwordStr);
+        }
+        remenberPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    if (phoneNumber.getText()!=null&&passWord.getText()!=null){
+                        SharedPreferences sp=getSharedPreferences("text",MODE_PRIVATE);
+                        SharedPreferences.Editor editor=sp.edit();
+                        editor.putString("name",phoneNumber.getText().toString());
+                        editor.putString("password",passWord.getText().toString());
+                        Log.e("记住密码和账号",""+phoneNumber.getText().toString()+"    "+passWord.getText().toString());
+                    }else {
+                        Toast.makeText(Login.this,"请先填写账号和密码",Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            }
+        });
+
     }
     private void LoginAction(){
         new Thread() {
@@ -78,6 +115,8 @@ public class Login extends AppCompatActivity {
                             Intent intent=new Intent();
                             intent.setClass(Login.this, MainActivity.class);
                             intent.putExtra("userId",userId);
+                            intent.putExtra("userName",phoneStr);
+                            intent.putExtra("userPassword",passwordStr);
                             startActivity(intent);
                         }
                     } catch (Exception e) {

@@ -12,7 +12,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.test4.AboutUs;
 import com.example.test4.FensActivity;
+import com.example.test4.Login;
 import com.example.test4.MyCollection;
+import com.example.test4.MyPost;
 import com.example.test4.PaihangActivity;
 import com.example.test4.R;
 import com.example.test4.RecentReadActivity;
@@ -35,9 +37,12 @@ public class SimpleFragment5 extends Fragment {
     private LinearLayout recentReading;
     private TextView signIn;
     private String userId;
+    private String nameStr;
+    private String passWordStr;
     private TextView paihang;
     private LinearLayout myCollection;
-
+    private LinearLayout myPost;
+    private LinearLayout loginOut;
 
     public SimpleFragment5() {
 
@@ -68,6 +73,8 @@ public class SimpleFragment5 extends Fragment {
          */
         if (getArguments()!=null){
             userId=getArguments().getString("userId");
+            nameStr=getArguments().getString("userName");
+            passWordStr=getArguments().getString("userPassword");
         }
         View view = inflater.inflate(R.layout.activity_mine, container, false);
         search= view.findViewById(R.id.ll_search);
@@ -77,7 +84,8 @@ public class SimpleFragment5 extends Fragment {
         recentReading = view.findViewById(R.id.ll_recent_read);
         signIn = view.findViewById(R.id.tv_sign_in);
         myCollection=view.findViewById(R.id.s_my_collection);
-
+        myPost=view.findViewById(R.id.my_post_ll);
+        loginOut=view.findViewById(R.id.login_out);
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,10 +134,29 @@ public class SimpleFragment5 extends Fragment {
                 startActivity(intent);
             }
         });
+        myPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.putExtra("userId",userId);
+                intent.setClass(getContext(), MyPost.class);
+                startActivity(intent);
+            }
+        });
         paihang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), PaihangActivity.class);
+                startActivity(intent);
+            }
+        });
+        loginOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.setClass(getContext(), Login.class);
+                intent.putExtra("nameStr",nameStr);
+                intent.putExtra("passwordStr",passWordStr);
                 startActivity(intent);
             }
         });

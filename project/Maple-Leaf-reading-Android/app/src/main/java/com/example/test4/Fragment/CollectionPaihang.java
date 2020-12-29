@@ -4,7 +4,7 @@ public class CollectionPaihang {
     private String bookName;
     private int numberOfCollections;
     private String bookPhoto;
-    public CollectionPaihang(String bookName,int numberOfCollections,String bookPhoto) {
+    public CollectionPaihang(String bookName, int numberOfCollections, String bookPhoto) {
         this.bookName = bookName;
         this.numberOfCollections = numberOfCollections;
         this.bookPhoto = bookPhoto;
