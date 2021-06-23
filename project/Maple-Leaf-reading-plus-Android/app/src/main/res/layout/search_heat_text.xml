@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:layout_marginLeft="20dp"
+    android:layout_gravity="center_vertical"
+    android:gravity="center"
+    android:text="Android面试笔记"
+    android:textColor="@color/account_lock_bg"
+    android:background="@drawable/round_box3"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

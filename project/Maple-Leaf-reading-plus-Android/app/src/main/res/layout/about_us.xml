@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f5f4fa"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:background="#f5f4fa"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <LinearLayout
+            android:background="#f5f4fa"
+            android:layout_width="match_parent"
+            android:layout_height="1000dp"
+            android:orientation="vertical">
+            <LinearLayout
+
+                android:background="#f5f4fa"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="50"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/maple_icon_circle"/>
+                <TextView
+                    android:background="#f5f4fa"
+                    android:layout_width="80dp"
+                    android:layout_gravity="center"
+                    android:layout_height="60dp"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:text="枫叶悦读"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:background="#f5f4fa"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:background="#f5f4fa"
+            android:text="             枫叶悦读将带领你在不经意之间从0到1掌握编程奥秘，写出人生第一行代码，带你打开编程世界的大门！
+45天学会python语言、掌握爬虫技术，入门人工智能，未来，就是现在！"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:background="#f5f4fa"
+            android:text="              适用人群】互联网、金融业、财务、行政、人事、管理、服务业、房地产业..论你来自什么行业，担任什么岗位，是否接触过相关领域，都可以玩转编程！
+        "
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+        <TextView
+            android:background="#f5f4fa"
+            android:text="              【交互式学习】*传统课程看了想睡？互动式学习场景，有兴趣才能学的更久,在这里，码出属于你自己的程序*纯理论太枯燥?一课一练,边学边练,注重实操"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:background="#f5f4fa"
+            android:layout_marginTop="20dp"
+            android:id="@+id/url"
+            android:gravity="center"
+            android:text="官网地址：https://github.com/dr3116/Maple-Leaf-reading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:background="@drawable/kefu"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>

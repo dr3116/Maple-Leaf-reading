@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.RecentReadingMapper">
+    <resultMap id="RecentReadingMap" type="com.example.entity.RecentReading">
+        <id column="recent_reading_id" property="recentReadingId"/>
+        <result column="user_id" property="userId"/>
+        <result column="book_name" property="bookName"/>
+        <result column="last_reading_time" property="lastReadingTime"/>
+    </resultMap>
+    <resultMap id="RecentReadingMap2" type="com.example.entity.RecentRead">
+        <result column="book_name" property="bookName"/>
+        <result column="classification" property="classification"/>
+        <result column="reading_volume" property="readingVolume"/>
+        <result column="number_of_chapters" property="numberOfChapters"/>
+        <result column="release_time" property="releaseTime"/>
+        <result column="book_photo" property="bookPhoto"/>
+        <result column="book_rating" property="bookRating"/>
+        <result column="author" property="author"/>
+        <result column="number_of_collections" property="numberOfCollections"/>
+        <result column="brief_introduction" property="briefIntroduction"/>
+        <association property="userId">
+            <result column="user_id" property="userId"/>
+        </association>
+        <association property="lastReadingTime">
+            <result column="last_reading_time" property="lastReadingTime"/>
+        </association>
+    </resultMap>
+    <!-- 获取所有最近阅读信息 -->
+    <select id="findAllRecentReading" resultMap="RecentReadingMap">
+        select *
+        from recent_reading
+    </select>
+    <!--根据用户id查询用户最近阅读的图书 -->
+    <select id="findRecentReadingInfoByUserId" resultMap="RecentReadingMap2">
+        select recent_reading.user_id,book.book_name,book.classification,book.reading_volume,book.number_of_chapters,book.release_time,book.book_photo,book.book_rating,book.author,book.number_of_collections,book.brief_introduction,recent_reading.last_reading_time
+        from book,recent_reading
+        where book.book_name = recent_reading.book_name and recent_reading.user_id = #{userId}
+    </select>
+    
+</mapper>

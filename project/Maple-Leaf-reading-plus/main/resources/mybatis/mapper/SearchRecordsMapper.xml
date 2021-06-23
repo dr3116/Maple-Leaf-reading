@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.SearchRecordsMapper">
+    <resultMap id="SearchRecordsMap" type="com.example.entity.SearchRecords">
+        <id column="search_id" property="searchId"/>
+        <result column="search_history" property="searchHistory"/>
+        <result column="user_id" property="userId"/>
+    </resultMap>
+    <!--获取所有搜索历史信息 -->
+    <select id="findAllSearchRecords" resultMap="SearchRecordsMap">
+        select *
+        from searchrecords
+    </select>
+    <!--添加搜索历史 -->
+    <insert id="insertSearchRecords" parameterType="com.example.entity.SearchRecords" keyProperty="search_id">
+        insert into searchrecoreds(search_id, search_history, user_id)
+        values (#{searchId}, #{searchHistory}, #{userId})
+    </insert>
+    <!--根据搜索编号删除指定搜索历史 -->
+    <delete id="deleteSearchRecords">
+        delete
+        from searchrecords
+        where search_id = #{searchId}
+    </delete>
+</mapper>

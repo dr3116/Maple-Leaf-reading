@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.StudentMapper">
+    <resultMap id="StudentMap" type="com.example.entity.Student">
+        <id column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="user_photo" property="userPhoto"/>
+        <result column="sign_num" property="num"/>
+    </resultMap>
+    <!--获取所有用户信息 -->
+    <select id="findAllStudents" resultMap="StudentMap">
+        select *
+        from user
+    </select>
+    <!--添加用户 -->
+    <insert id="insertStudent" parameterType="com.example.entity.Student" keyProperty="user_id">
+        insert into user(user_id, user_name, user_password, user_photo, sign_num)
+        values (#{userId}, #{userName}, #{userPassword}, #{userPhoto}, #{num})
+    </insert>
+    <!--修改用户数据信息 -->
+    <update id="updateStudent">
+        update user
+        set user_id       = #{userId},
+            user_name     = #{userName},
+            user_password = #{userPassword},
+            user_photo    = #{userPhoto},
+            sign_num      = #{num}
+        where user_id = #{userId}
+    </update>
+    <!--根据用户编号删除指定用户 -->
+    <delete id="deleteStudent">
+        delete
+        form user where user_id =
+        #{userId}
+    </delete>
+</mapper>

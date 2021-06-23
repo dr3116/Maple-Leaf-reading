@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.CommentsMapper">
+    <resultMap id="CommentsMap" type="com.example.entity.Comments">
+        <id column="comments_id" property="commentsId"/>
+        <result column="post_id" property="postId"/>
+        <result column="content" property="content"/>
+        <result column="commenter_id" property="commenterId"/>
+    </resultMap>
+    <!--插入评论信息 -->
+    <insert id="insertComments" parameterType="com.example.entity.Comments" keyProperty="comments_id">
+        insert into comments(post_id,content,commenter_id) values(#{postId},#{content},#{commenterId})
+    </insert>
+    <!--删除评论信息 -->
+    <delete id="deleteComments">
+        delete
+        from comments
+        where comments_id = #{commentsId}
+    </delete>
+    <!--查找评论信息 -->
+    <select id="findCommentsById" resultMap="CommentsMap">
+        select * from comments where comments_id = #{commentsId}
+    </select>
+    <!--查询总数 -->
+    <select id="getCommentsNumber" resultType="String">
+        select  count(*)
+        from comments
+    </select>
+    <!--根据帖子id获取评论信息 -->
+    <select id="findCommentsByPostId" resultMap="CommentsMap">
+        select * from comments where post_id = #{postId}
+    </select>
+
+</mapper>

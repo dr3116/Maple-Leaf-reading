@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#f8f9f3"
+    android:layout_height="match_parent">
+    <!--采用相对布局，跳过按钮放置在页面右上角-->
+
+
+    <Button
+        android:id="@+id/btn_welcome_tiao_guo"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentTop="true"
+        android:textColor="#ffffff"
+        android:text="3    跳过"
+        android:background="@drawable/button_circle"
+        android:layout_height="30sp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="577dp"
+        android:text=" 让阅读成为一种习惯 "
+        android:textStyle="italic"
+        android:textSize="25sp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/maple_write">
+
+
+        <!--CENTER_CROP / centerCrop：保持横纵比缩放图片，直到完全覆盖ImageView为止（指的是ImageView的宽和高都要填满），原图超过ImageView的部分作裁剪处理-->
+
+
+
+    </ImageView>
+
+
+</RelativeLayout>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="x-admin-sm" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-X-admin2.2</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/xadmin.css">
+    <script src="../lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/xadmin.js"></script>
+</head>
+
+<body>
+<div class="x-nav">
+            <span class="layui-breadcrumb">
+                <a href="">首页</a>
+                <a href="">演示</a>
+                <a>
+                    <cite>导航元素</cite></a>
+            </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+        <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
+    </a>
+</div>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+
+
+
+
+
+
+
+            <div class="layui-card">
+                <div class="layui-card-body ">
+                    <div class="layui-collapse" lay-filter="test">
+
+
+
+
+
+
+
+
+                        <!--条件筛选1-->
+                        <div class="layui-colla-item">
+                            <h2 class="layui-colla-title">条件筛选<i class="layui-icon layui-colla-icon"></i></h2>
+                            <div class="layui-colla-content">
+
+
+                                <!--筛选1-->
+                                <!--书名，种类，作者-->
+                                <form class="layui-form layui-col-space5" th:action="@{/Book/searchDynamicBook}">
+                                    <!--书名-->
+                                    <div class="layui-input-inline layui-show-xs-block">请输入图书名称:
+                                        <input type="text" name="bookName" placeholder="例如:30天从入门到放弃" autocomplete="off" class="layui-input"></div>
+                                    <!--种类-->
+                                    <br>
+                                    <div class="layui-input-inline layui-show-xs-block">请输入图书种类:
+                                        <br>
+                                        <label>
+                                            <select name="classification" >
+                                                <option>Java</option>
+                                                <option>Python</option>
+                                                <option>Android</option>
+                                                <option>C/C++</option>
+                                                <option>H5小游戏</option>
+                                                <option>JQuery</option>
+                                                <option>MySQL</option>
+                                                <option>Python</option>
+                                                <option>测试</option>
+                                                <option>JQuery</option>
+                                                <option>深度学习</option>
+                                                <option>机器学习</option>
+                                                <option>JavaScript</option>
+                                                <option>小程序</option>
+                                                <option>HTML5</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <!--作者-->
+                                    <div class="layui-input-inline layui-show-xs-block">请输入图书作者:
+                                        <input type="text" name="author" placeholder="例如:堂吉诃德.莎士比亚" autocomplete="off" class="layui-input"></div>
+                                    <!--提交-->
+                                    <br>
+                                    <div class="layui-input-inline layui-show-xs-block">
+                                        <button class="layui-btn" lay-submit="" lay-filter="sreach">
+                                            <i class="layui-icon">&#xe615;</i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="layui-card-body layui-table-body layui-table-main">
+                    <div class="layui-col-md12">
+                        <blockquote class="layui-elem-quote layui-quote-nm"><strong><td style="color:orangered"  bgcolor="#ff4500" th:text="${msg}"></td></strong></blockquote>
+                    </div>
+                    <table class="layui-table layui-form">
+                        <thead>
+                        <tr>
+                            <th>图书名称</th>
+                            <th>分类</th>
+                            <th>阅读量</th>
+                            <th>章节数</th>
+                            <th>发布时间</th>
+                            <th>图片</th>
+                            <th>书籍评分</th>
+                            <th>作者</th>
+                            <th>收藏数</th>
+                            <th>简介</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="book:${DynamicBookInfo.getList()}">
+                            <td th:text="${book.bookName}"></td>
+                            <td th:text="${book.classification}"></td>
+                            <td th:text="${book.readingVolume}"></td>
+                            <td th:text="${book.numberOfChapters}"></td>
+                            <td th:text="${book.releaseTime}"></td>
+                            <td ><img th:src="@{'../images/book/'+${book.bookPhoto}}" alt="图片加载错误"></td>
+                            <td th:text="${book.bookRating}">小明</td>
+                            <td th:text="${book.author}">男</td>
+                            <td th:text="${book.numberOfCollections}">13000000000</td>
+                            <td th:text="${book.briefIntroduction}">北京市 海淀区</td>
+                            <td>
+                                <a onclick="xadmin.open('编辑图书','#',600,400)" title="编辑图书" th:href="@{/Book/toEditBook(bookName=${book.bookName},
+                                            classification=${book.classification},numberOfChapters=${book.numberOfChapters},author=${book.author},briefIntroduction=${book.briefIntroduction})}">
+                                    <i class="layui-icon">&#xe631;</i>
+                                </a>
+                                <a title="删除" onclick="member_del(this,'删除此图书')" th:href="@{/Book/deleteBook(deleteBookName=${book.bookName})}">
+                                    <i class="layui-icon">&#xe640;</i>
+                                </a>
+<!--                                <a onclick="xadmin.open('阅读图书','#',600,400)" th:href="@{/Book/toReadPDF(deleteBookName=${book.bookName})}" title="阅读图书">-->
+<!--                                    <i class="layui-icon">&#xe615;</i>-->
+<!--                                </a>-->
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="layui-card-body ">
+                    <div class="page">
+                        <div>
+                            <a th:href="@{/Book/searchDynamicBook}">首页</a>
+                            <a class="prev" th:href="@{/Book/searchDynamicBook(pageNum=${DynamicBookInfo.hasPreviousPage}?${DynamicBookInfo.prePage}:1)}">上一页</a>
+                            当前 <span th:text="${DynamicBookInfo.pageNum}"></span> 页,总 <span th:text="${DynamicBookInfo.pages}"></span> 页
+                            <a class="next" th:href="@{/Book/searchDynamicBook(pageNum=${DynamicBookInfo.hasNextPage}?${DynamicBookInfo.nextPage}:${DynamicBookInfo.pages})}">下一页</a>
+                            <a th:href="@{/Book/searchDynamicBook(pageNum=${DynamicBookInfo.pages})}">尾页</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+</body>
+<script>layui.use(['laydate', 'form'],
+    function() {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#start' //指定元素
+        });
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#end' //指定元素
+        });
+    });
+
+/*用户-停用*/
+function member_stop(obj, id) {
+    layer.confirm('确认要停用吗？',
+        function(index) {
+
+            if ($(obj).attr('title') == '启用') {
+
+                //发异步把用户状态进行更改
+                $(obj).attr('title', '停用');
+                $(obj).find('i').html('&#xe62f;');
+
+                $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
+                layer.msg('已停用!', {
+                    icon: 5,
+                    time: 1000
+                });
+
+            } else {
+                $(obj).attr('title', '启用');
+                $(obj).find('i').html('&#xe601;');
+
+                $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
+                layer.msg('已启用!', {
+                    icon: 5,
+                    time: 1000
+                });
+            }
+
+        });
+}
+
+/*用户-删除*/
+function member_del(obj, id) {
+    layer.confirm('确认要删除吗？',
+        function(index) {
+            //发异步删除数据
+            $(obj).parents("tr").remove();
+            layer.msg('已删除!', {
+                icon: 1,
+                time: 1000
+            });
+        });
+}
+
+function delAll(argument) {
+
+    var data = tableCheck.getData();
+
+    layer.confirm('确认要删除吗？' + data,
+        function(index) {
+            //捉到所有被选中的，发异步进行删除
+            layer.msg('删除成功', {
+                icon: 1
+            });
+            $(".layui-form-checked").not('.header').parents('tr').remove();
+        });
+}</script>
+
+</html>

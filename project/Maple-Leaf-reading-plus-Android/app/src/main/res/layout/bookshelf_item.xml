@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--title:书架item
+    author:周双文
+    time:2020/11/23-->
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_weight="33"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+
+        android:layout_height="match_parent">
+        <com.example.test4.RoundImageView
+            android:id="@+id/z_book_img1"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="120dp" />
+        <TextView
+            android:id="@+id/z_book_name1"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_weight="33"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="match_parent">
+        <com.example.test4.RoundImageView
+            android:id="@+id/z_book_img2"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="120dp" />
+        <TextView
+            android:id="@+id/z_book_name2"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_weight="33"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="match_parent">
+        <com.example.test4.RoundImageView
+            android:id="@+id/z_book_img3"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"/>
+        <TextView
+            android:id="@+id/z_book_name3"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>

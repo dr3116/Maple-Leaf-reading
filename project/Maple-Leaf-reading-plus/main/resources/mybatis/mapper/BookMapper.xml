@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.BookMapper">
+    <resultMap type="com.example.entity.Book" id="BookMap">
+        <id column="book_name" property="bookName"/>
+        <result column="classification" property="classification"/>
+        <result column="reading_volume" property="readingVolume"/>
+        <result column="number_of_chapters" property="numberOfChapters"/>
+        <result column="release_time" property="releaseTime"/>
+        <result column="book_photo" property="bookPhoto"/>
+        <result column="book_rating" property="bookRating"/>
+        <result column="author" property="author"/>
+        <result column="number_of_collections" property="numberOfCollections"/>
+        <result column="brief_introduction" property="briefIntroduction"/>
+    </resultMap>
+    <!--查询所有图书信息 -->
+    <select id="findAllBooks" resultMap="BookMap">
+        select *
+        from book
+    </select>
+    <!--添加图书信息 -->
+    <insert id="insertBook" parameterType="com.example.entity.Book" keyProperty="book_name">
+        insert into book(book_name, classification, reading_volume, number_of_chapters, release_time, book_photo,
+                         book_rating, author, number_of_collections, brief_introduction)
+        values (#{bookName}, #{classification}, #{readingVolume}, #{numberOfChapters}, #{releaseTime}, #{bookPhoto},
+                #{bookRating}, #{author}, #{numberOfCollections}, #{briefIntroduction})
+    </insert>
+    <!--修改图书信息-->
+    <update id="updateBook">
+        update book
+        set book_name            =#{bookName},
+            classification=#{classification},
+            reading_volume=#{readingVolume},
+            number_of_chapters=#{numberOfChapters},
+            release_time=#{releaseTime},
+            book_photo=#{bookPhoto},
+            book_rating=#{bookRating},
+            author=#{author},
+            number_of_collections=#{numberOfCollections},
+            brief_introduction=#{briefIntroduction}
+        where book_name = #{bookName}
+    </update>
+    <!--根据书名删除图书信息 -->
+    <delete id="deleteBook">
+        delete
+        from book
+        where book_name = #{bookName}
+    </delete>
+    <!--查询所有图书数量 -->
+    <select id="getBooksNumber" resultType="String">
+        select count(*)
+        from book
+    </select>
+
+
+</mapper>

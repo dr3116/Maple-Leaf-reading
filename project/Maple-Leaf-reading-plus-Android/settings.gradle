@@ -1,0 +1,4 @@
+include ':yunxinSKL'
+include ':uikit'
+include ':app'
+rootProject.name = "test4"

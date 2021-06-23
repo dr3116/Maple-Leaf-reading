@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.BookReviewMapper">
+    <resultMap id="BookReviewMap" type="com.example.entity.BookReview">
+        <id column="book_review_id" property="bookReviewId"/>
+        <result column="book_name" property="bookName"/>
+        <result column="user_id" property="userId"/>
+        <result column="content" property="content"/>
+        <result column="score" property="score"/>
+    </resultMap>
+    <resultMap id="BookReviewMap2" type="com.example.entity.BookReview">
+        <id column="book_review_id" property="bookReviewId"/>
+        <result column="book_name" property="bookName"/>
+        <result column="user_id" property="userId"/>
+        <result column="content" property="content"/>
+        <result column="score" property="score"/>
+        <association property="userName">
+            <result column="user_name" property="userName"/>
+        </association>
+    </resultMap>
+    <!--获取所有书评信息 -->
+    <select id="findAllBookReviews" resultMap="BookReviewMap">
+        select *
+        from book_review
+    </select>
+    <!--添加书评 -->
+    <insert id="insertBookReview" parameterType="com.example.entity.BookReview" keyProperty="book_review_id">
+        insert into book_review(book_name, user_id, content, score)
+        values (#{bookName}, #{userId}, #{content}, #{score})
+    </insert>
+    <!--修改书评信息 -->
+    <update id="updateBookReview">
+        update book_review
+        set book_review_id   =#{bookReviewId},
+            book_name        = #{bookName},
+            user_id          = #{userId},
+            content          = #{content},
+            score            = #{score},
+        where book_review_id = #{bookReviewId}
+    </update>
+    <!--根据书评编号删除指定书评-->
+    <delete id="deleteBookReviewById">
+        delete
+        from book_review
+        where book_review_id = #{bookReviewId}
+    </delete>
+    <!--根据书评查找指定书评信息-->
+    <select id="findBookReviewById" resultMap="BookReviewMap">
+        select * from book_review where book_review_id = #{bookReviewId}
+    </select>
+    <!--查询所有书评总数-->
+    <select id="getBookReviewNumber" resultType="String">
+        select count(*)
+        from book_review
+    </select>
+    <!--根据书名查找指定书评信息 -->
+    <select id="findBookReviewByBookName" resultMap="BookReviewMap2">
+        select b.book_review_id,b.book_name,b.user_id,b.content,b.score,u.user_name
+        from book_review b
+        left join user u on b.user_id = u.user_id
+        where b.book_name = #{bookName}
+    </select>
+
+</mapper>

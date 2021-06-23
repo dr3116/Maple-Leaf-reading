@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+
+        android:checkableBehavior="single">
+        <item
+
+            android:id="@+id/tv1"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="横屏/竖屏阅读" />
+        <item
+            android:id="@+id/tv2"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="白天/黑夜模式" />
+        <item
+            android:id="@+id/tv3"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="大/小页边距" />
+    </group>
+
+
+</menu>

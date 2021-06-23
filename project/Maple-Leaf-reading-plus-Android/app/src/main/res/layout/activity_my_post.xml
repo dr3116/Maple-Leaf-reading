@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--title:我的发布
+    author:周双文
+    time:2020/11/23-->
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <RelativeLayout
+        android:id="@+id/head_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+        <ImageView
+            android:id="@+id/line"
+            android:src="@drawable/line"
+            android:layout_width="30dp"
+            android:layout_toRightOf="@+id/back"
+            android:layout_marginLeft="5dp"
+            android:layout_height="30dp"/>
+        <ImageView
+            android:id="@+id/back_home"
+            android:src="@drawable/home"
+            android:layout_toRightOf="@+id/line"
+            android:layout_marginLeft="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="我的发布"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <!--这个listView布局，与发现中的帖子布局 post_item.xml 相同，可以共用-->
+        <ListView
+            android:id="@+id/my_post_list"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>

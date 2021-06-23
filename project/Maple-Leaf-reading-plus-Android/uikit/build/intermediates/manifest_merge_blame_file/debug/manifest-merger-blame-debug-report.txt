@@ -1,0 +1,317 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.netease.nim.uikit"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+10
+11    <application>
+11-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:5:5-160:19
+12        <activity android:name="com.netease.nim.uikit.business.session.activity.WatchMultiRetweetPictureActivity" />
+12-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:6:9-105
+12-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:6:19-93
+13
+14        <meta-data
+14-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:8:9-10:43
+15            android:name="com.netease.nim.uikit.support.glide.NIMGlideModule"
+15-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:9:13-78
+16            android:value="GlideModule" />
+16-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:10:13-40
+17
+18        <!-- 会话窗口 -->
+19        <!--
+20             UI组件中包含了语音选文字功能，该界面是全屏显示，为了视觉上的美观，该界面主题ActionBar使用Overlay模式。
+21             如果开发者不需要该功能或效果，使用普通主题即可。 同时，还需要将message_activity.xml这个layout中的根节点的paddingTop去掉。
+22        -->
+23        <activity
+23-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:15:9-20:70
+24            android:name="com.netease.nim.uikit.business.session.activity.P2PMessageActivity"
+24-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:16:13-73
+25            android:configChanges="keyboardHidden|orientation"
+25-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:17:13-63
+26            android:screenOrientation="portrait"
+26-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:18:13-49
+27            android:theme="@style/AppTheme.NoActionBar"
+27-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:19:13-56
+28            android:windowSoftInputMode="stateHidden|adjustResize" />
+28-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:20:13-67
+29        <activity
+29-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:21:9-26:70
+30            android:name="com.netease.nim.uikit.business.session.activity.TeamMessageActivity"
+30-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:22:13-74
+31            android:configChanges="keyboardHidden|orientation"
+31-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:23:13-63
+32            android:screenOrientation="portrait"
+32-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:24:13-49
+33            android:theme="@style/AppTheme.NoActionBar"
+33-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:25:13-56
+34            android:windowSoftInputMode="stateHidden|adjustResize" /> <!-- 群聊 -->
+34-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:26:13-67
+35        <activity
+35-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:27:9-32:70
+36            android:name="com.netease.nim.uikit.business.team.activity.NormalTeamInfoActivity"
+36-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:28:13-74
+37            android:configChanges="keyboardHidden|orientation"
+37-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:29:13-63
+38            android:screenOrientation="portrait"
+38-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:30:13-49
+39            android:theme="@style/AppTheme.NoActionBar"
+39-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:31:13-56
+40            android:windowSoftInputMode="stateHidden|adjustResize" />
+40-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:32:13-67
+41        <activity
+41-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:33:9-38:70
+42            android:name="com.netease.nim.uikit.business.team.activity.AdvancedTeamInfoActivity"
+42-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:34:13-76
+43            android:configChanges="keyboardHidden|orientation"
+43-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:35:13-63
+44            android:screenOrientation="portrait"
+44-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:36:13-49
+45            android:theme="@style/AppTheme.NoActionBar"
+45-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:37:13-56
+46            android:windowSoftInputMode="stateHidden|adjustResize" />
+46-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:38:13-67
+47        <activity
+47-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:39:9-44:70
+48            android:name="com.netease.nim.uikit.business.team.activity.AdvancedTeamMemberActivity"
+48-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:40:13-78
+49            android:configChanges="keyboardHidden|orientation"
+49-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:41:13-63
+50            android:screenOrientation="portrait"
+50-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:42:13-49
+51            android:theme="@style/AppTheme.NoActionBar"
+51-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:43:13-56
+52            android:windowSoftInputMode="stateHidden|adjustResize" />
+52-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:44:13-67
+53        <activity
+53-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:45:9-50:70
+54            android:name="com.netease.nim.uikit.business.team.activity.AdvancedTeamAnnounceActivity"
+54-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:46:13-80
+55            android:configChanges="keyboardHidden|orientation"
+55-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:47:13-63
+56            android:screenOrientation="portrait"
+56-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:48:13-49
+57            android:theme="@style/AppTheme.NoActionBar"
+57-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:49:13-56
+58            android:windowSoftInputMode="stateHidden|adjustResize" />
+58-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:50:13-67
+59        <activity
+59-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:51:9-56:70
+60            android:name="com.netease.nim.uikit.business.team.activity.AdvancedTeamMemberInfoActivity"
+60-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:52:13-82
+61            android:configChanges="keyboardHidden|orientation"
+61-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:53:13-63
+62            android:screenOrientation="portrait"
+62-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:54:13-49
+63            android:theme="@style/AppTheme.NoActionBar"
+63-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:55:13-56
+64            android:windowSoftInputMode="stateHidden|adjustResize" />
+64-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:56:13-67
+65        <activity
+65-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:57:9-62:70
+66            android:name="com.netease.nim.uikit.business.team.activity.AdvancedTeamNicknameActivity"
+66-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:58:13-80
+67            android:configChanges="keyboardHidden|orientation"
+67-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:59:13-63
+68            android:screenOrientation="portrait"
+68-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:60:13-49
+69            android:theme="@style/AppTheme.NoActionBar"
+69-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:61:13-56
+70            android:windowSoftInputMode="stateHidden|adjustResize" />
+70-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:62:13-67
+71        <activity
+71-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:63:9-68:70
+72            android:name="com.netease.nim.uikit.business.team.activity.AdvancedTeamCreateAnnounceActivity"
+72-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:64:13-86
+73            android:configChanges="keyboardHidden|orientation"
+73-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:65:13-63
+74            android:screenOrientation="portrait"
+74-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:66:13-49
+75            android:theme="@style/AppTheme.NoActionBar"
+75-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:67:13-56
+76            android:windowSoftInputMode="stateHidden|adjustResize" />
+76-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:68:13-67
+77        <activity
+77-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:69:9-74:70
+78            android:name="com.netease.nim.uikit.business.team.activity.TeamPropertySettingActivity"
+78-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:70:13-79
+79            android:configChanges="keyboardHidden|orientation"
+79-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:71:13-63
+80            android:screenOrientation="portrait"
+80-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:72:13-49
+81            android:theme="@style/AppTheme.NoActionBar"
+81-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:73:13-56
+82            android:windowSoftInputMode="stateHidden|adjustResize" /> <!-- 联系人选择器 -->
+82-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:74:13-67
+83        <activity
+83-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:75:9-81:67
+84            android:name="com.netease.nim.uikit.business.contact.selector.activity.ContactSelectActivity"
+84-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:76:13-85
+85            android:configChanges="keyboardHidden|orientation"
+85-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:77:13-63
+86            android:label="@string/contact_selector"
+86-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:78:13-53
+87            android:screenOrientation="portrait"
+87-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:79:13-49
+88            android:theme="@style/AppTheme.NoActionBar"
+88-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:80:13-56
+89            android:windowSoftInputMode="stateHidden|adjustPan" /> <!-- @ 选择器 -->
+89-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:81:13-64
+90        <activity
+90-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:82:9-85:59
+91            android:name="com.netease.nim.uikit.business.ait.selector.AitContactSelectorActivity"
+91-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:83:13-77
+92            android:screenOrientation="portrait"
+92-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:84:13-49
+93            android:theme="@style/AppTheme.NoActionBar" /> <!-- 视频 -->
+93-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:85:13-56
+94        <activity
+94-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:86:9-91:70
+95            android:name="com.netease.nim.uikit.business.session.activity.CaptureVideoActivity"
+95-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:87:13-75
+96            android:configChanges="keyboardHidden|orientation"
+96-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:88:13-63
+97            android:screenOrientation="portrait"
+97-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:89:13-49
+98            android:theme="@style/AppTheme.NoActionBar"
+98-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:90:13-56
+99            android:windowSoftInputMode="stateHidden|adjustResize" />
+99-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:91:13-67
+100        <activity
+100-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:92:9-96:48
+101            android:name="com.netease.nim.uikit.business.session.activity.WatchVideoActivity"
+101-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:93:13-73
+102            android:configChanges="keyboardHidden|orientation|screenSize"
+102-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:94:13-74
+103            android:label="@string/video_play"
+103-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:95:13-47
+104            android:theme="@style/DarkTheme" />
+104-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:96:13-45
+105
+106        <!-- 查看大图 -->
+107        <activity
+107-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:99:9-102:48
+108            android:name="com.netease.nim.uikit.business.session.activity.WatchMessagePictureActivity"
+108-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:100:13-82
+109            android:configChanges="keyboardHidden"
+109-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:101:13-51
+110            android:theme="@style/DarkTheme" />
+110-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:102:13-45
+111        <activity
+111-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:104:9-107:48
+112            android:name="com.netease.nim.uikit.business.session.activity.WatchPicAndVideoMenuActivity"
+112-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:105:13-83
+113            android:configChanges="keyboardHidden"
+113-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:106:13-51
+114            android:theme="@style/DarkTheme" /> <!-- 照片选择 -->
+114-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:107:13-45
+115
+116        <activity
+116-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:109:9-111:15
+117            android:name="com.netease.nim.uikit.business.session.activity.MsgSelectActivity"
+117-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:109:19-78
+118            android:configChanges="keyboardHidden" />
+118-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:110:13-51
+119
+120        <provider
+120-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:112:9-120:20
+121            android:name="com.netease.nim.uikit.common.media.model.GenericFileProvider"
+121-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:113:13-67
+122            android:authorities="${applicationId}.generic.file.provider"
+122-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:114:13-73
+123            android:exported="false"
+123-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:115:13-37
+124            android:grantUriPermissions="true" >
+124-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:116:13-47
+125            <meta-data
+125-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:117:13-119:58
+126                android:name="android.support.FILE_PROVIDER_PATHS"
+126-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:118:17-67
+127                android:resource="@xml/provider_paths" />
+127-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:119:17-55
+128        </provider>
+129
+130        <activity
+130-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:122:9-126:53
+131            android:name="com.netease.nim.uikit.common.media.imagepicker.ui.ImageGridActivity"
+131-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:123:13-74
+132            android:configChanges="orientation|screenSize"
+132-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:124:13-59
+133            android:screenOrientation="portrait"
+133-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:125:13-49
+134            android:theme="@style/LightBaseTheme" />
+134-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:126:13-50
+135        <activity
+135-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:127:9-132:70
+136            android:name="com.netease.nim.uikit.common.media.imagepicker.ui.ImageCropActivity"
+136-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:128:13-74
+137            android:configChanges="orientation|screenSize"
+137-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:129:13-59
+138            android:hardwareAccelerated="false"
+138-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:130:13-48
+139            android:screenOrientation="portrait"
+139-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:131:13-49
+140            android:theme="@style/ImagePickerTheme.BlackStatusBar" />
+140-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:132:13-67
+141        <activity
+141-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:133:9-136:70
+142            android:name="com.netease.nim.uikit.common.media.imagepicker.ui.ImagePreviewActivity"
+142-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:134:13-77
+143            android:configChanges="orientation|screenSize"
+143-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:135:13-59
+144            android:theme="@style/ImagePickerTheme.BlackStatusBar" />
+144-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:136:13-67
+145        <activity
+145-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:137:9-140:70
+146            android:name="com.netease.nim.uikit.common.media.imagepicker.ui.ImagePreviewRetakeActivity"
+146-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:138:13-83
+147            android:configChanges="orientation|screenSize"
+147-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:139:13-59
+148            android:theme="@style/ImagePickerTheme.BlackStatusBar" />
+148-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:140:13-67
+149        <activity
+149-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:141:9-145:70
+150            android:name="com.netease.nim.uikit.common.media.imagepicker.ui.ImageTakeActivity"
+150-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:142:13-74
+151            android:configChanges="orientation|screenSize"
+151-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:143:13-59
+152            android:screenOrientation="portrait"
+152-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:144:13-49
+153            android:theme="@style/ImagePickerTheme.BlackStatusBar" />
+153-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:145:13-67
+154        <activity
+154-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:146:9-150:49
+155            android:name="com.netease.nim.uikit.common.media.imagepicker.video.GLVideoActivity"
+155-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:147:13-75
+156            android:configChanges="orientation|screenSize"
+156-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:148:13-59
+157            android:screenOrientation="portrait"
+157-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:149:13-49
+158            android:theme="@style/VideoTheme" />
+158-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:150:13-46
+159        <activity
+159-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:151:9-155:49
+160            android:name="com.netease.nim.uikit.common.media.imagepicker.video.GLVideoConfirmActivity"
+160-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:152:13-82
+161            android:configChanges="orientation|screenSize"
+161-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:153:13-59
+162            android:screenOrientation="portrait"
+162-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:154:13-49
+163            android:theme="@style/VideoTheme" />
+163-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:155:13-46
+164        <activity
+164-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:156:9-159:72
+165            android:name="com.netease.nim.uikit.common.media.imagepicker.camera.CaptureActivity"
+165-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:157:13-76
+166            android:screenOrientation="portrait"
+166-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:158:13-49
+167            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+167-->F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:159:13-69
+168    </application>
+169
+170</manifest>

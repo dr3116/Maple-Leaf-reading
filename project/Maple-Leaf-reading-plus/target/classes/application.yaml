@@ -1,0 +1,32 @@
+spring:
+#  数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/maple-leaf-reading?autoReconnect=true&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+##  mvc:
+##    static-path-pattern: /res/**  #加上后访问静态资源必须加/res/前缀
+#  resources:
+#    static-locations: [ classpath:/haha/ ]   # 自定义Spring boot加载前端静态资源路径
+
+
+
+
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml        #sql映射文件位
+  configuration:  # 指定mybatis全局配置文件中的相关配置项
+      map-underscore-to-camel-case: true
+
+
+
+##添加浏览器访问地址前缀
+server:
+  servlet:
+    context-path: /Maple-Leaf-Reading
+#  只需要再开始进入首页时，追加 localhost:8080/demo ，后续的thymleaf中的href和action等无需添加/demo 。
+
+
+
+

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.test4">
+    <!-- 申请权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 如果需要加载网络图片 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 要从本地文件夹或 DCIM 或图库中加载图片 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 如果要将 Glide 的缓存存储到SD 卡上 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="IMAGE_CAPTURE" /> <!-- 电话权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/maple_icon_circle"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/maple_icon_circle"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="Android:icon, android:theme">
+        <activity android:name=".EditUserInfo"></activity>
+        <activity android:name=".PosterInfor" />
+        <activity android:name=".bookReadPage.LoadBookActivity" />
+        <activity android:name=".bookReadPage.PDFturn" />
+        <activity android:name=".bookReadPage.PDFReadActivity" />
+        <activity android:name=".FileDownLoad" />
+        <activity android:name=".bookReadPage.BookReadActivity" />
+        <activity android:name=".MyPost" />
+        <activity android:name=".Login" />
+        <activity android:name=".AddPostBook" />
+        <activity android:name=".ClickFenLeiActivity" />
+        <activity android:name=".ClickFenLei2Activity" />
+        <activity android:name=".ClickFenLei3Activity" />
+        <activity android:name=".ClickFenLei4Activity" />
+        <activity android:name=".ClickFenLei5Activity" />
+        <activity android:name=".ClickFenLei6Activity" />
+        <activity android:name=".ClickFenLei7Activity" />
+        <activity android:name=".ClickFenLei8Activity" />
+        <activity android:name=".ClickFenLei9Activity" />
+        <activity android:name=".ClickFenLei10Activity" />
+        <activity android:name=".book.BookIntroduction" />
+        <activity android:name=".SignToday" />
+        <activity android:name=".MyCollection" />
+        <activity android:name=".AboutUs" />
+        <activity android:name=".search.Search" />
+        <activity android:name=".AddPost" />
+        <activity android:name=".Comment" />
+        <activity android:name=".FensActivity" />
+        <activity android:name=".PaihangActivity" />
+        <activity android:name=".RecentReadActivity" />
+        <activity android:name=".AddPingLunActivity" />
+        <activity android:name=".welcome2.Welcome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

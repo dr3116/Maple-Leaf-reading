@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.FansMapper">
+    <resultMap id="FansMap" type="com.example.entity.Fans">
+        <id column="user_id" property="userId"/>
+        <id column="people_concerned_id" property="peopleConcernedId"/>
+    </resultMap>
+    <!--获取所有粉丝信息 -->
+    <select id="findAllFans" resultMap="FansMap">
+        select *
+        from fans
+    </select>
+    <!--添加粉丝信息 -->
+    <insert id="insertFans" parameterType="com.example.entity.Fans" keyProperty="user_id,people_concerned_id">
+        insert into fans(user_id, people_concerned_id)
+        values (#{userId}, #{peopleConcernedId})
+    </insert>
+    <!--删除粉丝信息 -->
+    <delete id="deleteFans">
+        delete
+        from fans
+        where user_id = #{userId}
+          and people_concerned_id = #{peopleConcernedId}
+    </delete>
+</mapper>

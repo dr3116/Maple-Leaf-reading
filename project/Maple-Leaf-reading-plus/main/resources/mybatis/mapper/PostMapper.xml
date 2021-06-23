@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.PostMapper">
+    <resultMap id="PostMap" type="com.example.entity.Post">
+        <id column="post_id" property="postId"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="phone" property="phone"/>
+        <result column="book_name" property="bookName"/>
+        <result column="number_of_likes" property="numberOfLikes"/>
+        <result column="comments" property="comments"/>
+        <result column="user_id" property="userId"/>
+        <result column="post_time" property="postTime"/>
+    </resultMap>
+    <!--获取所有帖子信息 -->
+    <select id="findAllPosts" resultMap="PostMap">
+        select *
+        from post
+    </select>
+    <!--添加帖子-->
+    <insert id="insertPost" parameterType="com.example.entity.Post" keyProperty="post_id">
+        insert into post(post_id, title, content, photo, book_name, number_of_likes, comments, user_id, post_time)
+        values (#{postId}, #{title}, #{content}, #{phone}, #{bookName}, #{numberOfLikes}, #{comments}, #{userId},
+                #{postTime})
+    </insert>
+    <!--修改帖子 -->
+    <update id="updatePost">
+        update post
+        set post_id         = #{postId},
+            title           = #{title},
+            content         = #{content},
+            photo           = #{photo},
+            book_name       = #{bookName},
+            number_of_likes = #{numberOfLikes},
+            comments        = #{comments},
+            user_id         = #{userId},
+            post_time       = #{postTime}
+        where post_id = #{postId}
+    </update>
+    <!--删除帖子 -->
+    <delete id="deletePost">
+        delete
+        from post
+        where post_id = #{postId}
+    </delete>
+
+</mapper>

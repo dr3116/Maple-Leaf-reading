@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.FansMapper">
+    <resultMap id="FansMap" type="com.example.entity.Fans">
+        <id column="user_id" property="userId"/>
+        <id column="people_concerned_id" property="peopleConcernedId"/>
+    </resultMap>
+    <resultMap id="FansMap2" type="com.example.entity.Fans">
+        <id column="user_id" property="userIds"/>
+        <id column="people_concerned_id" property="peopleConcernedId"/>
+        <association property="userId">
+            <id column="user_id" property="userId"/>
+        </association>
+        <association property="userName">
+            <result column="user_name" property="userName"/>
+        </association>
+        <association property="userPassword">
+            <result column="user_password" property="userPassword"/>
+        </association>
+        <association property="userPhoto">
+            <result column="user_photo" property="userPhoto"/>
+        </association>
+        <association property="num">
+            <result column="sign_num" property="num"/>
+        </association>
+        <association property="userSex">
+            <result column="user_sex" property="userSex"/>
+        </association>
+        <association property="userStyleText">
+            <result column="user_style_text" property="userStyleText"/>
+        </association>
+    </resultMap>
+    <!--获取所有粉丝信息 -->
+    <select id="findAllFans" resultMap="FansMap">
+        select *
+        from fans
+    </select>
+
+    <!--添加粉丝信息 -->
+    <insert id="insertFans" parameterType="com.example.entity.Fans" keyProperty="user_id,people_concerned_id">
+        insert into fans(user_id, people_concerned_id)
+        values (#{userId}, #{peopleConcernedId})
+    </insert>
+    <!--删除粉丝信息 -->
+    <delete id="deleteFans">
+        delete
+        from fans
+        where user_id = #{userId}
+          and people_concerned_id = #{peopleConcernedId}
+    </delete>
+    <!--查找粉丝信息 -->
+    <select id="findFans" resultMap="FansMap">
+        select * from fans where user_id = #{userId} and people_concerned_id = #{peopleConcernedId}
+    </select>
+    <!--查找粉丝信息 -->
+    <select id="findFansByUserID" resultMap="FansMap">
+        select * from fans where user_id = #{userId}
+    </select>
+    <!--根据用户id查找粉丝信息 -->
+    <select id="findFansByUserIds" resultMap="FansMap2">
+        select * from fans,user where fans.people_concerned_id = user.user_id and fans.user_id = #{userIds}
+    </select>
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="10"/>
+
+        <ImageView
+            android:layout_width="3dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="10"
+            android:src="@drawable/line" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/home"
+            android:layout_weight="10"/>
+        <TextView
+            android:id="@+id/z_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="点评"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:textSize="20dp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_weight="10"
+            android:layout_gravity="center_vertical"
+            android:layout_height="30dp"
+            android:src="@drawable/share"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <EditText
+        android:id="@+id/et_pinglun"
+        android:layout_width="match_parent"
+        android:layout_height="199dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_text"
+        android:gravity="start"
+        android:hint="您的点评能帮助其他小伙伴了解内容哟"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="文明评论，理性发言."/>
+        <Button
+            android:id="@+id/bt_addPinglun"
+            android:layout_marginLeft="170dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textColor="@color/white"
+            android:text="发表评论"
+            android:background="@color/red"/>
+    </LinearLayout>
+</LinearLayout>

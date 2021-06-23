@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.ClassificationMapper">
+    <resultMap id="ClassificationMap" type="com.example.entity.Classification">
+        <id column="classification" property="classification"/>
+        <id column="book_name" property="bookName"/>
+        <result column="category" property="category"/>
+    </resultMap>
+    <!--获取所有分类信息 -->
+    <select id="findAllClassifications" resultMap="ClassificationMap">
+        select *
+        from classifications
+    </select>
+    <!--添加分类 -->
+    <insert id="insertClassification" parameterType="com.example.entity.Classification" keyProperty="classification">
+        insert into classifications(classification, book_name, category)
+        values (#{classification}, #{bookName}, #{category})
+    </insert>
+    <!--根据分类信息删除指定图书 -->
+    <delete id="deleteClassification">
+        delete
+        from classifications
+        where classification = #{classification}
+          and book_name = #{bookName}
+    </delete>
+    <!--查找分类信息 -->
+    <select id="findClassification" resultMap="ClassificationMap">
+        select *
+        from classifications
+        where classification = #{classification}
+        and book_name = #{bookName}
+    </select>
+    <!--获取分类信息和数量 -->
+    <select id="getClassificationNumber" resultType="String">
+        select count(*) from classifications
+    </select>
+
+
+
+
+    <select id="getClassificationNumberAndName" resultType="com.example.entity.myself_style.StrStrBean">
+        select classification str1,count(*) str2
+        from classifications
+        GROUP BY classification
+    </select>
+</mapper>

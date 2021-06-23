@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.BookReviewMapper">
+    <resultMap id="BookReviewMap" type="com.example.entity.BookReview">
+        <id column="book_review_id" property="bookReviewId"/>
+        <result column="book_name" property="bookName"/>
+        <result column="user_id" property="userId"/>
+        <result column="content" property="content"/>
+        <result column="score" property="score"/>
+        <result column="book_review_time" property="bookReviewTime"/>
+    </resultMap>
+    <!--获取所有书评信息 -->
+    <select id="findAllBookReviews" resultMap="BookReviewMap">
+        select *
+        from book_review
+    </select>
+    <!--添加书评 -->
+    <insert id="insertBookReview" parameterType="com.example.entity.BookReview" keyProperty="book_review_id">
+        insert into book_review(book_review_id, book_name, user_id, content, score, book_review_time)
+        values (#{bookReviewId}, #{bookName}, #{userId}, #{content}, #{score}, #{bookReviewTime})
+    </insert>
+    <!--修改书评信息 -->
+    <update id="updateBookReview">
+        update book_review
+        set book_review_id   =#{bookReviewId},
+            book_name        = #{bookName},
+            user_id          = #{userId},
+            content          = #{content},
+            score            = #{score},
+            book_review_time = #{bookReviewTime}
+        where book_review_id = #{bookReviewId}
+    </update>
+    <!--根据书评编号删除指定书评-->
+    <delete id="deleteBookReviewById">
+        delete
+        from book
+        where book_review_id = #{bookReviewId}
+    </delete>
+
+
+</mapper>

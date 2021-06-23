@@ -1,0 +1,327 @@
+-- Merging decision tree log ---
+manifest
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:2:1-162:12
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:2:1-162:12
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:2:1-162:12
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:2:1-162:12
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:2:1-162:12
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:2:1-162:12
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:2:1-162:12
+	package
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:3:5-36
+		INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+		INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+	android:versionName
+		INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:2:1-162:12
+		INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+	android:versionCode
+		INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:2:1-162:12
+		INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+	xmlns:android
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:2:11-69
+application
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:5:5-160:19
+activity#com.netease.nim.uikit.business.session.activity.WatchMultiRetweetPictureActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:6:9-105
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:6:19-93
+meta-data#com.netease.nim.uikit.support.glide.NIMGlideModule
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:8:9-10:43
+	android:value
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:10:13-40
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:9:13-78
+activity#com.netease.nim.uikit.business.session.activity.P2PMessageActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:15:9-20:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:18:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:20:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:17:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:19:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:16:13-73
+activity#com.netease.nim.uikit.business.session.activity.TeamMessageActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:21:9-26:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:24:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:26:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:23:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:25:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:22:13-74
+activity#com.netease.nim.uikit.business.team.activity.NormalTeamInfoActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:27:9-32:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:30:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:32:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:29:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:31:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:28:13-74
+activity#com.netease.nim.uikit.business.team.activity.AdvancedTeamInfoActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:33:9-38:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:36:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:38:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:35:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:37:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:34:13-76
+activity#com.netease.nim.uikit.business.team.activity.AdvancedTeamMemberActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:39:9-44:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:42:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:44:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:41:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:43:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:40:13-78
+activity#com.netease.nim.uikit.business.team.activity.AdvancedTeamAnnounceActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:45:9-50:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:48:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:50:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:47:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:49:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:46:13-80
+activity#com.netease.nim.uikit.business.team.activity.AdvancedTeamMemberInfoActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:51:9-56:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:54:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:56:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:53:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:55:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:52:13-82
+activity#com.netease.nim.uikit.business.team.activity.AdvancedTeamNicknameActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:57:9-62:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:60:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:62:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:59:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:61:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:58:13-80
+activity#com.netease.nim.uikit.business.team.activity.AdvancedTeamCreateAnnounceActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:63:9-68:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:66:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:68:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:65:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:67:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:64:13-86
+activity#com.netease.nim.uikit.business.team.activity.TeamPropertySettingActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:69:9-74:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:72:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:74:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:71:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:73:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:70:13-79
+activity#com.netease.nim.uikit.business.contact.selector.activity.ContactSelectActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:75:9-81:67
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:79:13-49
+	android:label
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:78:13-53
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:81:13-64
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:77:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:80:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:76:13-85
+activity#com.netease.nim.uikit.business.ait.selector.AitContactSelectorActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:82:9-85:59
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:84:13-49
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:85:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:83:13-77
+activity#com.netease.nim.uikit.business.session.activity.CaptureVideoActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:86:9-91:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:89:13-49
+	android:windowSoftInputMode
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:91:13-67
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:88:13-63
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:90:13-56
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:87:13-75
+activity#com.netease.nim.uikit.business.session.activity.WatchVideoActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:92:9-96:48
+	android:label
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:95:13-47
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:94:13-74
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:96:13-45
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:93:13-73
+activity#com.netease.nim.uikit.business.session.activity.WatchMessagePictureActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:99:9-102:48
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:101:13-51
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:102:13-45
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:100:13-82
+activity#com.netease.nim.uikit.business.session.activity.WatchPicAndVideoMenuActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:104:9-107:48
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:106:13-51
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:107:13-45
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:105:13-83
+activity#com.netease.nim.uikit.business.session.activity.MsgSelectActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:109:9-111:15
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:110:13-51
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:109:19-78
+provider#com.netease.nim.uikit.common.media.model.GenericFileProvider
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:112:9-120:20
+	android:grantUriPermissions
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:116:13-47
+	android:authorities
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:114:13-73
+	android:exported
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:115:13-37
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:113:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:117:13-119:58
+	android:resource
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:119:17-55
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:118:17-67
+activity#com.netease.nim.uikit.common.media.imagepicker.ui.ImageGridActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:122:9-126:53
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:125:13-49
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:124:13-59
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:126:13-50
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:123:13-74
+activity#com.netease.nim.uikit.common.media.imagepicker.ui.ImageCropActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:127:9-132:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:131:13-49
+	android:hardwareAccelerated
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:130:13-48
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:129:13-59
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:132:13-67
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:128:13-74
+activity#com.netease.nim.uikit.common.media.imagepicker.ui.ImagePreviewActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:133:9-136:70
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:135:13-59
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:136:13-67
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:134:13-77
+activity#com.netease.nim.uikit.common.media.imagepicker.ui.ImagePreviewRetakeActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:137:9-140:70
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:139:13-59
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:140:13-67
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:138:13-83
+activity#com.netease.nim.uikit.common.media.imagepicker.ui.ImageTakeActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:141:9-145:70
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:144:13-49
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:143:13-59
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:145:13-67
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:142:13-74
+activity#com.netease.nim.uikit.common.media.imagepicker.video.GLVideoActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:146:9-150:49
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:149:13-49
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:148:13-59
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:150:13-46
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:147:13-75
+activity#com.netease.nim.uikit.common.media.imagepicker.video.GLVideoConfirmActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:151:9-155:49
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:154:13-49
+	android:configChanges
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:153:13-59
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:155:13-46
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:152:13-82
+activity#com.netease.nim.uikit.common.media.imagepicker.camera.CaptureActivity
+ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:156:9-159:72
+	android:screenOrientation
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:158:13-49
+	android:theme
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:159:13-69
+	android:name
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml:157:13-76
+uses-sdk
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+		INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+		ADDED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml
+		INJECTED from F:\WorkSpace\IDEA\PP\Maple-Leaf-reading-Android\uikit\AndroidManifest.xml

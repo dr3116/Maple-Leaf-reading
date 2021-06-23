@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/mycolor"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/mycolor"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:background="@color/mycolor"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/ruyacolor"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/poster_infor_img"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="20"
+                        android:src="@drawable/dog" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="80"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/poster_info_name"
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="昵称"
+                                android:layout_weight="10"
+                                android:textSize="25dp"
+                                android:textStyle="bold" />
+                            <ImageView
+                                android:id="@+id/poster_info_sex"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="5"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/man"/>
+
+                            <FrameLayout
+                                android:layout_width="60dp"
+                                android:layout_height="40dp"
+                                android:layout_weight="60"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="20dp">
+
+                                <ImageView
+                                    android:id="@+id/poster_info_add_attantion"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/circles" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="关注"
+                                    android:textColor="@color/gold"
+                                    android:textSize="10sp" />
+                            </FrameLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="枫悦ID:"/>
+                            <TextView
+                                android:id="@+id/poster_info_id"
+                                android:layout_width="wrap_content"
+                                android:text="2018"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="160dp"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/Honeydew"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="30dp"
+                            android:text="签名："/>
+                        <TextView
+                            android:id="@+id/poster_info_style_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:text="让生活爱上阅读"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="最近在读"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/rounded_text2"
+                    android:layout_height="120dp">
+                    <HorizontalScrollView
+                        android:scrollbars="none"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/rounded_text2"
+                        android:layout_height="120dp">
+                        <LinearLayout
+                            android:id="@+id/poster_info_recentRead"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:background="@drawable/rounded_text2"
+                            android:layout_height="match_parent">
+<!--                            <LinearLayout-->
+<!--                                android:id="@+id/r1"-->
+<!--                                android:orientation="vertical"-->
+<!--                                android:layout_width="90dp"-->
+<!--                                android:layout_height="match_parent">-->
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/s_bookimg1"-->
+<!--                                    android:layout_width="90dp"-->
+<!--                                    android:layout_height="60dp"-->
+<!--                                    android:src="@drawable/androidstudio"/>-->
+<!--                                <TextView-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:id="@+id/s_booktext1"-->
+<!--                                    android:layout_width="90dp"-->
+<!--                                    android:layout_height="30dp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:text="android studio用户指南"-->
+<!--                                    android:textSize="10sp" />-->
+<!--                            </LinearLayout>-->
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/r2"-->
+<!--                                android:layout_toRightOf="@+id/r1"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:layout_width="90dp"-->
+<!--                                android:layout_height="match_parent">-->
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/s_bookimg2"-->
+<!--                                    android:layout_width="90dp"-->
+<!--                                    android:layout_height="60dp"-->
+<!--                                    android:src="@drawable/ai"-->
+<!--                                    />-->
+<!--                                <TextView-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:id="@+id/s_booktext2"-->
+<!--                                    android:layout_width="90dp"-->
+<!--                                    android:layout_height="30dp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:text="技术面试需要掌握的基础知识整理"-->
+
+<!--                                    android:textSize="10sp"-->
+<!--                                    android:layout_below="@+id/s_bookimg2"/>-->
+<!--                            </RelativeLayout>-->
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/r3"-->
+<!--                                android:layout_toRightOf="@+id/r2"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:layout_width="90dp"-->
+<!--                                android:layout_height="match_parent">-->
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/s_bookimg3"-->
+<!--                                    android:layout_width="90dp"-->
+<!--                                    android:layout_height="60dp"-->
+<!--                                    android:src="@drawable/pythonpacong"-->
+<!--                                    />-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/s_booktext3"-->
+<!--                                    android:layout_width="90dp"-->
+<!--                                    android:layout_height="30dp"-->
+<!--                                    android:layout_below="@+id/s_bookimg3"-->
+<!--                                    android:layout_marginTop="-2dp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:text="Python网络爬虫开发实战"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textSize="10sp" />-->
+<!--                            </RelativeLayout>-->
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/r4"-->
+<!--                                android:layout_toRightOf="@+id/r3"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:layout_width="90dp"-->
+<!--                                android:layout_height="match_parent">-->
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/s_bookimg4"-->
+<!--                                    android:layout_width="90dp"-->
+<!--                                    android:layout_height="60dp"-->
+<!--                                    android:src="@drawable/yun"/>-->
+<!--                                <TextView-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:id="@+id/s_booktext4"-->
+<!--                                    android:layout_width="90dp"-->
+<!--                                    android:layout_height="30dp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:text="Python - 100天从新手到大师"-->
+
+<!--                                    android:textSize="10sp"-->
+<!--                                    android:layout_below="@+id/s_bookimg4"/>-->
+<!--                            </RelativeLayout>-->
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/r5"-->
+<!--                                android:layout_toRightOf="@+id/r4"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:layout_width="90dp"-->
+<!--                                android:layout_height="match_parent">-->
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/s_bookimg5"-->
+<!--                                    android:layout_width="90dp"-->
+<!--                                    android:layout_height="60dp"-->
+<!--                                    android:src="@drawable/bookimg2"/>-->
+<!--                                <TextView-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:id="@+id/s_booktext5"-->
+<!--                                    android:layout_width="90dp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:layout_height="30dp"-->
+<!--                                    android:text="奋斗"-->
+<!--                                    android:textSize="10sp"-->
+<!--                                    android:layout_below="@+id/s_bookimg5"/>-->
+<!--                            </RelativeLayout>-->
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+                    <RelativeLayout
+                        android:id="@+id/head_ll"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="20sp"
+                            android:background="@color/white"
+                            android:text="动态"/>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <!--这个listView布局，与发现中的帖子布局 post_item.xml 相同，可以共用-->
+                        <ListView
+                            android:background="@color/white"
+                            android:id="@+id/poster_info_post_list"
+                            android:fadingEdge="none"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/poster_info_send_messinage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_box3"
+                android:layout_marginRight="20dp"
+                android:layout_above="@id/poster_info_bottom"
+                android:layout_marginLeft="20dp"
+                android:text="私信"/>
+            <LinearLayout
+                android:id="@+id/poster_info_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

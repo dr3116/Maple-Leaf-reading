@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.StudentMapper">
+    <resultMap id="StudentMap" type="com.example.entity.Student">
+        <id column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="user_photo" property="userPhoto"/>
+        <result column="sign_num" property="num"/>
+        <result column="user_sex" property="userSex"/>
+        <result column="user_style_text" property="userStyleText"/>
+    </resultMap>
+    <!--获取所有用户信息 -->
+    <select id="findAllStudents" resultMap="StudentMap">
+        select *
+        from user
+    </select>
+
+    <select id="findAllStudentsBySignNumDesc" resultMap="StudentMap">
+        select * from user order by sign_num desc
+    </select>
+
+
+    <!--添加用户 -->
+    <insert id="insertStudent" parameterType="com.example.entity.Student" keyProperty="user_id">
+        insert into user(user_name, user_password, user_photo, sign_num,user_sex,user_style_text)
+        values (#{userName}, #{userPassword}, #{userPhoto}, #{num},#{userSex},#{userStyleText})
+    </insert>
+    <!--修改用户数据信息 -->
+    <update id="updateStudent">
+        update user
+        set user_id       = #{userId},
+            user_name     = #{userName},
+            user_photo    = #{userPhoto},
+            sign_num      = #{num},
+            user_sex      = #{userSex},
+            user_style_text = #{userStyleText}
+        where user_id = #{userId}
+    </update>
+    <!--根据用户编号删除指定用户 -->
+    <delete id="deleteStudent">
+        delete from user where user_id = #{userId}
+    </delete>
+    <!--根据用户名查询用户信息 -->
+    <select id="findStudentByName" resultMap="StudentMap">
+        select * from user where user_name like "%"#{userName}"%"
+    </select>
+    <!--获取用户总数 -->
+    <select id="findStudentNumber" resultType="String">
+        select count(*)
+        from user
+    </select>
+
+    <!--根据用户名获取密码 -->
+    <select id="findStudentPasswordByAccount" resultType="String">
+        select user_password from user where user_name = #{userName}
+    </select>
+    <!--根据用户名获取id -->
+    <select id="findStudentIdByAccount" resultType="String">
+        select user_id from user where user_name = #{userName}
+    </select>
+    <!-- 根据账号精确获取用户信息-->
+    <select id="findStudentInfoByAccount" resultMap="StudentMap">
+        select * from user where user_name = #{userName}
+    </select>
+    <!--根据用户id精确获取用户信息 -->
+    <select id="findStudentInfoById" resultMap="StudentMap">
+        select * from user where user_id = #{userId}
+    </select>
+
+</mapper>

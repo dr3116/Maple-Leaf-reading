@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    viewBinding{
+        enabled=true;
+    }
+
+    tasks.withType(JavaCompile) { options.encoding = "UTF-8" }
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+
+    defaultConfig {
+        applicationId "com.example.test4"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    //以下史恺伦的框架
+    implementation 'com.bigkoo:convenientbanner:2.0.5'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    implementation project(path: ':yunxinSKL')
+    implementation project(path: ':uikit')
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    //以上史恺伦框架
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    //导入智能刷新框架
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.1'
+    //引入圆形图片框架
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    //导入Search_Layout框架库
+    compile 'com.carson_ho:SearchLayout:1.0.1'
+    //引入Glide依赖
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    //引入Gson依赖
+    implementation 'com.google.code.gson:gson:2.8.5'
+    //引入OKHTTP依赖
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    //pdfView框架
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+    //导入GIF图框架
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+    //<!-- 侧边栏  DrawerLayout所需依赖-->
+    implementation 'com.android.support:appcompat-v7:24.2.1'
+    //<!-- 侧边栏  NavigationView所需依赖-->
+    implementation 'com.android.support:design:29.1.1'
+    //pdf框架
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+}

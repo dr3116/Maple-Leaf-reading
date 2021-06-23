@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.BookShelfMapper">
+    <resultMap id="BookShelfMap" type="com.example.entity.BookShelf">
+        <id column="user_id" property="userId"/>
+        <id column="book_name" property="bookName"/>
+    </resultMap>
+    <!--获取所有书架信息 -->
+    <select id="findAllBookShelf" resultMap="BookShelfMap">
+        select *
+        from bookshelf
+    </select>
+    <!--添加书架信息 -->
+    <insert id="insertBookShelf" parameterType="com.example.entity.BookShelf" keyProperty="user_id,book_name">
+        insert into bookshelf(user_id, book_name)
+        values (#{userId}, #{bookName})
+    </insert>
+    <!--删除书架信息 -->
+    <delete id="deleteBookShelf">
+        delete
+        from bookshelf
+        where user_id = #{userId}
+          and book_name = #{bookName}
+    </delete>
+    <!-- 根据用户id和书名寻找书架信息-->
+    <select id="findBookShelfByIdAndName" resultMap="BookShelfMap">
+        select * from bookshelf where user_id = #{userId} and book_name = #{bookName}
+    </select>
+    <!--根据id获取书架信息 -->
+    <select id="findBookShelfById" resultMap="BookShelfMap">
+        select * from bookshelf where user_id =#{userId}
+    </select>
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.RecentReadingMapper">
+    <resultMap id="RecentReadingMap" type="com.example.entity.RecentReading">
+        <id column="recent_reading_id" property="recentReadingId"/>
+        <result column="user_id" property="userId"/>
+        <result column="book_name" property="bookName"/>
+        <result column="last_reading_time" property="lastReadingTime"/>
+    </resultMap>
+    <!-- 获取所有最近阅读信息 -->
+    <select id="findAllRecentReading" resultMap="RecentReadingMap">
+        select *
+        from recent_reading
+    </select>
+</mapper>

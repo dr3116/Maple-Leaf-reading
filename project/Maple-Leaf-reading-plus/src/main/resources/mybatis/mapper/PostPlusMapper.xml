@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace为唯一标识，映射器接口的全限定名 -->
+<mapper namespace="com.example.mapper.PostPlusMapper">
+    <resultMap id="PostPlusMap" type="com.example.entity.PostPlus">
+        <id column="post_id" property="postId"/>
+        <result column="content" property="content"/>
+        <result column="photo" property="photo"/>
+        <result column="book_name" property="bookName"/>
+        <result column="number_of_likes" property="numberOfLikes"/>
+        <result column="comments" property="comments"/>
+        <result column="user_id" property="userId"/>
+        <result column="post_time" property="postTime"/>
+        <association property="bookImg">
+            <result column="book_photo" property="bookImg"/>
+        </association>
+        <association property="bookAuthor">
+            <result column="author" property="bookAuthor"/>
+        </association>
+        <association property="userName">
+            <result column="user_name" property="userName"/>
+        </association>
+    </resultMap>
+    <select id="findAllPostPlus" resultMap="PostPlusMap">
+        select p.post_id,p.content,p.photo,p.book_name,b.book_photo,b.author,p.number_of_likes,p.comments,p.user_id,u.user_name,p.post_time
+        from post p,book b,user u
+        where p.user_id = u.user_id and p.book_name = b.book_name
+    </select>
+
+    <select id="findAllPostPlusByUserId" resultMap="PostPlusMap">
+        select p.post_id,p.content,p.photo,p.book_name,b.book_photo,b.author,p.number_of_likes,p.comments,p.user_id,u.user_name,p.post_time
+        from post p,book b,user u
+        where p.user_id =#{id} and  u.user_id=#{id} and p.book_name = b.book_name
+
+    </select>
+</mapper>
